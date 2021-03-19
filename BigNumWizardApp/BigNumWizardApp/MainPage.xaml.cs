@@ -31,7 +31,7 @@ namespace BigNumWizardApp
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = ExampleClass.someValue;
+            myButton.Content = ExampleClass.exampleString;
         }
     }
 }

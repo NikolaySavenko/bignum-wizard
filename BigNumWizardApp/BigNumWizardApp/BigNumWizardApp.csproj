@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BigNumWizardShared\BigNumWizardShared.csproj">
-      <Project>{d61661a2-7bc0-4f51-aeff-4818a75b08bc}</Project>
+      <Project>{62151673-77d2-4057-a6c2-8c16a5e09248}</Project>
       <Name>BigNumWizardShared</Name>
     </ProjectReference>
   </ItemGroup>
