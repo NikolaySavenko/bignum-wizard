@@ -24,22 +24,33 @@ namespace BigNumWizardApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private string Value1 { get; set; } = "0";
+        private string Value2 { get; set; } = "0";
         public MainPage()
         {
             this.InitializeComponent();
-            numberBox1.ValueChanged += NumberBox1_ValueChanged;
-            numberBox2.ValueChanged += NumberBox2_ValueChanged;
+			numberBox1.TextChanged += NumberBox1_TextChanged;
+			numberBox2.TextChanged += NumberBox2_TextChanged;
         }
 
-		private void NumberBox1_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+		private void NumberBox2_TextChanged(object sender, TextChangedEventArgs e)
 		{
-            textBlock.Text = "AMAZINHG1";
-		}
+            TextBox box = sender as TextBox;
+            Value2 = box != null ? box.Text : Value2;
+            Summarize();
+        }
 
-        private void NumberBox2_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
-        {
-            textBlock.Text = "AMAZINHG2";
+		private void NumberBox1_TextChanged(object sender, TextChangedEventArgs e)
+		{
+            TextBox box = sender as TextBox;
+            Value1 = box != null ? box.Text : Value1;
+            Summarize();
+        }
 
+        private void Summarize() {
+            var num1 = new BigNum(Value1);
+            var num2 = new BigNum(Value2);
+            textBlock.Text = (string)(num1 + num2);
         }
     }
 }

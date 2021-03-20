@@ -10,15 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <muxc:NumberBox x:Name="numberBox1" Header="Enter an number0:" Value="0" PlaceholderText="9999" AcceptsExpression="True" 
-                        SpinButtonPlacementMode="Compact"
-                        SmallChange="10"
-                        LargeChange="100"/>
-        <muxc:NumberBox x:Name="numberBox2" Header="Enter an number1:" Value="0" PlaceholderText="9999" AcceptsExpression="True"
-                        SpinButtonPlacementMode="Compact"
-                        SmallChange="10"
-                        LargeChange="100"/>
-        
+        <TextBox  x:Name="numberBox1" Header="Enter your num1:" PlaceholderText="0" />
+        <TextBox  x:Name="numberBox2" Header="Enter your num2:" PlaceholderText="0" />
         <TextBlock x:Name="textBlock" Text="0" FontFamily="Arial"
         FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
         CharacterSpacing="200" Foreground="CornflowerBlue" />
