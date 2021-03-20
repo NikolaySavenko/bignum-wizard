@@ -14,7 +14,7 @@
                              PaneTitle="Меню"
                              IsTabStop="False"
                              ExpandedModeThresholdWidth="0">
-        
+
 
         <muxc:NavigationView.MenuItems>
             <muxc:NavigationViewItem Content="Целые числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем">
