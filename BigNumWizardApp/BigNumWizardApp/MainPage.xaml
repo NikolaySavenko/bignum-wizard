@@ -4,11 +4,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BigNumWizardApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <muxc:NumberBox x:Name="numberBox1" Header="Enter an number0:" Value="0" PlaceholderText="9999" AcceptsExpression="True" 
+                        SpinButtonPlacementMode="Compact"
+                        SmallChange="10"
+                        LargeChange="100"/>
+        <muxc:NumberBox x:Name="numberBox2" Header="Enter an number1:" Value="0" PlaceholderText="9999" AcceptsExpression="True"
+                        SpinButtonPlacementMode="Compact"
+                        SmallChange="10"
+                        LargeChange="100"/>
+        
+        <TextBlock x:Name="textBlock" Text="0" FontFamily="Arial"
+        FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+        CharacterSpacing="200" Foreground="CornflowerBlue" />
     </StackPanel>
 </Page>

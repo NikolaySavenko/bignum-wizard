@@ -27,11 +27,19 @@ namespace BigNumWizardApp
         public MainPage()
         {
             this.InitializeComponent();
+            numberBox1.ValueChanged += NumberBox1_ValueChanged;
+            numberBox2.ValueChanged += NumberBox2_ValueChanged;
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+		private void NumberBox1_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+		{
+            textBlock.Text = "AMAZINHG1";
+		}
+
+        private void NumberBox2_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
         {
-            myButton.Content = ExampleClass.exampleString;
+            textBlock.Text = "AMAZINHG2";
+
         }
     }
 }
