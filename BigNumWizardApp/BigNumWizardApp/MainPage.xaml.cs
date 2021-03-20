@@ -32,28 +32,5 @@ namespace BigNumWizardApp
             this.InitializeComponent();
             
         }
-
-        private void nvMain_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
-        {
-            NavigationViewItem item = args.SelectedItem as NavigationViewItem;
-
-            if (item.Tag != null)
-            {
-                switch (item.Tag.ToString())
-                {
-                    case "SamplePage1":
-                        ContentFrame.Navigate(typeof(ADD_NN_NPage));
-                        break;
-                    case "SamplePage2":
-                        ContentFrame.Navigate(typeof(SUB_NN_N));
-                        break;
-
-                }
-            }
-            
-        }
-
-
-        
     }
 }
