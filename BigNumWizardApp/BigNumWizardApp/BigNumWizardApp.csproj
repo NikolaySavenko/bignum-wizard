@@ -139,6 +139,9 @@
     <PackageReference Include="Microsoft.ProjectReunion">
       <Version>0.5.0-prerelease</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Win32.UI.XamlApplication">
+      <Version>6.1.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BigNumWizardShared\BigNumWizardShared.csproj">
