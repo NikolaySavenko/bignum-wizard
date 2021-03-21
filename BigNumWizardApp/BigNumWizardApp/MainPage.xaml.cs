@@ -13,6 +13,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using BigNumWizardShared;
+using Microsoft.UI.Xaml.Media.Animation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -24,33 +25,36 @@ namespace BigNumWizardApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private string Value1 { get; set; } = "0";
-        private string Value2 { get; set; } = "0";
+
+
         public MainPage()
         {
             this.InitializeComponent();
-			numberBox1.TextChanged += NumberBox1_TextChanged;
-			numberBox2.TextChanged += NumberBox2_TextChanged;
+            
         }
 
-		private void NumberBox2_TextChanged(object sender, TextChangedEventArgs e)
-		{
-            TextBox box = sender as TextBox;
-            Value2 = box != null ? box.Text : Value2;
-            Summarize();
+        private void nvMain_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            NavigationViewItem item = args.SelectedItem as NavigationViewItem;
+
+            if (item.Tag != null)
+            {
+                switch (item.Tag.ToString())
+                {
+                    case "SamplePage1":
+                        ContentFrame.Navigate(typeof(ADD_NN_NPage));
+                        break;
+                    case "SamplePage2":
+                        ContentFrame.Navigate(typeof(SUB_NN_N));
+                        break;
+
+                }
+            }
+            
         }
 
-		private void NumberBox1_TextChanged(object sender, TextChangedEventArgs e)
-		{
-            TextBox box = sender as TextBox;
-            Value1 = box != null ? box.Text : Value1;
-            Summarize();
-        }
 
-        private void Summarize() {
-            var num1 = new BigNum(Value1);
-            var num2 = new BigNum(Value2);
-            textBlock.Text = (string)(num1 + num2);
-        }
+        
+
     }
 }
