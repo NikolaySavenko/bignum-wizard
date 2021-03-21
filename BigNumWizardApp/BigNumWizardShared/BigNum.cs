@@ -31,6 +31,19 @@ namespace BigNumWizardShared
 			return newNum;
 		}
 
+		public static BigNum operator -(BigNum a, BigNum b)
+		{
+			BigNum newNum = new BigNum();
+			while (a.Lenght < b.Lenght) a.Add(0);
+			while (b.Lenght < a.Lenght) b.Add(0);
+			for (var i = a.Lenght - 1; i >= 0; i--)
+			{
+				newNum.recursiveAdd(a[i], i);
+				newNum.recursivePick(b[i], i);
+			}
+			return newNum;
+		}
+
 		public byte this[int key] {
 			get {
 				if (key >= number.Count) return 0;
@@ -57,6 +70,21 @@ namespace BigNumWizardShared
 				recursiveAdd((byte)(number[index] % 10), index + 1);
 				number[index] = nextAdd;
 			}
+		}
+
+		// TODO move this shit (fukin again shit) to this[int key] set
+		private void recursivePick(byte pick, int index)
+		{
+			while (number.Count < index + 1)
+			{
+				number.Add(0);
+			}
+			if (number[index] < pick) {
+				recursivePick(1, index + 1);
+				pick -= 10;
+			}
+			number[index] -= pick;
+			if (index > 0 && number[index] == 0) number.RemoveAt(index);
 		}
 
 		public static explicit operator int(BigNum bNum)
