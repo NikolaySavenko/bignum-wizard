@@ -5,8 +5,9 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-	public class BigNum : IEnumerable<byte>, IComparable
+	public class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
 	{
+		public bool Positive { get; private set; }
 		private List<byte> number;
 
 		public BigNum() : this("0") { }
@@ -16,6 +17,7 @@ namespace BigNumWizardShared
 			foreach (var element in longNumber) {
 				number.Add((byte)Char.GetNumericValue(element));
 			}
+			Positive = true;
 		}
 
 		public void Add(byte smallNum) => number.Insert(0, smallNum);
@@ -103,30 +105,55 @@ namespace BigNumWizardShared
 			return sb.ToString();
 		}
 
-		public static bool operator ==(BigNum a, BigNum b)
-		{
-			return a.number.Equals(b);
-		}
+		public static bool operator >(BigNum a, BigNum b) => a.CompareTo(b) > 0;
 
-		public static bool operator !=(BigNum a, BigNum b)
-		{
-			return !a.number.Equals(b);
-		}
+		public static bool operator >=(BigNum a, BigNum b) => a.CompareTo(b) >= 0;
 
+		public static bool operator <(BigNum a, BigNum b) => a.CompareTo(b) < 0;
+
+		public static bool operator <=(BigNum a, BigNum b) => a.CompareTo(b) <= 0;
+
+		public static bool operator ==(BigNum a, BigNum b) => a.Equals(b);
+
+		public static bool operator !=(BigNum a, BigNum b) => !a.Equals(b);
+		// length... Nikolay... fukin idiot...
 		public int Lenght { get => number.Count; }
 
 		// IEnumerable
 
-		public IEnumerator<byte> GetEnumerator() => GetEnumerator();
+		public IEnumerator<byte> GetEnumerator() => number.GetEnumerator();
 
-		IEnumerator IEnumerable.GetEnumerator() => number.GetEnumerator();
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 		// IComparable
 
 		// TODO make this shit alike normal
 		public int CompareTo(object obj)
 		{
-			return Lenght.CompareTo(obj);
+			if (obj == null) return 1;
+
+			var target = obj as BigNum;
+			var thisEnumerator = GetEnumerator();
+			var targetEnumerator = target.GetEnumerator();
+			while (thisEnumerator.Current == targetEnumerator.Current) {
+				thisEnumerator.MoveNext();
+				targetEnumerator.MoveNext();
+			}
+			var compared = thisEnumerator.Current.CompareTo(targetEnumerator.Current);
+			return compared;
+		}
+
+		// IEquatable
+
+		public bool Equals(BigNum other)
+		{
+			// O - Optimization!
+			if (Lenght != other.Lenght) return false;
+
+			for (var i = 0; i < Lenght; i++) {
+				if (number[i] != other[i]) return false;
+			}
+			return true;
 		}
 	}
 }
