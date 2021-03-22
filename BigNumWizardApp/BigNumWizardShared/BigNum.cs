@@ -187,9 +187,15 @@ namespace BigNumWizardShared
 		// TODO make this shit alike normal
 		public int CompareTo(object obj)
 		{
-			if (obj == null) return 1;
+			if (obj == null) { 
+				return Positive ? 1 : -1;
+			}
 
 			var target = obj as BigNum;
+
+			if (Positive && !target.Positive) return 1;
+			else if (!Positive && target.Positive) return -1;
+
 			var thisEnumerator = GetEnumerator();
 			var targetEnumerator = target.GetEnumerator();
 			while (thisEnumerator.Current == targetEnumerator.Current) {
@@ -197,7 +203,7 @@ namespace BigNumWizardShared
 				targetEnumerator.MoveNext();
 			}
 			var compared = thisEnumerator.Current.CompareTo(targetEnumerator.Current);
-			return compared;
+			return Positive ? compared : compared * -1;
 		}
 
 		// IEquatable
