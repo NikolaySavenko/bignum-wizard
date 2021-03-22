@@ -25,16 +25,13 @@ namespace BigNumWizardShared
 		public BigNum() : this("0") { }
 
 		public BigNum(string longNumber) {
+			Positive = true;
 			if (longNumber[0] == '-')
 			{
 				Positive = false;
 				longNumber = longNumber.Remove(0, 1);
 			}
-			else if (longNumber[0] == '+') 
-			{
-				Positive = true;
-				longNumber = longNumber.Remove(0, 1);
-			}
+			else if (longNumber[0] == '+') longNumber = longNumber.Remove(0, 1);
 			number = new List<byte>();
 			foreach (var element in longNumber) {
 				number.Add((byte)Char.GetNumericValue(element));
@@ -48,7 +45,26 @@ namespace BigNumWizardShared
 
 		public void Add(byte smallNum) => number.Insert(0, smallNum);
 
+		// only when abs A > abs B
 		public static BigNum operator +(BigNum a, BigNum b) {
+			// TODO rewrite this shit to normal XOR and other stuff
+			if (a.Positive && !b.Positive)
+			{
+				return a.Absolute - b.Absolute;
+			}
+			else if (!a.Positive && b.Positive)
+			{
+				BigNum val = a.Absolute - b.Absolute;
+				val.Positive = false;
+				return val;
+			}
+			else if (!a.Positive && !b.Positive)
+			{
+				BigNum val = a.Absolute + b.Absolute;
+				val.Positive = false;
+				return val;
+			}
+			// a and b is positive
 			BigNum newNum = new BigNum();
 			while (a.Lenght < b.Lenght) a.Add(0);
 			while (b.Lenght < a.Lenght) b.Add(0);
@@ -58,9 +74,23 @@ namespace BigNumWizardShared
 			}
 			return newNum;
 		}
-		
+
+		// only when abs A > abs B
 		public static BigNum operator -(BigNum a, BigNum b)
 		{
+			// TODO rewrite this shit to normal XOR and other stuff
+			if (a.Positive && !b.Positive) {
+				return a.Absolute + b.Absolute;
+			} else if (!a.Positive && b.Positive) {
+				BigNum val = a.Absolute + b.Absolute;
+				val.Positive = false;
+				return val;
+			} else if (!a.Positive && !b.Positive) {
+				BigNum val = a.Absolute - b.Absolute;
+				val.Positive = false;
+				return val;
+			}
+			// a and b is positive
 			BigNum newNum = new BigNum();
 			while (a.Lenght < b.Lenght) a.Add(0);
 			while (b.Lenght < a.Lenght) b.Add(0);
@@ -131,6 +161,7 @@ namespace BigNumWizardShared
 			return sb.ToString();
 		}
 
+		// TODO add negative support!
 		public static bool operator >(BigNum a, BigNum b) => a.CompareTo(b) > 0;
 
 		public static bool operator >=(BigNum a, BigNum b) => a.CompareTo(b) >= 0;
@@ -174,6 +205,7 @@ namespace BigNumWizardShared
 		public bool Equals(BigNum other)
 		{
 			// O - Optimization!
+			if (Positive != other.Positive) return false;
 			if (Lenght != other.Lenght) return false;
 
 			for (var i = 0; i < Lenght; i++) {
