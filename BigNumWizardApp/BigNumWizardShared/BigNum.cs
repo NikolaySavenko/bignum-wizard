@@ -7,17 +7,43 @@ namespace BigNumWizardShared
 {
 	public class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
 	{
-		public bool Positive { get; private set; }
 		private List<byte> number;
+
+		public bool Positive { get; private set; }
+
+		public BigNum Absolute
+		{
+			get
+			{
+				var absNum = new BigNum();
+				absNum.number = number;
+				absNum.Positive = true;
+				return absNum;
+			}
+		}
 
 		public BigNum() : this("0") { }
 
 		public BigNum(string longNumber) {
+			if (longNumber[0] == '-')
+			{
+				Positive = false;
+				longNumber = longNumber.Remove(0, 1);
+			}
+			else if (longNumber[0] == '+') 
+			{
+				Positive = true;
+				longNumber = longNumber.Remove(0, 1);
+			}
 			number = new List<byte>();
 			foreach (var element in longNumber) {
 				number.Add((byte)Char.GetNumericValue(element));
 			}
-			Positive = true;
+			
+		}
+
+		public BigNum(string longNumber, bool positive) : this(longNumber) {
+			Positive = positive;
 		}
 
 		public void Add(byte smallNum) => number.Insert(0, smallNum);
@@ -32,7 +58,7 @@ namespace BigNumWizardShared
 			}
 			return newNum;
 		}
-
+		
 		public static BigNum operator -(BigNum a, BigNum b)
 		{
 			BigNum newNum = new BigNum();
