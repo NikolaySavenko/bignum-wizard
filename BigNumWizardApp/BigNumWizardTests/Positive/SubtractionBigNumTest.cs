@@ -48,5 +48,17 @@ namespace BigNumWizardTests
 
 			Assert.Equal(new BigNum("0"), substr);
 		}
+
+		[Fact]
+		public void RowTest()
+		{
+			string num1 = "321";
+			string num2 = "123";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+			BigNum substr = bigNum1 - bigNum2;
+
+			Assert.Equal(new BigNum("198"), substr);
+		}
 	}
 }

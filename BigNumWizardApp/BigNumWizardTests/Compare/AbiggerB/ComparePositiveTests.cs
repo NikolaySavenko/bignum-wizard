@@ -15,9 +15,6 @@ namespace BigNumWizardTests.Compare
 			string num2 = "123";
 			BigNum bigNum1 = new BigNum(num1);
 			BigNum bigNum2 = new BigNum(num2);
-			var a = new List<byte>() { 1, 2, 3 };
-			var b = new List<byte>() { 1, 2, 3 };
-			var t = a == b;
 			Assert.True(bigNum1 == bigNum2);
 		}
 
@@ -43,9 +40,32 @@ namespace BigNumWizardTests.Compare
 		}
 
 		[Fact]
+		public void BiggerThanEqualTest()
+		{
+			string num1 = "321";
+			string num2 = "321";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+
+			var compared = bigNum1.CompareTo(bigNum2);
+			Assert.False(bigNum1 > bigNum2);
+		}
+
+		[Fact]
 		public void BiggerEqualsTest()
 		{
 			string num1 = "321";
+			string num2 = "123";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+
+			Assert.True(bigNum1 >= bigNum2);
+		}
+
+		[Fact]
+		public void BiggerLenTest()
+		{
+			string num1 = "3213";
 			string num2 = "123";
 			BigNum bigNum1 = new BigNum(num1);
 			BigNum bigNum2 = new BigNum(num2);
