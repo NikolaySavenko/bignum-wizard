@@ -1,8 +1,8 @@
 ﻿namespace BigNumWizardShared
 {
-    class Natural
+    public class Natural
     {
-        static BigNum ADD_NN_N(BigNum fir, BigNum sec)  // Сумма натуральных чисел (Осипцов, 0305)
+        public static BigNum ADD_NN_N(BigNum fir, BigNum sec)  // Сумма натуральных чисел (Осипцов, 0305)
         {
             if (COM_NN_D(fir, sec) == 1)
                 return sec + fir;                   // Если первое число меньше, прибавить первое ко второму
@@ -10,7 +10,7 @@
                 return fir + sec;                   // Иначе прибавить второе к первому
         }
 
-        static BigNum GCF_NN_N(BigNum fir, BigNum sec)  // НОД натуральных чисел (Осипцов, 0305)
+        public static BigNum GCF_NN_N(BigNum fir, BigNum sec)  // НОД натуральных чисел (Осипцов, 0305)
         {
             while (NZER_N_B(fir) != 1 && NZER_N_B(sec) != 1)     // Алгоритм Евклида
                 if (COM_NN_D(fir, sec) == 2)
