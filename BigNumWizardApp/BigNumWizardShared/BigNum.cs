@@ -24,9 +24,12 @@ namespace BigNumWizardShared
 
 		public BigNum() : this("0") { }
 
-		public BigNum(string longNumber) {
+		public BigNum(string longNumber)
+		{
 			Positive = true;
 			number = new List<byte>();
+			longNumber = String.IsNullOrEmpty(longNumber) ? "0" : longNumber;
+
 			if (longNumber[0] == '-')
 			{
 				Positive = false;
@@ -197,8 +200,9 @@ namespace BigNumWizardShared
 			var sb = new StringBuilder();
 			while (enumerator.MoveNext())
 			{
-				sb.Append(enumerator.Current.ToString());
+				sb.Insert(0, enumerator.Current);
 			}
+			if (!bNum.Positive) sb.Insert(0, "-");
 			return sb.ToString();
 		}
 
