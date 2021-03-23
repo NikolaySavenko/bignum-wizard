@@ -17,4 +17,8 @@
     <ProjectReference Include="..\BigNumWizardShared\BigNumWizardShared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Compare\BbiggerA\" />
+  </ItemGroup>
+
 </Project>

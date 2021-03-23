@@ -50,6 +50,30 @@ namespace BigNumWizardTests
 		}
 
 		[Fact]
+		public void RowTest()
+		{
+			string num1 = "123";
+			string num2 = "321";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+			BigNum sum = bigNum1 + bigNum2;
+
+			Assert.Equal(new BigNum("444"), sum);
+		}
+
+		[Fact]
+		public void RowHeatTest()
+		{
+			string num1 = "321";
+			string num2 = "123";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+			BigNum sum = bigNum1 + bigNum2;
+
+			Assert.Equal(new BigNum("444"), sum);
+		}
+
+		[Fact]
 		public void MegaOverHeatTest()
 		{
 			string num1 = "12345671234567";
