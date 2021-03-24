@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BigNumWizardShared
 {
-    public class Natural
+    public class N_8_14
     {
-        public static BigNum MUL_NN_N(BigNum a, BigNum b) //умножение натуральных чисел Швец Степан 0305
+        public static BigNum MUL_NN_N(BigNum a, BigNum b) //N-8 умножение натуральных чисел Швец Степан 0305 
         {
             BigNum res = new BigNum();
             for (int i = 0, len = b.Lenght; i < len; i++)
@@ -18,7 +18,7 @@ namespace BigNumWizardShared
             return res;
         }
 
-        public static BigNum LCM_NN_N(BigNum a, BigNum b) //нок натуральных чисел Швец Степан 0305
+        public static BigNum LCM_NN_N(BigNum a, BigNum b) //N-14 нок натуральных чисел Швец Степан 0305 
         {
             BigNum res = new BigNum();
             res = DIV_NN_N(MUL_NN_N(a, b),GCF_NN_N(a, b)); //добавить имена классов
