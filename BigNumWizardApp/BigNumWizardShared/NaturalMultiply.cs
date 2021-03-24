@@ -8,6 +8,7 @@ namespace BigNumWizardShared
     {
         public static List<byte> ADD_1N_N(List<byte> a)
         {
+
             int k = a.Count - 1;
             while (k != -1)
             {
