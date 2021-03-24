@@ -6,9 +6,8 @@ namespace BigNumWizardShared
 {
     class N3_N7
     {
-        public static BigNum ADD_1N_N(BigNum number)
+        public static BigNum ADD_1N_N(BigNum number) //N-3 добавление единицы к нат. числу Петракова Марина 0305
         {
-
             int k = number.Lenght - 1;
             while (k != -1)
             {
@@ -31,14 +30,13 @@ namespace BigNumWizardShared
         }
 
 
-
-        public static BigNum MUL_Nk_N(BigNum a, int k)
+        public static BigNum MUL_Nk_N(BigNum number, int k) //N-7 умножение нат.числа на 10^k Петракова Марина 0305
         {
             for (int i = 0; i < k; i++)
             {
-                a.Insert(a.Lenght,0);
+                number.Insert(number.Lenght,0);
             }
-            return a;
+            return number;
         }
     }
 }
