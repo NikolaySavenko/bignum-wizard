@@ -58,6 +58,7 @@ namespace BigNumWizardShared
 		}
 
 		public void Add(byte smallNum) => number.Insert(number.Count, smallNum);
+		public void Insert(int index, byte value) => number.Insert(index, value);
 
 		// only when abs A > abs B
 		public static BigNum operator +(BigNum a, BigNum b) {
