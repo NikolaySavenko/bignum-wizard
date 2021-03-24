@@ -1,8 +1,8 @@
 ﻿namespace BigNumWizardShared
 {
-    public class Rational
+    public class Q5_7
     {
-        public static BigFraction ADD_QQ_Q(BigFraction fir, BigFraction sec)    // Сумма дробей (Осипцов, 0305)
+        public static BigFraction ADD_QQ_Q(BigFraction fir, BigFraction sec)    //Q-5, сумма дробей, Осипцов Никита 0305
         {
             BigFraction result = new BigFraction();
                                                                                 // Знаменатель - произведение знаменателей слагаемых
@@ -11,7 +11,7 @@
             return result;
         }
 
-        public static BigFraction MUL_QQ_Q(BigFraction fir, BigFraction sec)    // Произведение дробей (Осипцов, 0305)
+        public static BigFraction MUL_QQ_Q(BigFraction fir, BigFraction sec)    //Q-7, произведение дробей, Осипцов Никита 0305
         {
             BigFraction result = new BigFraction();
 
