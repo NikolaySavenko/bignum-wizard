@@ -6,7 +6,8 @@ namespace BigNumWizardShared
 {
     class Fractional
     {
-        static string INT_Q_B(BigNum num, BigNum den)  //Проверка на целое, если рациональное число является целым, то «да», иначе «нет»
+        // TODO add % in BigNum
+        static string INT_Q_B(int num, int den)  //Проверка на целое, если рациональное число является целым, то «да», иначе «нет»
         {
             if (num % den == 0)
                 return ("Yes");
