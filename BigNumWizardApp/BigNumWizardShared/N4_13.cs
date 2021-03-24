@@ -9,18 +9,5 @@
             else
                 return fir + sec;                   // Иначе прибавить второе к первому
         }
-
-        public static BigNum GCF_NN_N(BigNum fir, BigNum sec)  // N-13, НОД натуральных чисел, Осипцов Никита 0305
-        {
-            while (N2_6.NZER_N_B(fir) != "yes" && N2_6.NZER_N_B(sec) != "yes")     // Алгоритм Евклида
-                if (COM_NN_D(fir, sec) == 2)
-                    fir = MOD_NN_N(fir, sec);
-                else
-                    sec = MOD_NN_D(sec, fir);
-            if (NZER_N_B(fir) == 1)                             // Возврат ненулевого остатка
-                return fir;
-            else
-                return sec;
-        }
     }
 }
