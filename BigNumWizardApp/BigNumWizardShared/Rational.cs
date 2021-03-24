@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-    class Rational
+    public class Rational
     {
         public static BigNum TRANS_Q_Z(BigNum fir, BigNum sec)
         {

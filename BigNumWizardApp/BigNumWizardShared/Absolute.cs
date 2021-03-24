@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-    class Absolute
+    public class Absolute
     {
         public static BigNum ABS_Z_N(BigNum fir)
         {
