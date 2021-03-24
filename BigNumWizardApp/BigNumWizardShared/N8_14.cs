@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BigNumWizardShared
 {
-    public class N_8_14
+    public class N8_14
     {
         public static BigNum MUL_NN_N(BigNum a, BigNum b) //N-8 умножение натуральных чисел Швец Степан 0305 
         {
