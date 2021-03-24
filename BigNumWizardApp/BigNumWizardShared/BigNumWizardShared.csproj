@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Q5_7.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="P\" />
   </ItemGroup>
 
