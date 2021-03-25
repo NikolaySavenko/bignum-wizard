@@ -6,7 +6,7 @@ namespace BigNumWizardShared
 {
     class N9
     {
-       public static BigNum SUB_NDN_N(BigNum A, BigNum B, int D) // N-9 Соловьева Елизавета 0310
+       public static BigNum SUB_NDN_N(BigNum A, BigNum B, byte D) // N-9 Соловьева Елизавета 0310
         {
             if (Natural1_5.COM_NN_D(N2_6.MUL_ND_N(A, D), B) == 2 || Natural1_5.COM_NN_D(N2_6.MUL_ND_N(A, D), B) == 0) //A*D >= B
             {
