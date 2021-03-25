@@ -10,12 +10,17 @@ namespace BigNumWizardShared
     {
         public static BigNum TRANS_N_Z(BigNum a) //Z-4 преобразование натурального в целое Швец Степан 0305
         {
-            return a;
+            BigNum res = new BigNum();
+            res = a;
+            return res;
         }
         public static BigNum TRANS_Z_N(BigNum a) //Z-5 преобразование целое в натуральное Швец Степан 0305
         {
-            //добавить проверку, является ли число положительным if (a.Positive)
-            return a;
+            //добавить: проверку, является ли число положительным if (a.Positive) и в блоке else добавить обработку исключений, если оно таковым не является
+
+            BigNum res = new BigNum();
+            res = a;
+            return res;
         }
     }
 }
