@@ -84,5 +84,17 @@ namespace BigNumWizardTests
 
 			Assert.Equal(new BigNum("-1"), substr);
 		}
+
+		[Fact]
+		public void MixedSubstraction()
+		{
+			string num1 = "124";
+			string num2 = "1244";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+			BigNum substr = bigNum1 - bigNum2;
+
+			Assert.Equal(new BigNum("-1120"), substr);
+		}
 	}
 }
