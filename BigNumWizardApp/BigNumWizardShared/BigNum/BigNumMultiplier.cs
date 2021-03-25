@@ -13,11 +13,16 @@ namespace BigNumWizardShared
 			if (b.Absolute > a.Absolute) {
 				return b * a;
 			}
-			// var listToSum = new List<BigNum>();
+
+			if (a.Positive ^ b.Positive) {
+				var result = a.Absolute * b.Absolute;
+				result.Positive = false;
+			}
+			// -1 * -1 = 1 * 1
+			// always positive=true
 			var newNum = new BigNum();
-			
 			for (var i = 0; i <= b.Lenght; i++) {
-				var aCopy = new BigNum(a);
+				var aCopy = new BigNum(a).Absolute;
 				aCopy.MultiplyByNumeral(b[i]);
 
 				// multiply to 10 ^ i
