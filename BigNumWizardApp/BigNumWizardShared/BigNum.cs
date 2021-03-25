@@ -117,7 +117,7 @@ namespace BigNumWizardShared
 				return val;
 			}
 			if (b.Absolute > a.Absolute) { 
-				BigNum val = a.Absolute - b.Absolute;
+				BigNum val = b.Absolute - a.Absolute;
 				val.Positive = !a.Positive;
 				return val;
 			}
