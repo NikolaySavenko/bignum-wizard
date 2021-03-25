@@ -19,9 +19,9 @@
         <muxc:NavigationView.MenuItems>
             <muxc:NavigationViewItem Content="Целые числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем">
                 <muxc:NavigationViewItem.MenuItems>
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение" Tag="SamplePage1" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание" Tag="SamplePage2" />
-                    <muxc:NavigationViewItem Icon="Refresh" Content="Menu Item3" Tag="SamplePage3" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение" Tag="PageSum" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание" Tag="PageSub" />
+                    <muxc:NavigationViewItem Icon="Refresh" Content="Проверка на 0" Tag="PageCheckZero" />
                     <muxc:NavigationViewItem Icon="Download" Content="Menu Item4" Tag="SamplePage4" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
