@@ -72,5 +72,17 @@ namespace BigNumWizardTests
 
 			Assert.Equal(new BigNum("198"), substr);
 		}
+
+		[Fact]
+		public void UnderZeroSubstraction()
+		{
+			string num1 = "123";
+			string num2 = "124";
+			BigNum bigNum1 = new BigNum(num1);
+			BigNum bigNum2 = new BigNum(num2);
+			BigNum substr = bigNum1 - bigNum2;
+
+			Assert.Equal(new BigNum("-1"), substr);
+		}
 	}
 }
