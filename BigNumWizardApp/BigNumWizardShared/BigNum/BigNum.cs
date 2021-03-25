@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-	public class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
+	public partial class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
 	{
 		private List<byte> number;
 
@@ -141,13 +141,17 @@ namespace BigNumWizardShared
 			// ITS A TRAP!
 			for (var i = 0; i < b.Lenght; i++) newNum.recursivePick(b[i], i);
 
+			DeleteInsignificantZeros(ref newNum);
+			return newNum;
+		}
+
+		private static void DeleteInsignificantZeros(ref BigNum num) {
 			// deleting Insignificant zeros
-			for (var i = newNum.Lenght - 1; i > 0; i--)
+			for (var i = num.Lenght - 1; i > 0; i--)
 			{
-				if (newNum.number[i] == 0) newNum.number.RemoveAt(i);
+				if (num.number[i] == 0) num.number.RemoveAt(i);
 				else break;
 			}
-			return newNum;
 		}
 
 		public byte this[int key] {
