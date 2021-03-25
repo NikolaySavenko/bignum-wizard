@@ -139,9 +139,13 @@ namespace BigNumWizardShared
 			while (b.Lenght < a.Lenght) b.Add(0);
 			BigNum newNum = new BigNum(a);
 			// ITS A TRAP!
-			for (var i = 0; i < b.Lenght; i++)
+			for (var i = 0; i < b.Lenght; i++) newNum.recursivePick(b[i], i);
+
+			// deleting Insignificant zeros
+			for (var i = newNum.Lenght - 1; i > 0; i--)
 			{
-				newNum.recursivePick(b[i], i);
+				if (newNum.number[i] == 0) newNum.number.RemoveAt(i);
+				else break;
 			}
 			return newNum;
 		}
@@ -187,7 +191,6 @@ namespace BigNumWizardShared
 				number[index] += 10;
 			}
 			number[index] -= pick;
-			if (index > 0 && number[index] == 0) number.RemoveAt(index);
 		}
 
 		public static explicit operator int(BigNum bNum)
