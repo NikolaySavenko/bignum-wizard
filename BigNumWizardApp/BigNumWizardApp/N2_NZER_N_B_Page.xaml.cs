@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigNumWizardShared;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -20,11 +21,23 @@ namespace BigNumWizardApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SUB_NN_N
+    public sealed partial class N2_NZER_N_B_Page
     {
-        public SUB_NN_N()
+        private string Value { get; set; } = "";
+        public N2_NZER_N_B_Page()
         {
             this.InitializeComponent();
+            numberBox.TextChanged += NumberBox_TextChanged;
+        }
+
+
+        private void NumberBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox box = sender as TextBox;
+            Value = box != null ? box.Text : Value;
+            var num = new BigNum(Value);
+            textBox.Text = N2_6.NZER_N_B(num);
+
         }
     }
 }

@@ -41,11 +41,14 @@ namespace BigNumWizardApp
             {
                 switch (item.Tag.ToString())
                 {
-                    case "SamplePage1":
-                        ContentFrame.Navigate(typeof(ADD_NN_NPage));
+                    case "PageSum":
+                        ContentFrame.Navigate(typeof(ADD_NN_N_Page));
                         break;
-                    case "SamplePage2":
-                        ContentFrame.Navigate(typeof(SUB_NN_N));
+                    case "PageSub":
+                        ContentFrame.Navigate(typeof(SUB_NN_N_Page));
+                        break;
+                    case "PageCheckZero":
+                        ContentFrame.Navigate(typeof(N2_NZER_N_B_Page));
                         break;
 
                 }
