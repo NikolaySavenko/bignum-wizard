@@ -17,6 +17,7 @@ namespace BigNumWizardShared
 			if (a.Positive ^ b.Positive) {
 				var result = a.Absolute * b.Absolute;
 				result.Positive = false;
+				return result;
 			}
 			// -1 * -1 = 1 * 1
 			// always positive=true
