@@ -1,13 +1,14 @@
-﻿using System;
+﻿using BigNumWizardShared;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace BigNumWizardShared
 {
     public class P4_5
     {
 
-        public static int LED_P_Q(int m, int[] C)
+        public static int LED_P_Q(int m, List<int> C)
         {
             return C[0];
         }

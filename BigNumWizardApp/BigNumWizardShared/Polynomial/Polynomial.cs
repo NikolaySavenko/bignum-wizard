@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BigNumWizardShared;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace BigNumWizardShared
 {
     public class Polynomial
     {
