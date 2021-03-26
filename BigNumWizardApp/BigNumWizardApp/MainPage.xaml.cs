@@ -50,6 +50,9 @@ namespace BigNumWizardApp
                     case "PageCheckZero":
                         ContentFrame.Navigate(typeof(N2_NZER_N_B_Page));
                         break;
+                    case "PagePoz":
+                        ContentFrame.Navigate(typeof(Z2_POZ_Z_D_Page));
+                        break;
 
                 }
             }
