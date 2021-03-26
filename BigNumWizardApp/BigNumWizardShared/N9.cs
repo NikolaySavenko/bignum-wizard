@@ -12,7 +12,11 @@ namespace BigNumWizardShared
             {
                 return N2_6.MUL_ND_N(A, D) - B; //A*D - B
             }
-            else if (Natural1_5.COM_NN_D(N2_6.MUL_ND_N(B, D), A) == 2 || Natural1_5.COM_NN_D(N2_6.MUL_ND_N(A, D), A) == 0) //B*D >= A
+            /*else if (Natural1_5.COM_NN_D(N2_6.MUL_ND_N(B, D), A) == 2 || Natural1_5.COM_NN_D(N2_6.MUL_ND_N(A, D), A) == 0) //B*D >= A
+            {
+                return N2_6.MUL_ND_N(B, D) - A; //B*D - A
+            }*/
+            else
             {
                 return N2_6.MUL_ND_N(B, D) - A; //B*D - A
             }
