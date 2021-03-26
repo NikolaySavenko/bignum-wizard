@@ -12,9 +12,11 @@ namespace BigNumWizardShared
             else return "no";
         }
 
-        public static int MUL_ND_N(int number, int x)
+        public static BigNum MUL_ND_N(BigNum number, byte D)
         {
-            return number * x;
+            var ncopy = new BigNum(number);
+            ncopy.MultiplyByNumeral(D);
+            return ncopy;
         }
 
     }
