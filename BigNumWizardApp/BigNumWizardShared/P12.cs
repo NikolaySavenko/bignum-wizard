@@ -2,7 +2,7 @@
 
 namespace BigNumWizardShared
 {
-    class P12
+   public class P12
     {
         public static Polynomial DER_P_P(int m, List<int> C) // P12, производная многочлена, Осипцов Никита 0305
         {
