@@ -6,7 +6,7 @@ namespace BigNumWizardShared
 {
     public class Q2_3
     { 
-        public static string INT_Q_B(int num, int den)  //Проверка на целое, если рациональное число является целым, то «да», иначе «нет» 0305 Брацун Владимир
+        public static string INT_Q_B(BigNum num, BigNum den)  //Проверка на целое, если рациональное число является целым, то «да», иначе «нет» 0305 Брацун Владимир
         {
             if (num % den == 0)
                 return ("Yes");
@@ -14,10 +14,9 @@ namespace BigNumWizardShared
                 return ("No");
         }
 
-        public static BigNum TRANS_Z_Q(BigNum num, BigNum ent)  //Преобразование целого в дробное 0305 Брацун Владимир
+        public static string BigNum TRANS_Z_Q(BigNum num, BigNum ent)  //Преобразование целого в дробное 0305 Брацун Владимир
         {
-            return num;
-            //make that shit better in future
+            return ((string)(num * ent) + "/" + (string)ent);
         }
     }
 }
