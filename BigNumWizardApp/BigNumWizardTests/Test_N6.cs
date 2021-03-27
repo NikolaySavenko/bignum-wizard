@@ -11,7 +11,7 @@ namespace BigNumWizardTests
         [InlineData("987654321", 0, "0")] //не работает, возвращает массив нулей
         [InlineData("741852963", 3, "2225558889")]
 
-        public void MultiplyByNNumber(string target, byte num, string expexted)
+        public void MultiplyByNumber(string target, byte num, string expexted)
         {
             var n1 = new BigNum(target);
             n1.MultiplyByNumeral(num);
