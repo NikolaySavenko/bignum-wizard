@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="BigNumWizardApp.SUB_NN_N_Page"
+    x:Class="BigNumWizardApp.Z2_POZ_Z_D_Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BigNumWizardApp"
@@ -18,13 +18,11 @@
                        CharacterSpacing="200"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <TextBox  x:Name="numberBox1" Header="Enter your num1:" PlaceholderText="0" Margin="10"/>
-            <TextBox  x:Name="numberBox2" Header="Enter your num2:" PlaceholderText="0" Margin="10"/>
+            <TextBox  x:Name="numberBox" Header="Enter your num:" PlaceholderText="0" Margin="10"/>
             <TextBox x:Name="textBox" Text="Тут будет ответ"
              IsReadOnly="True"
             FontFamily="Arial" FontSize="24" FontStyle="Italic"
             CharacterSpacing="200" Foreground="CornflowerBlue" Margin="10"/>
         </StackPanel>
     </Grid>
-    
 </Page>

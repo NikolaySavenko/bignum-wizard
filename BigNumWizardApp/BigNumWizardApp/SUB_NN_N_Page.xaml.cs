@@ -52,7 +52,7 @@ namespace BigNumWizardApp
         {
             var num1 = new BigNum(Value1);
             var num2 = new BigNum(Value2);
-            textBox.Text = (string)(num1 - num2);
+            textBox.Text = (string)(Natural1_5.SUB_NN_N(num1, num2));
         }
     }
 }
