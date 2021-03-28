@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigNumWizardShared;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,13 +7,13 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using BigNumWizardShared;
+using Microsoft.UI.Xaml.Controls;
+using System.Text.RegularExpressions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,10 +24,8 @@ namespace BigNumWizardApp
     /// </summary>
     public sealed partial class SUB_NN_N_Page
     {
-
-        private string Value1 { get; set; } = "0";
-        private string Value2 { get; set; } = "0";
-
+        private string Value1 { get; set; } = "";
+        private string Value2 { get; set; } = "";
         public SUB_NN_N_Page()
         {
             this.InitializeComponent();
@@ -52,7 +51,9 @@ namespace BigNumWizardApp
         {
             var num1 = new BigNum(Value1);
             var num2 = new BigNum(Value2);
-            textBox.Text = (string)(Natural1_5.SUB_NN_N(num1, num2));
+            textBox.Text = (string)(num1 - num2);
         }
     }
 }
+
+
