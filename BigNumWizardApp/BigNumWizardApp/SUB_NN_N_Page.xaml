@@ -9,14 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Название модуля" 
-                       Style="{StaticResource CaptionTextBlockStyle}" 
-                       Margin="58,24,0,0"
-                       FontSize="24"
-                       FontFamily="Arial"
-                       CharacterSpacing="200"/>
-        </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <TextBox  x:Name="numberBox1" Header="Enter your num1:" PlaceholderText="0" Margin="10"/>
             <TextBox  x:Name="numberBox2" Header="Enter your num2:" PlaceholderText="0" Margin="10"/>

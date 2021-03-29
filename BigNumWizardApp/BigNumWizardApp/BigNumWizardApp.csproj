@@ -105,6 +105,9 @@
     <Compile Include="Z2_POZ_Z_D_Page.xaml.cs">
       <DependentUpon>Z2_POZ_Z_D_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Z8_MUL_ZZ_Z_Page.xaml.cs">
+      <DependentUpon>Z8_MUL_ZZ_Z_Page.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Z2_POZ_Z_D_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Z8_MUL_ZZ_Z_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
