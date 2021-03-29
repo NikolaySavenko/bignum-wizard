@@ -1,5 +1,6 @@
 ﻿using BigNumWizardShared;
 using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,7 +26,7 @@ namespace BigNumWizard
                     frstnum %= new BigNum("10");
                 return N3_N7.MUL_Nk_N(frstnum, count);
             }
-            else return new BigNum("0"); 
+            else return new BigNum("0");
         }
     }
 }
