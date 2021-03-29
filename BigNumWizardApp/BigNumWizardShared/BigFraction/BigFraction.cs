@@ -50,7 +50,7 @@
                 if(NewFirNom > NewSecNom)
                 {
                     result.Nom = NewFirNom - NewSecNom;
-                    result.Positive = fir.Positive;;
+                    result.Positive = fir.Positive;
                     return result;
                 }
                 else
