@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 
 namespace BigNumWizardShared
 {
@@ -6,7 +7,7 @@ namespace BigNumWizardShared
 	{
 		public static BigNum operator /(BigNum a, BigNum b)
 		{
-			return new BigNum((BigInteger.Parse((string)a) / BigInteger.Parse((string)b)).ToString());
+			return Divide(a, b, out var rem);
 		}
 
 		public static BigNum operator %(BigNum a, BigNum b)
@@ -14,20 +15,29 @@ namespace BigNumWizardShared
 			return new BigNum((BigInteger.Parse((string)a) % BigInteger.Parse((string)b)).ToString());
 		}
 
-		public BigNum Divide(BigNum divider, out BigNum remainer)
+		public static BigNum Divide(BigNum source, BigNum divider, out BigNum remainer)
 		{
-			if (divider > this)
+			// Please make this shit normal
+			// im so sorry for that
+			var rem = new BigNum(source);
+			var result = new BigNum();
+			while (rem > divider)
 			{
-				remainer = this;
-				return new BigNum(this);
+				var tmp = new BigNum(divider);
+				var power = 0;
+				var ten = 10;
+				while (tmp * new BigNum(Math.Pow(ten, power + 1).ToString()) < rem)
+				{
+					tmp *= new BigNum(Math.Pow(ten, power + 1).ToString());
+				}
+				while (rem - tmp > new BigNum("0"))
+				{
+					rem -= tmp;
+					result += new BigNum(Math.Pow(ten, power).ToString());
+				}
 			}
-			remainer = new BigNum("0");
+			remainer = rem;
 			return new BigNum("1");
-		}
-
-		private void RecursiveDivide()
-		{
-
 		}
 	}
 }
