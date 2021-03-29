@@ -8,10 +8,9 @@ namespace BigNumWizardShared
     {
         public static BigNum ADD_1N_N(BigNum number) //N-3 добавление единицы к нат. числу Петракова Марина 0305
         {
-            number += new BigNum("1");
-            return number;
+            BigNum res_number = number + new BigNum("1");
+            return res_number;
         }
-
 
         public static BigNum MUL_Nk_N(BigNum number, BigNum k) //N-7 умножение нат.числа на 10^k Петракова Марина 0305
         {
