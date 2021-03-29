@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="BigNumWizardApp.SUB_NN_N_Page"
+    x:Class="BigNumWizardApp.Z8_MUL_ZZ_Z_Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BigNumWizardApp"
@@ -18,5 +18,4 @@
             CharacterSpacing="200" Foreground="CornflowerBlue" Margin="10"/>
         </StackPanel>
     </Grid>
-    
 </Page>

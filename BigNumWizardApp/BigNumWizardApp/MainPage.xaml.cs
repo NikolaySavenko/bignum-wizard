@@ -43,14 +43,24 @@ namespace BigNumWizardApp
                 {
                     case "PageSum":
                         ContentFrame.Navigate(typeof(ADD_NN_N_Page));
+                        nvMain.Header = "Сложение";
                         break;
                     case "PageSub":
                         ContentFrame.Navigate(typeof(SUB_NN_N_Page));
+                        nvMain.Header = "Вычитание";
                         break;
                     case "PageCheckZero":
                         ContentFrame.Navigate(typeof(N2_NZER_N_B_Page));
+                        nvMain.Header = "Проверка на ноль";
                         break;
-
+                    case "PagePoz":
+                        ContentFrame.Navigate(typeof(Z2_POZ_Z_D_Page));
+                        nvMain.Header = "'Положительность' числа";
+                        break;
+                    case "PageMultiply":
+                        ContentFrame.Navigate(typeof(Z8_MUL_ZZ_Z_Page));
+                        nvMain.Header = "Умножение";
+                        break;
                 }
             }
             
