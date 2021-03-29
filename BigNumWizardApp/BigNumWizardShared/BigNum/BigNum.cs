@@ -244,8 +244,9 @@ namespace BigNumWizardShared
 			}
 			
 			var target = obj as BigNum;
-			// O - Optimization!
-			if (Lenght != target.Lenght) return Lenght.CompareTo(Lenght);
+			
+			while (Lenght < target.Lenght) Add(0);
+			while (target.Lenght < Lenght) target.Add(0);
 
 			if (Positive && !target.Positive) return 1;
 			else if (!Positive && target.Positive) return -1;
