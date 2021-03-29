@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-    class N3_N7
+    public class N3_N7
     {
         public static BigNum ADD_1N_N(BigNum number) //N-3 добавление единицы к нат. числу Петракова Марина 0305
         {
