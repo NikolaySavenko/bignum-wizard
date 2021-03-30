@@ -42,23 +42,27 @@ namespace BigNumWizardApp
                 switch (item.Tag.ToString())
                 {
                     case "PageSum":
-                        ContentFrame.Navigate(typeof(ADD_NN_N_Page));
+                        TwoNumbersPage.TargetFunctionDelegate actionSum = (string param1, string param2) =>
+                        {
+                            return (string)(new BigNum(param1) + new BigNum(param2));
+                        };
+                        ContentFrame.Navigate(typeof(TwoNumbersPage), actionSum);
                         nvMain.Header = "Сложение";
                         break;
                     case "PageSub":
-                        ContentFrame.Navigate(typeof(SUB_NN_N_Page));
+                        TwoNumbersPage.TargetFunctionDelegate actionSub = (string param1, string param2) =>
+                        {
+                            return (string)(new BigNum(param1) - new BigNum(param2));
+                        };
+                        ContentFrame.Navigate(typeof(TwoNumbersPage), actionSub);
                         nvMain.Header = "Вычитание";
                         break;
-                    case "PageCheckZero":
-                        ContentFrame.Navigate(typeof(N2_NZER_N_B_Page));
-                        nvMain.Header = "Проверка на ноль";
-                        break;
-                    case "PagePoz":
-                        ContentFrame.Navigate(typeof(Z2_POZ_Z_D_Page));
-                        nvMain.Header = "'Положительность' числа";
-                        break;
                     case "PageMultiply":
-                        ContentFrame.Navigate(typeof(Z8_MUL_ZZ_Z_Page));
+                        TwoNumbersPage.TargetFunctionDelegate actionMultiply = (string param1, string param2) =>
+                        {
+                            return (string)(new BigNum(param1) * new BigNum(param2));
+                        };
+                        ContentFrame.Navigate(typeof(TwoNumbersPage), actionMultiply);
                         nvMain.Header = "Умножение";
                         break;
                 }
