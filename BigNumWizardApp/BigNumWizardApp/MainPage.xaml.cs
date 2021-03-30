@@ -65,6 +65,15 @@ namespace BigNumWizardApp
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionMultiply);
                         nvMain.Header = "Умножение";
                         break;
+                    case "PageDivide":
+                        TwoNumbersPage.Value2 = "1"; // default value
+                        TwoNumbersPage.TargetFunctionDelegate actionDivide = (string param1, string param2) =>
+                        {
+                            return (string)(new BigNum(param1) / new BigNum(param2));
+                        };
+                        ContentFrame.Navigate(typeof(TwoNumbersPage), actionDivide);
+                        nvMain.Header = "Деление";
+                        break;
                 }
             }
             
