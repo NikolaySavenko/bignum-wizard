@@ -80,5 +80,8 @@
 
         public static BigFraction operator /(BigFraction fir, BigFraction sec) { return fir * sec.GetInversed(); } // Оператор деления (результат не сокращается после операции)
 
+        public override bool Equals(object obj) { return Equals(obj as BigFraction);  }
+
+        public bool Equals(BigFraction other) { return  other != null && other.Nom == Nom && other.Denom == Denom && other.Positive == Positive; }
     }
 }
