@@ -12,11 +12,11 @@ namespace BigNumWizardShared
             return res_number;
         }
 
-        public static BigNum MUL_Nk_N(BigNum number, BigNum k) //N-7 умножение нат.числа на 10^k Петракова Марина 0305
+        public static BigNum MUL_Nk_N(BigNum number, int k) //N-7 умножение нат.числа на 10^k Петракова Марина 0305
         {
-            for (BigNum i=new BigNum("0"); i < k; i+=new BigNum("1"))
-            {
-                number.Insert(number.Lenght,0);
+            for (int i=0; i<k; i++)
+            { 
+                number.Insert(0,0);
             }
             return number;
         }
