@@ -3,7 +3,7 @@ using BigNumWizardShared;
 
 namespace BigNumWizardTests
 {
-    public class Test_Q7
+    public class Test_Q7    // Osiptsov
     {
         [Theory]
         [InlineData("1", "1", "1", "1", "1", "1")]
