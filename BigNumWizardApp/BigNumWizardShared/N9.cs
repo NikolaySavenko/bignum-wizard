@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BigNumWizardShared
 {
-    class N9
+    public class N9
     {
        public static BigNum SUB_NDN_N(BigNum A, BigNum B, byte D) // N-9 Соловьева Елизавета 0310
         {

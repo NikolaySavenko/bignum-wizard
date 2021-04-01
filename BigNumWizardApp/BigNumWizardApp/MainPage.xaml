@@ -23,6 +23,9 @@
                     <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание" Tag="PageSub" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Проверка на 0" Tag="PageCheckZero" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Умножение" Tag="PageMultiply" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сравнение" Tag="PageComparison" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Подмодуль N9" Tag="PageN9" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Подмодуль N9" Tag="PageN11" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
             <muxc:NavigationViewItem Content="Целые числа" Icon="Document" ToolTipService.ToolTip="Целые числа">
