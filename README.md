@@ -1,5 +1,6 @@
 # bignum-wizard
 
+[![.NET Core Desktop](https://github.com/NikolaySavenko/bignum-wizard/actions/workflows/dotnet-desktop.yml/badge.svg?branch=master)](https://github.com/NikolaySavenko/bignum-wizard/actions/workflows/dotnet-desktop.yml)
 
 Значит так ребята, перед нами большая задача. Этого мамонта нам предоставила сама судьбинушка и завалить мы его должны с честью и достоинством. Вы уже не маленькие, так что надеюсь разжевывать все по буквам вам не придется. Эта группа расценивается как лучшая, так что давайте покажем всем на как надо и насколько крутыми могут быть перваки ФКТИ.
 
