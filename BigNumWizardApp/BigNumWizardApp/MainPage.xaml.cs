@@ -68,7 +68,8 @@ namespace BigNumWizardApp
                     case "PageDivide":
                         TwoNumbersPage.TargetFunctionDelegate actionDivide = (string param1, string param2) =>
                         {
-                            return (string)(new BigNum(param1) / new BigNum(param2));
+                            var remainer = new BigNum();
+                            return (string)Z9.DIV_ZZ_Z(new BigNum(param1), new BigNum(param2), out remainer);
                         };
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionDivide);
                         nvMain.Header = "Деление";

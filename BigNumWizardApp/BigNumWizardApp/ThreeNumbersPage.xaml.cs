@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using Windows.UI.Popups;
@@ -33,32 +34,29 @@ namespace BigNumWizardApp
         {
             TextBox box = sender as TextBox;
             Value2 = box != null ? box.Text : Value2;
-            IvokeAction();
         }
 
         private void NumberBox3_TextChanged1(object sender, TextChangedEventArgs e)
         {
             TextBox box = sender as TextBox;
             Value3 = box != null ? box.Text : Value3;
-            IvokeAction();
         }
 
         private void NumberBox1_TextChanged1(object sender, TextChangedEventArgs e)
         {
             TextBox box = sender as TextBox;
             Value1 = box != null ? box.Text : Value1;
-            IvokeAction();
         }
 
-        async private void IvokeAction()
+        private async void ButtonResult_Clicked(object sender, RoutedEventArgs e)
         {
             try
             {
                 textBox.Text = func(Value1, Value2, Value3);
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                var messageDialog = new MessageDialog(e.Message.ToString());
+                var messageDialog = new MessageDialog(err.Message.ToString());
                 await messageDialog.ShowAsync();
             }
 

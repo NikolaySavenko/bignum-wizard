@@ -14,15 +14,19 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <TextBox  x:Name="numberBox1" Header="Введите первое число:" PlaceholderText="0" Margin="30 10 30 10"/>
         <TextBox  x:Name="numberBox2" Header="Введите второе число:" PlaceholderText="0" Margin="30 10 30 10" Grid.Row="1"/>
         <TextBox  x:Name="numberBox3" Header="Введите цифру:" PlaceholderText="0" Margin="30 10 30 10"  Grid.Row="2"/>
+        <Button Style="{StaticResource AccentButtonStyle}" x:Name="buttonResult" 
+                Content="Посчитать" Grid.Row="3" Width="150" Margin="30 10 30 10" 
+                HorizontalAlignment="Center" Click="ButtonResult_Clicked"/>
         <TextBox x:Name="textBox" Text="Тут будет ответ"
              IsReadOnly="True"
             FontFamily="Arial" FontSize="24" FontStyle="Italic"
             CharacterSpacing="200" Foreground="Violet" Margin="30 20 30 10"
             TextAlignment="Center"
-            Grid.Row="3"/>
+            Grid.Row="4"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
@@ -23,8 +24,6 @@ namespace BigNumWizardApp
         public TwoNumbersPage()
         {
             this.InitializeComponent();
-            numberBox1.TextChanged += NumberBox1_TextChanged1;
-            numberBox2.TextChanged += NumberBox2_TextChanged1;
         }
 
         private void NumberBox2_TextChanged1(object sender, TextChangedEventArgs e)
@@ -39,19 +38,20 @@ namespace BigNumWizardApp
             Value1 = box != null ? box.Text : Value1;
         }
 
-        async private void InvokeAction()
+
+        private async void ButtonResult_Clicked(object sender, RoutedEventArgs e)
         {
             try
             {
                 textBox.Text = func(Value1, Value2);
-            }      
+            }
             catch (Exception err)
             {
                 var messageDialog = new MessageDialog(err.Message.ToString());
                 await messageDialog.ShowAsync();
             }
-            
         }
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -60,3 +60,5 @@ namespace BigNumWizardApp
         }
     }
 }
+
+
