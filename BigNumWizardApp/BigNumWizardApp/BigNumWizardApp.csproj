@@ -144,9 +144,6 @@
       <Name>BigNumWizardShared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="BigNumKey.pfx" />
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '$(MinimumVisualStudioVersion)' ">
     <VisualStudioVersion>$(MinimumVisualStudioVersion)</VisualStudioVersion>
   </PropertyGroup>
@@ -154,7 +151,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>BigNumKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
