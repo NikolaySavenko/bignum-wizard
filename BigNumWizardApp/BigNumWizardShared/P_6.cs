@@ -6,7 +6,7 @@ namespace BigNumWizardShared
 {
 	public class P_6
 	{
-		public static int DEG_P_N(int m, List<int> c)
+		public static int DEG_P_N(int m, List<BigFraction> c)
 		{
 			return m;
 		} //P-6 Степень многочлена Лукина Александра 0305
