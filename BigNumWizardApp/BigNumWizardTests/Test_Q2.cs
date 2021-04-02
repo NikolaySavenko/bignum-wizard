@@ -18,6 +18,7 @@ namespace BigNumWizardTests
         [InlineData("-123456", "2", "Yes")]
         [InlineData("66666666666666666666", "-3", "Yes")]
         [InlineData("50959854608945687", "-23434453455456565465655675567756", "No")]
+        [InlineData("0", "33", "Yes")]// 0 % 33==0
 
 
         public void IntCheck(string target1, string target2, string expexted)
