@@ -13,13 +13,13 @@ namespace BigNumWizardShared
             return C[0];
         }
 
-        public static Polynomial MUL_Pxk_P(int m, List<int> C, int k)
+        public static Polynomial MUL_Pxk_P(int m, List<BigFraction> C, int k)
         {
             var polynom = new Polynomial(m, C);
 
             for (int i = 0; i < k; i++)
             {
-                polynom.Odds.Add(0);
+                polynom.Odds.Add(new BigFraction(new BigNum("0")));
             }
             polynom.SeniorDegree = m + k;
 
