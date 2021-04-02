@@ -8,8 +8,8 @@ namespace BigNumWizardShared
     public class Polynomial
     {
         public int SeniorDegree { get; set; }
-        public List<int> Odds { get; set; }
-        public Polynomial(int m, List<int> C)
+        public List<BigFraction> Odds { get; set; }
+        public Polynomial(int m, List<BigFraction> C)
         {
             SeniorDegree = m;
             Odds = C;
