@@ -3,28 +3,20 @@ using BigNumWizardShared;
 
 namespace BigNumWizardTests
 {
-    public class Test_N8 //Petrakova
-    {
+    public class Test_N8 //Shvetc
+    { 
         [Theory]
-        [InlineData("0", "0", "0")]
-        [InlineData("0", "7346548583953454357457332000234141111122255832", "0")]
-        [InlineData("0","38374","0")]
-        [InlineData("46364733343", "0", "0")]
-        [InlineData("191989189891727744637432352532","0","0")]
-        [InlineData("1", "8343912212711", "8343912212711")]
-        [InlineData("3984546778289342909020929090000000387","1","3984546778289342909020929090000000387")]
-        [InlineData("105634536454","292161", "30862291804937094")]
-        [InlineData("1864","438", "816432")]
-        [InlineData("18392489000043277243648737378534","9", "165532401000389495192838636406806")]
-        [InlineData("2","3988784583365737347843834874833000000231012122132311213", "7977569166731474695687669749666000000462024244264622426")]
-        [InlineData("967007000323200","537568968643232121111111111", "519832955834528254404784843657888111075200")]
-        [InlineData("3556347732142412145673413","1111111", "3951497085008487701591331591843")]
-        [InlineData("87543843993329093487547325834932","100000000000000000000000000000000", "8754384399332909348754732583493200000000000000000000000000000000")]
-        [InlineData("43743674567453675437854785445545526", "43743674567453675437854785445545526", "1913509064663293498914327755670015909544503354580806187394635738616676")]
-
-        public static void Multiplicate(string num1, string num2, string expected)
+        [InlineData("1", "1", "1")]
+        [InlineData("7", "6", "42")]
+        [InlineData("15", "15", "225")]
+        [InlineData("576", "123", "70848")]
+        [InlineData("85476", "910", "77783160")]
+        [InlineData("12", "987654321", "11851851852")]
+        [InlineData("1000", "10", "10000")]
+        [InlineData("10", "1080", "10800")]
+        public void MuliplyByNatural(string target, string num, string expected)
         {
-            Assert.Equal(N8_14.MUL_NN_N(new BigNum(num1), new BigNum(num2)), new BigNum(expected));
+            Assert.Equal(N8_14.MUL_NN_N(new BigNum(target), new BigNum(num)), new BigNum(expected));
         }
     }
 }
