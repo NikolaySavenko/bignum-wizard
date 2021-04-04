@@ -32,7 +32,6 @@ namespace BigNumWizardApp
         public App()
         {
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
         }
 
         /// <summary>
