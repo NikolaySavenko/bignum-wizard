@@ -19,7 +19,7 @@ namespace BigNumWizardTests
         [InlineData("565656", "131313", "7353528")]
         [InlineData("555555555", "111", "555555555")]
         [InlineData("1111", "555555555", "617222221605")]
-        [InlineData("3", "3", "6")]
+        [InlineData("3", "2", "6")]
 
 
         public void LeastCommonMultiple(string target, string num, string expected)
