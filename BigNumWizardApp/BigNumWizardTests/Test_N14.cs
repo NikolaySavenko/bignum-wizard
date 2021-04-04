@@ -20,11 +20,14 @@ namespace BigNumWizardTests
         [InlineData("555555555", "111", "555555555")]
         [InlineData("1111", "555555555", "617222221605")]
         [InlineData("3", "2", "6")]
+        [InlineData("5555555555555555555555555555555556666666666666666666666666666666666", "1", "5555555555555555555555555555555556666666666666666666666666666666666")]
+        [InlineData("2", "9999999999999999999999999999992", "9999999999999999999999999999992")]
+        [InlineData("5000000000000000000000000", "10000000000000000000000000", "10000000000000000000000000")]
+        [InlineData("90", "900000000000000000000000000", "900000000000000000000000000")]
 
 
         public void LeastCommonMultiple(string target, string num, string expected)
         {
-
             Assert.Equal(N8_14.LCM_NN_N(new BigNum(target), new BigNum(num)), new BigNum(expected));
         }
     }
