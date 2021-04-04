@@ -12,14 +12,10 @@ namespace BigNumWizardShared
         {
             return a * b;
         }
-
-        /*
         public static BigNum LCM_NN_N(BigNum a, BigNum b) //N-14 нок натуральных чисел Швец Степан 0305 
         {
-            BigNum res = new BigNum();
-            res = DIV_NN_N(MUL_NN_N(a, b),GCF_NN_N(a, b)); //добавить имена классов
-            return res;
+            return (a * b) / N4_13.GCF_NN_N(a, b);
         }
-        */
+
     }
 }
