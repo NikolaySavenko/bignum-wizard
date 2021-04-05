@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BigNumWizardShared
 {
+	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
 	{
 		private List<byte> number;
