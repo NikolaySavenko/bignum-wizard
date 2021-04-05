@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BigNumWizardShared
 {
@@ -59,91 +58,8 @@ namespace BigNumWizardShared
 
 		public void Add(byte smallNum) => number.Insert(number.Count, smallNum);
 		public void Insert(int index, byte value) => number.Insert(index, value);
-
-		// only when abs A > abs B
-		public static BigNum operator +(BigNum a, BigNum b) {
-			if (b.Positive ^ a.Positive)
-			{
-				BigNum bigger = a > b ? a : b;
-				BigNum less = a > b ? b : a;
-
-				BigNum val = bigger - less;
-				val.Positive = less.Positive;
-				return val;
-			}
-			// TODO rewrite this shit to normal XOR and other stuff
-			if (a.Positive && !b.Positive)
-			{
-				return a.Absolute - b.Absolute;
-			}
-			else if (!a.Positive && b.Positive)
-			{
-				BigNum val = a.Absolute - b.Absolute;
-				val.Positive = false;
-				return val;
-			}
-			else if (!a.Positive && !b.Positive)
-			{
-				BigNum val = a.Absolute + b.Absolute;
-				val.Positive = false;
-				return val;
-			}
-			// a and b is positive
-			
-			while (a.Lenght < b.Lenght) a.Add(0);
-			while (b.Lenght < a.Lenght) b.Add(0);
-			// new BigNum(a) to make deep copy
-			BigNum newNum = new BigNum(a);
-			/*for (var i = 0; i < b.Lenght; i++) {
-				newNum.recursiveAdd(a[i], i);
-			}*/
-
-			for (var i = 0; i < b.Lenght; i++) {
-				newNum.recursiveAdd(b[i], i);
-			}
-			return newNum;
-		}
-
-		// only when abs A > abs B
-		public static BigNum operator -(BigNum a, BigNum b)
-		{
-			if (b.Positive ^ a.Positive)
-			{
-				BigNum absBigger = a.Absolute > b.Absolute ? a : b;
-				BigNum absLess = a.Absolute > b.Absolute ? b : a;
-
-				BigNum val = absBigger.Absolute - absLess.Absolute;
-				val.Positive = absBigger.Positive;
-				return val;
-			}
-			if (b.Absolute > a.Absolute) { 
-				BigNum val = b.Absolute - a.Absolute;
-				val.Positive = !a.Positive;
-				return val;
-			}
-			// TODO rewrite this shit to normal XOR and other stuff
-			if (a.Positive && !b.Positive) {
-				return a.Absolute + b.Absolute;
-			} else if (!a.Positive && b.Positive) {
-				BigNum val = a.Absolute + b.Absolute;
-				val.Positive = false;
-				return val;
-			} else if (!a.Positive && !b.Positive) {
-				BigNum val = a.Absolute - b.Absolute;
-				val.Positive = false;
-				return val;
-			}
-			// a and b is positive
-			
-			while (a.Lenght < b.Lenght) a.Add(0);
-			while (b.Lenght < a.Lenght) b.Add(0);
-			BigNum newNum = new BigNum(a);
-			// ITS A TRAP!
-			for (var i = 0; i < b.Lenght; i++) newNum.recursivePick(b[i], i);
-
-			DeleteInsignificantZeros(ref newNum);
-			return newNum;
-		}
+		// length... Nikolay... fukin idiot...
+		public int Lenght { get => number.Count; }
 
 		private static void DeleteInsignificantZeros(ref BigNum num) {
 			// deleting Insignificant zeros
@@ -166,117 +82,6 @@ namespace BigNumWizardShared
 				}
 				number[key] = value;
 			}
-		}
-		// TODO move this shit (fukin shit) to this[int key] set
-		private void recursiveAdd(byte add, int index) {
-			while (index >= number.Count)
-			{
-				Add(0);
-			}
-			// for (var i = number.Count - 1; i >= 0; i--) { }
-			number[index] += add;
-			if (number[index] > 9) {
-				byte nextAdd = (byte)(number[index] / 10);
-				recursiveAdd(nextAdd, index + 1);
-				number[index] = (byte)(number[index] % 10);
-			}
-		}
-
-		// TODO move this shit (fukin again shit) to this[int key] set
-		private void recursivePick(byte pick, int index)
-		{
-			// TODO check index + 1
-			while (number.Count < index + 1)
-			{
-				number.Add(0);
-			}
-			if (number[index] < pick) {
-				recursivePick(1, index + 1);
-				number[index] += 10;
-			}
-			number[index] -= pick;
-		}
-
-		public static explicit operator int(BigNum bNum)
-		{
-			return int.Parse((string)bNum);
-		}
-
-		public static explicit operator string(BigNum bNum)
-		{
-			var enumerator = bNum.number.GetEnumerator();
-			var sb = new StringBuilder();
-			while (enumerator.MoveNext())
-			{
-				sb.Insert(0, enumerator.Current);
-			}
-			if (!bNum.Positive) sb.Insert(0, "-");
-			return sb.ToString();
-		}
-
-		public static bool operator >(BigNum a, BigNum b) => a.CompareTo(b) > 0;
-
-		public static bool operator >=(BigNum a, BigNum b) => a.CompareTo(b) >= 0;
-
-		public static bool operator <(BigNum a, BigNum b) => a.CompareTo(b) < 0;
-
-		public static bool operator <=(BigNum a, BigNum b) => a.CompareTo(b) <= 0;
-
-		public static bool operator ==(BigNum a, BigNum b) => a.Equals(b);
-
-		public static bool operator !=(BigNum a, BigNum b) => !a.Equals(b);
-		// length... Nikolay... fukin idiot...
-		public int Lenght { get => number.Count; }
-
-		// IEnumerable
-
-		public IEnumerator<byte> GetEnumerator() => number.GetEnumerator();
-
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-		// IComparable
-
-		// TODO make this shit alike normal
-		public int CompareTo(object obj)
-		{
-			if (obj == null) { 
-				return Positive ? 1 : -1;
-			}
-			
-			var target = obj as BigNum;
-			
-			while (Lenght < target.Lenght) Add(0);
-			while (target.Lenght < Lenght) target.Add(0);
-
-			if (Positive && !target.Positive) return 1;
-			else if (!Positive && target.Positive) return -1;
-
-			// Len of a and b is equals
-			for (var i = Lenght - 1; i >= 0; i--) {
-				if (target[i] != this[i]) {
-					var compared = this[i].CompareTo(target[i]);
-					return Positive ? compared : compared * -1;
-				}
-			}
-			return 0;
-		}
-
-		// IEquatable
-
-		public bool Equals(BigNum other)
-		{
-			// O - Optimization!
-			if (Positive != other.Positive) {
-				var zero = new BigNum();
-				if (other.Absolute == zero && Absolute == zero) return true;
-				else return false;
-			}
-			if (Lenght != other.Lenght) return false;
-
-			for (var i = 0; i < Lenght; i++) {
-				if (number[i] != other[i]) return false;
-			}
-			return true;
 		}
 	}
 }
