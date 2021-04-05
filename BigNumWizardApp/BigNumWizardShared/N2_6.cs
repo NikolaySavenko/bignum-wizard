@@ -8,7 +8,7 @@ namespace BigNumWizardShared
     {
         public static string NZER_N_B(BigNum n)
         {
-            if (n != new BigNum("0")) return "yes";
+            if (n != BigNum.Zero) return "yes";
             else return "no";
         }
 

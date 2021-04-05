@@ -13,9 +13,9 @@
             Denom = _Denom.Absolute;        // Проверка на нуль в знаменателе не производится
         }
 
-        public BigFraction(BigNum _Nom) : this(_Nom, new BigNum("1")) { }   // Конструктор. Преобразовать число в дробь(знаменатель будет равен 1)
+        public BigFraction(BigNum _Nom) : this(_Nom, BigNum.One) { }   // Конструктор. Преобразовать число в дробь(знаменатель будет равен 1)
 
-        public BigFraction() : this(new BigNum("1"), new BigNum("1")) { }   // Конструктор. Создать единицу в виде дроби
+        public BigFraction() : this(BigNum.One, BigNum.One) { }   // Конструктор. Создать единицу в виде дроби
 
         public BigFraction GetInversed()    // Получить обратную дробь
         { 
@@ -62,7 +62,7 @@
                     }
                     else
                     {
-                        result.Nom = new BigNum("0");
+                        result.Nom = BigNum.Zero;
                         return result;
                     }
 

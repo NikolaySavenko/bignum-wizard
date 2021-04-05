@@ -28,7 +28,7 @@ namespace BigNumWizardTests.Negative
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum sum = bigNum1 + bigNum2;
 
-			Assert.Equal(new BigNum("0"), sum);
+			Assert.Equal(BigNum.Zero, sum);
 		}
 
 
@@ -41,7 +41,7 @@ namespace BigNumWizardTests.Negative
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum sum = bigNum1 + bigNum2;
 
-			Assert.Equal(new BigNum("0"), sum);
+			Assert.Equal(BigNum.Zero, sum);
 		}
 
 		[Fact]

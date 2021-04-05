@@ -30,14 +30,14 @@ namespace BigNumWizardShared
 				{
 					tmp *= new BigNum(Math.Pow(ten, power + 1).ToString());
 				}
-				while (rem - tmp > new BigNum("0"))
+				while (rem - tmp > BigNum.Zero)
 				{
 					rem -= tmp;
 					result += new BigNum(Math.Pow(ten, power).ToString());
 				}
 			}
 			remainer = rem;
-			return new BigNum("1");
+			return BigNum.One;
 		}
 	}
 }
