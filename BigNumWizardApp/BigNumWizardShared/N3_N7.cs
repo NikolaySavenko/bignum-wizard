@@ -8,7 +8,7 @@ namespace BigNumWizardShared
     {
         public static BigNum ADD_1N_N(BigNum number) //N-3 добавление единицы к нат. числу Петракова Марина 0305
         {
-            BigNum res_number = number + new BigNum("1");
+            BigNum res_number = number + BigNum.One;
             return res_number;
         }
 

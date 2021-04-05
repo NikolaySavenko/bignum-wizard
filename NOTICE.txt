@@ -1,0 +1,3 @@
+Copyright © 2021 BigNumWizards. All rights reserved.
+Authors: Nikolay Savenko, Anastasia Pukha, Vladimir Bratsun, Artem Ivanov, Alexey Kabanov, 
+Stepan Karpekin, Alexandra Lukina, Nikita Osiptsov, Marina Petrakova, Elizaveta Solovyova, Stepan Shvets

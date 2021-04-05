@@ -8,7 +8,7 @@ namespace BigNumWizardShared
     {
         public static BigNum TRANS_Q_Z(BigNum fir, BigNum sec)
         {
-            if (sec == new BigNum("1"))
+            if (sec == BigNum.One)
             {
                 return fir;
             }
