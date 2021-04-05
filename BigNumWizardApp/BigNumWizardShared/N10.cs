@@ -17,7 +17,7 @@ namespace BigNumWizard
             {
                 frstnum = num1 % num2;
                 for (count = 0; count > 9; count++)
-                    frstnum = frstnum % BigNum.Ten;
+                    frstnum %= BigNum.Ten;
                 return N3_N7.MUL_Nk_N(num2, count);
             }
             else if (Natural1_5.COM_NN_D(num1, num2) == 1)

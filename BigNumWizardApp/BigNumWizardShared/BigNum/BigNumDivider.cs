@@ -7,7 +7,7 @@ namespace BigNumWizardShared
 	{
 		public static BigNum operator /(BigNum a, BigNum b)
 		{
-			return Divide(a, b, out var rem);
+			return Divide(a, b, out var _);
 		}
 
 		public static BigNum operator %(BigNum a, BigNum b)
