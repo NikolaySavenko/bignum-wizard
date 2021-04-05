@@ -49,6 +49,8 @@ namespace BigNumWizardShared
 				}
 			}
 			remainer = rem;
+			DeleteInsignificantZeros(ref remainer);
+			DeleteInsignificantZeros(ref result);
 			return result;
 		}
 	}
