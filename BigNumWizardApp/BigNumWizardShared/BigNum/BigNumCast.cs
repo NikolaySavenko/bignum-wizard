@@ -8,18 +8,18 @@ namespace BigNumWizardShared
 	{
 		public static explicit operator int(BigNum bNum)
 		{
-			return int.Parse((string)bNum);
+			return int.Parse(bNum.ToString());
 		}
 
-		public static explicit operator string(BigNum bNum)
+		public override string ToString()
 		{
-			var enumerator = bNum.number.GetEnumerator();
+			var enumerator = number.GetEnumerator();
 			var sb = new StringBuilder();
 			while (enumerator.MoveNext())
 			{
 				sb.Insert(0, enumerator.Current);
 			}
-			if (!bNum.Positive) sb.Insert(0, "-");
+			if (!Positive) sb.Insert(0, "-");
 			return sb.ToString();
 		}
 	}

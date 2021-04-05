@@ -12,7 +12,7 @@ namespace BigNumWizardShared
 
 		public static BigNum operator %(BigNum a, BigNum b)
 		{
-			return new BigNum((BigInteger.Parse((string)a) % BigInteger.Parse((string)b)).ToString());
+			return new BigNum((BigInteger.Parse(a.ToString()) % BigInteger.Parse(b.ToString())).ToString());
 		}
 
 		public static BigNum Divide(BigNum source, BigNum divider, out BigNum remainer)
