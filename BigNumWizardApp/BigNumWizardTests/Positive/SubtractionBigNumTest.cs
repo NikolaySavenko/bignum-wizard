@@ -82,7 +82,7 @@ namespace BigNumWizardTests
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum substr = bigNum1 - bigNum2;
 
-			Assert.Equal(new BigNum("-1"), substr);
+			Assert.Equal(BigNum.MinusOne, substr);
 		}
 
 		[Fact]
