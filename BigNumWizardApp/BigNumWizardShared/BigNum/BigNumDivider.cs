@@ -7,12 +7,13 @@ namespace BigNumWizardShared
 	{
 		public static BigNum operator /(BigNum a, BigNum b)
 		{
-			return Divide(a, b, out var rem);
+			return Divide(a, b, out var _);
 		}
 
 		public static BigNum operator %(BigNum a, BigNum b)
 		{
-			return new BigNum((BigInteger.Parse(a.ToString()) % BigInteger.Parse(b.ToString())).ToString());
+			Divide(a, b, out var rem);
+			return rem;
 		}
 
 		public static BigNum Divide(BigNum source, BigNum divider, out BigNum remainer)
@@ -21,6 +22,12 @@ namespace BigNumWizardShared
 			// im so sorry for that
 			// edited division
 			// i hope it's normal
+			if (source.Positive ^ divider.Positive) {
+				var absResult = Divide(source.Absolute, divider.Absolute, out remainer);
+				absResult.Positive = false;
+				return absResult;
+			}
+			// A and B is positive
 			var rem = new BigNum(source);
 			var result = BigNum.Zero;
 
@@ -42,6 +49,8 @@ namespace BigNumWizardShared
 				}
 			}
 			remainer = rem;
+			DeleteInsignificantZeros(ref remainer);
+			DeleteInsignificantZeros(ref result);
 			return result;
 		}
 	}

@@ -44,7 +44,7 @@ namespace BigNumWizardApp
                     case "PageSum":
                         TwoNumbersPage.TargetFunctionDelegate actionSum = (string param1, string param2) =>
                         {
-                            return (string)(new BigNum(param1) + new BigNum(param2));
+                            return (new BigNum(param1) + new BigNum(param2)).ToString();
                         };
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionSum);
                         nvMain.Header = "Сложение";
@@ -52,7 +52,7 @@ namespace BigNumWizardApp
                     case "PageSub":
                         TwoNumbersPage.TargetFunctionDelegate actionSub = (string param1, string param2) =>
                         {
-                            return (string)(new BigNum(param1) - new BigNum(param2));
+                            return (new BigNum(param1) - new BigNum(param2)).ToString();
                         };
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionSub);
                         nvMain.Header = "Вычитание";
@@ -60,7 +60,7 @@ namespace BigNumWizardApp
                     case "PageMultiply":
                         TwoNumbersPage.TargetFunctionDelegate actionMultiply = (string param1, string param2) =>
                         {
-                            return (string)(new BigNum(param1) * new BigNum(param2));
+                            return (new BigNum(param1) * new BigNum(param2)).ToString();
                         };
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionMultiply);
                         nvMain.Header = "Умножение";
@@ -69,7 +69,7 @@ namespace BigNumWizardApp
                         TwoNumbersPage.TargetFunctionDelegate actionDivide = (string param1, string param2) =>
                         {
                             var remainer = new BigNum();
-                            return (string)Z9.DIV_ZZ_Z(new BigNum(param1), new BigNum(param2), out remainer);
+                            return Z9.DIV_ZZ_Z(new BigNum(param1), new BigNum(param2), out remainer).ToString();
                         };
                         ContentFrame.Navigate(typeof(TwoNumbersPage), actionDivide);
                         nvMain.Header = "Деление";
@@ -86,7 +86,7 @@ namespace BigNumWizardApp
                         ThreeNumbersPage.TargetFunctionDelegate actionN9 = (string param1, string param2, string param3) =>
                         {
                             byte value = param3 != "" ? byte.Parse(param3) : (byte)0;
-                            return (string)N9.SUB_NDN_N(new BigNum(param1), new BigNum(param2), value);
+                            return N9.SUB_NDN_N(new BigNum(param1), new BigNum(param2), value).ToString();
                         };
                         ContentFrame.Navigate(typeof(ThreeNumbersPage), actionN9);
                         nvMain.Header = "Подмодуль N9";
@@ -95,7 +95,7 @@ namespace BigNumWizardApp
                         ThreeNumbersPage.TargetFunctionDelegate actionN11 = (string param1, string param2, string param3) =>
                         {
                             var value = new BigNum(param3);
-                            return (string)N11.DIV_NN_N(new BigNum(param1), new BigNum(param2), out value);
+                            return N11.DIV_NN_N(new BigNum(param1), new BigNum(param2), out value).ToString();
                         };
                         ContentFrame.Navigate(typeof(ThreeNumbersPage), actionN11);
                         nvMain.Header = "Подмодуль N11";
