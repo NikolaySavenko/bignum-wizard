@@ -17,7 +17,7 @@ namespace BigNumWizardTests
         {
             var n1 = new BigNum(target);
             var n2 = N2_6.NZER_N_B(n1);
-            Assert.Equal((string)n2, expexted);
+            Assert.Equal(n2.ToString(), expexted);
         }
     }
 }

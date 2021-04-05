@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BigNumWizardShared
 {
+	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class BigNum : IEnumerable<byte>, IComparable, IEquatable<BigNum>
 	{
 		private List<byte> number;
@@ -12,13 +14,11 @@ namespace BigNumWizardShared
 
 		public BigNum Absolute
 		{
-			get
+			get => new BigNum
 			{
-				var absNum = new BigNum();
-				absNum.number = number;
-				absNum.Positive = true;
-				return absNum;
-			}
+				number = number,
+				Positive = true
+			};
 		}
 
 		public BigNum() : this("0") { }
@@ -39,20 +39,24 @@ namespace BigNumWizardShared
 			char[] array = longNumber.ToCharArray();
 			Array.Reverse(array);
 			var reverted = String.Concat<char>(array);
-			foreach (var element in reverted) {
+			foreach (var element in reverted)
+			{
 				number.Add((byte)Char.GetNumericValue(element));
 			}
 		}
 
-		public BigNum(BigNum original) {
+		public BigNum(BigNum original)
+		{
 			number = new List<byte>();
-			foreach (var n in original.number) {
+			foreach (var n in original.number)
+			{
 				number.Add(n);
 			}
 			Positive = original.Positive;
 		}
 
-		public BigNum(string longNumber, bool positive) : this(longNumber) {
+		public BigNum(string longNumber, bool positive) : this(longNumber)
+		{
 			Positive = positive;
 		}
 
@@ -61,7 +65,8 @@ namespace BigNumWizardShared
 		// length... Nikolay... fukin idiot...
 		public int Lenght { get => number.Count; }
 
-		private static void DeleteInsignificantZeros(ref BigNum num) {
+		private static void DeleteInsignificantZeros(ref BigNum num)
+		{
 			// deleting Insignificant zeros
 			for (var i = num.Lenght - 1; i > 0; i--)
 			{
@@ -70,15 +75,19 @@ namespace BigNumWizardShared
 			}
 		}
 
-		public byte this[int key] {
-			get {
+		public byte this[int key]
+		{
+			get
+			{
 				if (key >= number.Count) return 0;
 				return number[key];
 			}
 
-			set {
-				while (number.Count < key + 1) { 
-					number.Add(0); 
+			set
+			{
+				while (number.Count < key + 1)
+				{
+					number.Add(0);
 				}
 				number[key] = value;
 			}

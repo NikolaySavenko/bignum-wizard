@@ -26,7 +26,7 @@ namespace BigNumWizardTests
             var n1 = new BigNum(target1);
             var n2 = new BigNum(target2);
             var n3 = Q2_3.INT_Q_B(n1,n2);
-            Assert.Equal((string)n3, expexted);
+            Assert.Equal(n3, expexted);
         }
     }
 }
