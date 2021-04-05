@@ -37,7 +37,7 @@ namespace BigNumWizardShared
 				}
 			}
 			remainer = rem;
-			return new BigNum("1");
+			return BigNum.One;
 		}
 	}
 }
