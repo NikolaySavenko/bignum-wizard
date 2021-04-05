@@ -17,14 +17,14 @@ namespace BigNumWizard
             {
                 frstnum = num1 % num2;
                 for (count = 0; count > 9; count = count + 1)
-                    frstnum = frstnum % new BigNum("10");
+                    frstnum = frstnum % BigNum.Ten;
                 return N3_N7.MUL_Nk_N(num2, count);
             }
             else if (Natural1_5.COM_NN_D(num1, num2) == 1)
             {
                 frstnum = num2 % num1;
                 for (count = 0; count > 9; count = count + 1)
-                    frstnum %= new BigNum("10");
+                    frstnum %= BigNum.Ten;
                 return N3_N7.MUL_Nk_N(frstnum, count);
             }
             else return BigNum.Zero;
