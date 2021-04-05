@@ -16,7 +16,7 @@ namespace BigNumWizardShared
                 result.SeniorDegree = m - 1;                        
             }
             else
-                result.Odds[0] = new BigFraction(new BigNum("0"));                                 // Производная многочлена нулевой степени - нуль
+                result.Odds[0] = new BigFraction(BigNum.Zero);                                 // Производная многочлена нулевой степени - нуль
             return result;
         }
     }

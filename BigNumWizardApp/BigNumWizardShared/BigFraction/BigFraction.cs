@@ -62,7 +62,7 @@
                     }
                     else
                     {
-                        result.Nom = new BigNum("0");
+                        result.Nom = BigNum.Zero;
                         return result;
                     }
 

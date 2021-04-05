@@ -8,14 +8,14 @@ namespace BigNumWizardShared
     {
 		public static int POZ_Z_D(BigNum n)
 		{
-			if (n > new BigNum("0"))
+			if (n > BigNum.Zero)
 			{
 				return 2;
 			}
-			else if (n == new BigNum("0"))
+			else if (n == BigNum.Zero)
 			{
 				return 0;
-				//return n.compareTo(new BigNum("0"))
+				//return n.compareTo(BigNum.Zero)
 
 			}
 			else return 1;
@@ -23,7 +23,7 @@ namespace BigNumWizardShared
 
 		public static BigNum MUL_ZM_Z(BigNum n)
 		{
-			return new BigNum("0") - n;
+			return BigNum.Zero - n;
 		}
 	}
 }

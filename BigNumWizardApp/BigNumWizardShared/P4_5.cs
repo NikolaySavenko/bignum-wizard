@@ -19,7 +19,7 @@ namespace BigNumWizardShared
 
             for (int i = 0; i < k; i++)
             {
-                polynom.Odds.Add(new BigFraction(new BigNum("0")));
+                polynom.Odds.Add(new BigFraction(BigNum.Zero));
             }
             polynom.SeniorDegree = m + k;
 

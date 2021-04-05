@@ -59,7 +59,7 @@ namespace BigNumWizardShared
                     return res;
                 }
                 else
-                    return new BigNum("0");
+                    return BigNum.Zero;
             }
             else if ((z2_3.POZ_Z_D(A) == 0 && z2_3.POZ_Z_D(B) == 0))      // Если оба нули
                 return A;

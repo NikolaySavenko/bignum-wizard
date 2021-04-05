@@ -33,7 +33,7 @@ namespace BigNumWizardTests
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum substr = bigNum1 - bigNum2;
 
-			Assert.Equal(new BigNum("0"), substr);
+			Assert.Equal(BigNum.Zero, substr);
 		}
 
 		[Fact]
@@ -45,7 +45,7 @@ namespace BigNumWizardTests
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum substr = bigNum1 - bigNum2;
 
-			Assert.Equal(new BigNum("0"), substr);
+			Assert.Equal(BigNum.Zero, substr);
 		}
 
 
@@ -58,7 +58,7 @@ namespace BigNumWizardTests
 			BigNum bigNum2 = new BigNum(num2);
 			BigNum substr = bigNum1 - bigNum2;
 
-			Assert.Equal(new BigNum("0"), substr);
+			Assert.Equal(BigNum.Zero, substr);
 		}
 
 		[Fact]
