@@ -23,7 +23,7 @@ namespace BigNumWizardTests
             var n1 = new BigNum(target1);
             var n2 = new BigNum(target2);
             var n3 = Natural1_5.SUB_NN_N(n1, n2);
-            Assert.Equal(new BigNum((string)n3), new BigNum(expexted));
+            Assert.Equal(n3, new BigNum(expexted));
         }
     }
 }
