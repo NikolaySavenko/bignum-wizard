@@ -19,25 +19,30 @@ namespace BigNumWizardShared
 		{
 			// Please make this shit normal
 			// im so sorry for that
+			// edited division
+			// i hope it's normal
 			var rem = new BigNum(source);
-			var result = new BigNum();
-			while (rem > divider)
+			var result = BigNum.Zero;
+
+			while (rem >= divider)
 			{
 				var tmp = new BigNum(divider);
 				var power = 0;
 				var ten = 10;
+				var count = 0;
 				while (tmp * new BigNum(Math.Pow(ten, power + 1).ToString()) < rem)
 				{
-					tmp *= new BigNum(Math.Pow(ten, power + 1).ToString());
+					tmp = N3_N7.MUL_Nk_N(tmp, power+1);
+					count++;
 				}
-				while (rem - tmp > BigNum.Zero)
+				while (rem - tmp >= BigNum.Zero)
 				{
 					rem -= tmp;
-					result += new BigNum(Math.Pow(ten, power).ToString());
+					result += new BigNum(Math.Pow(ten, power + count).ToString());
 				}
 			}
 			remainer = rem;
-			return BigNum.One;
+			return result;
 		}
 	}
 }
