@@ -22,7 +22,7 @@ namespace BigNumWizardShared
 			// edited division
 			// i hope it's normal
 			var rem = new BigNum(source);
-			var result = new BigNum("0");
+			var result = BigNum.Zero;
 
 			while (rem >= divider)
 			{
@@ -35,7 +35,7 @@ namespace BigNumWizardShared
 					tmp = N3_N7.MUL_Nk_N(tmp, power+1);
 					count++;
 				}
-				while (rem - tmp >= new BigNum("0"))
+				while (rem - tmp >= BigNum.Zero)
 				{
 					rem -= tmp;
 					result += new BigNum(Math.Pow(ten, power + count).ToString());

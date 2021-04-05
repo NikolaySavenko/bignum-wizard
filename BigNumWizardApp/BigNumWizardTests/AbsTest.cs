@@ -32,8 +32,8 @@ namespace BigNumWizardTests.Negative
 		[Fact]
 		public void ZeroAbsTest()
 		{
-			var num = new BigNum("0");
-			Assert.Equal(new BigNum("0"), num.Absolute);
+			var num = BigNum.Zero;
+			Assert.Equal(BigNum.Zero, num.Absolute);
 		}
 	}
 }
