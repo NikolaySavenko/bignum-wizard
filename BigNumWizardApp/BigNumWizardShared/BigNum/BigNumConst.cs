@@ -31,7 +31,7 @@ namespace BigNumWizardShared
 		//     Gets a value that represents the number 10 (ten).
 		//
 		// Returns:
-		//     An BigNum whose value is 10 (zero).
+		//     An BigNum whose value is 10 (ten).
 		public static BigNum Ten { get; } = new BigNum("10");
 	}
 }
