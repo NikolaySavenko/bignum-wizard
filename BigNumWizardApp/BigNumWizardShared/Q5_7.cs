@@ -6,15 +6,7 @@
         {
             var result = fir + sec; // Получить несокращённую дробь-сумму
 
-            if (result.Nom == BigNum.Zero)                              // Если в числителе ноль, то окончательный результат имеет вид 0/1
-                result = new BigFraction(BigNum.Zero, BigNum.One);
-            else                                                        // Иначе дробь сокращается
-            {
-                if (result.Positive == true)
-                    result = Q1.RED_Q_Q(result);
-                else
-                    result = Q1.RED_Q_Q(result).GetOppositeSigned();
-            }
+            result = Q1.RED_Q_Q(result);
             return result;
         }
        
