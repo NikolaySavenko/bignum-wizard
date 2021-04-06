@@ -9,9 +9,48 @@ namespace BigNumWizardTests
         [Theory]
         [InlineData("3214124", "241", "3214365")]//true
         [InlineData("987654321", "-214213", "987440108")]//true
-        [InlineData("3214124", "0", "3214124")]//false
-        [InlineData("987654321", "-2", "987654319")]//false
-        //[InlineData("741852963", "-800053625‬", "-58200662")]
+        [InlineData("3214124", "0", "3214124")]//true
+        [InlineData("987654321", "-2", "987654319")]//true
+        [InlineData("-1", "-2", "-3")]//true
+        [InlineData("1", "2", "3")]//true
+        [InlineData("-3", "4", "1")]//true
+        [InlineData("-7053625", "6418528", "-635097")] //true
+
+        [InlineData("-800053625", "741852963‬", "-58200662")] //false
+
+        [InlineData("-8053625", "7418528‬", "-635096")] //false
+
+        [InlineData("-9053625", "8418529‬", "-635096")] //false
+
+        [InlineData("7418529‬", "-8053625", "-635096")]//false
+
+        [InlineData("-80214", "4216521231‬", "4216441017")]//false
+
+        [InlineData("0", "0‬", "0")]//false
+
+        [InlineData("14218752198", "0", "14218752198")]//true
+        [InlineData("0", "14218752198", "14218752198")]//true
+        [InlineData("0", "-14218752198", "-14218752198")]//true
+        [InlineData("-14218752198", "0", "-14218752198")]//true
+
+        [InlineData("-4250902", "241566412768", "241562161866")]//true
+        [InlineData("-7", "5", "-2")]//true
+        [InlineData("5", "-7", "-2")]//true
+        [InlineData("10", "-7", "3")]//true
+        [InlineData("-10", "7", "-3")]//true
+        [InlineData("-15214214215", "4215872", "-15209998343")]//true
+        [InlineData("15214214215", "-4215872", "15209998343")]//true
+
+
+        [InlineData("214125125213", "-55212121562158291", "-55211907437033078")]//true
+        [InlineData("2175656219820", "-5621967821705012", "-5619792165485192")]//true
+        [InlineData("-5621967821705012", "2175656219820", "-5619792165485192")]//true
+        [InlineData("5621967821705012", "-2175656219820", "5619792165485192")]//true
+
+
+        [InlineData("21678021304021", "-78921790002415421", "-78900111981111400")]//true
+        [InlineData("-11256787213", "-24621787592", "-35878574805")]//true
+        [InlineData("5", "-6", "-1")]//true
 
         public void Sum_Int_Test(string target, string num, string expexted)
         {
