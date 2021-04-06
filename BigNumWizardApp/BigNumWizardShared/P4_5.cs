@@ -8,7 +8,7 @@ namespace BigNumWizardShared
     public class P4_5
     {
 
-        public static int LED_P_Q(int m, List<int> C)
+        public static BigFraction LED_P_Q(int m, List<BigFraction> C)
         {
             return C[0];
         }
