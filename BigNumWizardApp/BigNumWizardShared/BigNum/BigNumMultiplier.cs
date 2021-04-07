@@ -32,9 +32,10 @@ namespace BigNumWizardShared
 						aCopy.Insert(0, 0);
 					}
 				}
+				DeleteInsignificantZeros(aCopy);
 				newNum += aCopy;
 			}
-			DeleteInsignificantZeros(ref newNum);
+			DeleteInsignificantZeros(newNum);
 			return newNum;
 		}
 
@@ -57,6 +58,7 @@ namespace BigNumWizardShared
 				recursiveAdd(nextAdd, index + 1);
 				number[index] = (byte)(number[index] % 10);
 			}
+			DeleteInsignificantZeros(this);
 		} 
 	}
 }

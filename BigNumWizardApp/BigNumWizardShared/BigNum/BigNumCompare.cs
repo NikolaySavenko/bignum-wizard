@@ -29,11 +29,11 @@ namespace BigNumWizardShared
 
 			var target = obj as BigNum;
 
-			while (Lenght < target.Lenght) Add(0);
-			while (target.Lenght < Lenght) target.Add(0);
-
 			if (Positive && !target.Positive) return 1;
 			else if (!Positive && target.Positive) return -1;
+
+			while (Lenght < target.Lenght) Add(0);
+			while (target.Lenght < Lenght) target.Add(0);
 
 			// Len of a and b is equals
 			for (var i = Lenght - 1; i >= 0; i--)
@@ -41,9 +41,11 @@ namespace BigNumWizardShared
 				if (target[i] != this[i])
 				{
 					var compared = this[i].CompareTo(target[i]);
+					DeleteInsignificantZeros(target, this);
 					return Positive ? compared : compared * -1;
 				}
 			}
+			DeleteInsignificantZeros(target, this);
 			return 0;
 		}
 
