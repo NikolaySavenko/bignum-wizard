@@ -31,6 +31,7 @@ namespace BigNumWizardTests.Compare
 		[Theory]
 		[InlineData("12412345", "123")]
 		[InlineData("1234524", "12200")]
+		[InlineData("876987686786876876987576576196565352430234524", "122012123132132132231230")]
 		[InlineData("12446", "123")]
 		[InlineData("12446235435234435343534", "1")]
 		[InlineData("124462354098735234435343534", "-1")]
