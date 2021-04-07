@@ -47,8 +47,7 @@ namespace BigNumWizardShared
 			BigNum newNum = new BigNum(a);
 			// ITS A TRAP!
 			for (var i = 0; i < b.Lenght; i++) newNum.recursivePick(b[i], i);
-
-			DeleteInsignificantZeros(ref newNum);
+			DeleteInsignificantZeros(newNum, a, b);
 			return newNum;
 		}
 

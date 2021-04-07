@@ -65,13 +65,21 @@ namespace BigNumWizardShared
 		// length... Nikolay... fukin idiot...
 		public int Lenght { get => number.Count; }
 
-		private static void DeleteInsignificantZeros(ref BigNum num)
+		public static void DeleteInsignificantZeros(ref BigNum num)
 		{
 			// deleting Insignificant zeros
 			for (var i = num.Lenght - 1; i > 0; i--)
 			{
 				if (num.number[i] == 0) num.number.RemoveAt(i);
 				else break;
+			}
+		}
+
+		public static void DeleteInsignificantZeros(params BigNum[] nums)
+		{
+			for (int i = 0; i < nums.Length; i++) {
+				BigNum num = nums[i];
+				DeleteInsignificantZeros(ref num);
 			}
 		}
 
