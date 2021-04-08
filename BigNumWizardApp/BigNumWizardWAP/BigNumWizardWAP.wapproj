@@ -61,9 +61,10 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateThumbprint>F10D3B72C0E0B09B3F69E376933659952C50138C</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>22438A23AA1A3CB8733C64B94666182D493A1419</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com</AppxPackageSigningTimestampServerUrl>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <PackageCertificateKeyFile>BigNumWizardWAP_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <AppxBundle>Always</AppxBundle>
@@ -101,6 +102,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BigNumWizardWAP_TemporaryKey.pfx" />
     <Content Include="Images\LargeTile.scale-100.png" />
     <Content Include="Images\LargeTile.scale-125.png" />
     <Content Include="Images\LargeTile.scale-150.png" />

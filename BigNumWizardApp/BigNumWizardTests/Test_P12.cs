@@ -24,21 +24,21 @@ namespace BigNumWizardTests
                     {
                         1,
                         new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(new BigNum("2")) },
-                        new Polynomial(0,new List<BigFraction>(){new BigFraction(new BigNum("2"))})
+                        new Polynomial(BigNum.Zero,new List<BigFraction>(){new BigFraction(new BigNum("2"))})
                     },
 
                     new object[]
                     {
                         2,
                         new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(BigNum.Zero), new BigFraction(new BigNum("2344")) },
-                        new Polynomial(1,new List<BigFraction>(){new BigFraction(BigNum.Zero),new BigFraction(new BigNum("4688"))})
+                        new Polynomial(BigNum.One,new List<BigFraction>(){new BigFraction(BigNum.Zero),new BigFraction(new BigNum("4688"))})
                     },
 
                     new object[]
                     {
                         3,
                         new List<BigFraction>() { new BigFraction(new BigNum("34798547874")), new BigFraction(new BigNum("4")), new BigFraction(new BigNum("7654")), new BigFraction(new BigNum("2344")) },
-                        new Polynomial(2,new List<BigFraction>(){new BigFraction(new BigNum("4")), new BigFraction(new BigNum("15308")), new BigFraction(new BigNum("7032"))})
+                        new Polynomial(new BigNum("2"),new List<BigFraction>(){new BigFraction(new BigNum("4")), new BigFraction(new BigNum("15308")), new BigFraction(new BigNum("7032"))})
                     },
                 };
             }
