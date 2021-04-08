@@ -10,8 +10,11 @@ namespace BigNumWizardTests
 
         public static void MultiplyPolynomOnQ(int m, List<BigFraction> c, BigFraction num, Polynomial res)
         {
-            Polynomial mult = P3.MUL_PQ_P(m, c, num);  //THIS TESTS DOESN'T WORK
-            Assert.Equal(res, mult);
+            Polynomial mult = P3.MUL_PQ_P(m, c, num); 
+            Assert.Equal(res, mult);  //THIS TESTS DOESN'T WORK 
+            Assert.Equal(res.Odds[0], mult.Odds[0]); //but it do
+            //PROBLEM
+            //when you multiply negative number to zero, it returns positive result: (0/1)
         }
 
         public static IEnumerable<object[]> Data
@@ -85,7 +88,14 @@ namespace BigNumWizardTests
                         new List<BigFraction>(){ new BigFraction(BigNum.One), new BigFraction(new BigNum("-467887632454656878989787552333333333333333333345678"), new BigNum("-123")), new BigFraction(new BigNum("44444444444444444444444444444444")), new BigFraction(BigNum.Ten)},
                         new BigFraction(new BigNum("12345"), new BigNum("-11111111117")),
                         new Polynomial(new BigNum("3"), new List<BigFraction>(){ new BigFraction(new BigNum("12345"), new BigNum("-11111111117")), new BigFraction(new BigNum("-5776072822652739171128927333555000000000000000152394910"), new BigNum("1366666667391")), new BigFraction(new BigNum("548666666666666666666666666666661180"), new BigNum("-11111111117")), new BigFraction(new BigNum("123450"), new BigNum("-11111111117")) })
-                    }
+                    },
+                    new object[]
+                    {
+                        1,
+                        new List<BigFraction>(){ new BigFraction(new BigNum("111111111111111111111111111111111111111111111111111111")), new BigFraction(new BigNum("999999999999999999999999999999999999999999999999999999999999999999999999999999")) },
+                        new BigFraction(BigNum.Zero),
+                        new Polynomial(BigNum.One, new List<BigFraction>(){ new BigFraction(BigNum.Zero), new BigFraction(BigNum.Zero) })
+                    },
                 };
             }
         }
