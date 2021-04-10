@@ -9,7 +9,7 @@ namespace BigNumWizardApp //Bratsun
 {
     public class P7
     {
-        public static BigNum FAC_P_Q(int m, List<BigFraction> C) //Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей
+        public static BigFraction FAC_P_Q(int m, List<BigFraction> C) //Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей
         {
             var polynom = new Polynomial(new BigNum(m.ToString()), C);
             BigNum count = BigNum.One;
@@ -40,7 +40,6 @@ namespace BigNumWizardApp //Bratsun
                     else
                         return gcd(b, a % b);
                 }
-                return reduce(mass[0], mass); //НОД числителей
 
 
                 for (int i = 0; i < m - 1; i++)
@@ -65,12 +64,11 @@ namespace BigNumWizardApp //Bratsun
                 {
                     M = (M * array[i]) / GCD(M, array[i]);
                 }
-                return M; //НОК знаменателей
+                return new BigFraction(reduce(mass[0], mass), M); //НОД числителей /НОК знаменателей
             }
             else
             {
-                return polynom.Odds[0].Nom;
-                return polynom.Odds[0].Denom;
+                return new BigFraction(polynom.Odds[0].Nom, polynom.Odds[0].Denom);
             }
 
         }
