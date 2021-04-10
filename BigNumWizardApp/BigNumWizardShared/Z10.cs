@@ -8,12 +8,7 @@ namespace BigNumWizardShared
     {
         public static BigNum MOD_ZZ_Z(BigNum fir, BigNum sec, out BigNum remainer)  //Остаток от деления целого на целое(делитель отличен от нуля) Кабанов 0305
         {
-            BigNum tmp_fir;
-            BigNum tmp_sec;
-
-
-            //return fir % sec;
-
+            remainer = BigNum.Zero;
             if (z2_3.POZ_Z_D(fir) == 2 && z2_3.POZ_Z_D(sec) == 2)
             {
                 remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
@@ -32,7 +27,7 @@ namespace BigNumWizardShared
                 }
             }
             else if (z2_3.POZ_Z_D(fir) == 1 && z2_3.POZ_Z_D(sec) == 2)
-            { 
+            {
                 remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
 
                 if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
@@ -45,10 +40,10 @@ namespace BigNumWizardShared
                 }
                 else
                 {
-                    
+
                     remainer = Z8.MUL_ZZ_Z(sec, remainer + BigNum.MinusOne);
                     remainer = Z7.SUB_ZZ_Z(fir, remainer);
-                    
+
                     return remainer;
                 }
             }
@@ -59,7 +54,7 @@ namespace BigNumWizardShared
 
                 if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
                     return BigNum.Zero;
-                else if(Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
+                else if (Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
                 {
                     return fir;
                 }
@@ -93,6 +88,8 @@ namespace BigNumWizardShared
                     return remainer;
                 }
             }
+            else if (z2_3.POZ_Z_D(fir) == 0)
+                return BigNum.Zero;
             else
                 throw new Exception("Something went wrong");
         }
