@@ -12,7 +12,7 @@ namespace BigNumWizardTests
         {
             var result = new BigFraction(new BigNum(res_nom), new BigNum(res_denom));
 
-            Assert.Equal(result, P7.FAC_P_Q(input_seniorDegree, input_members);
+            Assert.Equal(result, P7.FAC_P_Q(input_seniorDegree, input_members));
         }
 
         public static IEnumerable<object[]> Data
