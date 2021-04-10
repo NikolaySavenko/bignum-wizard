@@ -1,11 +1,10 @@
-﻿using BigNumWizardShared;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BigNumWizardApp //Bratsun
+namespace BigNumWizardShared //Bratsun
 {
     public class P7
     {
