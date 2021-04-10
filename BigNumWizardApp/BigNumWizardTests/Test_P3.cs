@@ -11,10 +11,8 @@ namespace BigNumWizardTests
         public static void MultiplyPolynomOnQ(int m, List<BigFraction> c, BigFraction num, Polynomial res)
         {
             Polynomial mult = P3.MUL_PQ_P(m, c, num); 
-            Assert.Equal(res, mult);  //THIS TESTS DOESN'T WORK 
-            Assert.Equal(res.Odds[0], mult.Odds[0]); //but it do
-            //PROBLEM
-            //when you multiply negative number to zero, it returns positive result: (0/1)
+            Assert.Equal(res.Odds, mult.Odds);
+            Assert.Equal(res.SeniorDegree, mult.SeniorDegree);
         }
 
         public static IEnumerable<object[]> Data
