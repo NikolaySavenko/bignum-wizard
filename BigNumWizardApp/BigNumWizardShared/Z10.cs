@@ -6,50 +6,92 @@ namespace BigNumWizardShared
 {
     public class Z10
     {
-        public static BigNum MOD_ZZ_Z(BigNum fir, BigNum sec, out BigNum remainer)
+        public static BigNum MOD_ZZ_Z(BigNum fir, BigNum sec, out BigNum remainer)  //Остаток от деления целого на целое(делитель отличен от нуля) Кабанов 0305
         {
             BigNum tmp_fir;
             BigNum tmp_sec;
 
+
+            //return fir % sec;
+
             if (z2_3.POZ_Z_D(fir) == 2 && z2_3.POZ_Z_D(sec) == 2)
             {
-                tmp_fir = Z9.DIV_ZZ_Z(fir, sec, out remainer);
-                tmp_sec = Z8.MUL_ZZ_Z(tmp_fir, sec);
+                remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
 
-                remainer = Z7.SUB_ZZ_Z(fir, tmp_sec);
-                
-                return remainer;
+                if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
+                    return BigNum.Zero;
+                else if (Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
+                {
+                    return fir;
+                }
+                else
+                {
+                    remainer = Z8.MUL_ZZ_Z(sec, remainer);
+                    remainer = Z7.SUB_ZZ_Z(fir, remainer);
+                    return remainer;
+                }
             }
-            else if(z2_3.POZ_Z_D(fir) == 1 && z2_3.POZ_Z_D(sec) == 2)
-            {
-                tmp_fir = z2_3.MUL_ZM_Z(fir);
+            else if (z2_3.POZ_Z_D(fir) == 1 && z2_3.POZ_Z_D(sec) == 2)
+            { 
+                remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
 
-                tmp_fir = Z9.DIV_ZZ_Z(tmp_fir, sec, out remainer);
-                tmp_sec = Z8.MUL_ZZ_Z(tmp_fir + BigNum.One, sec);
-
-                remainer = Z7.SUB_ZZ_Z(tmp_sec, fir);
-                return remainer;
+                if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
+                    return BigNum.Zero;
+                else if (Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
+                {
+                    //remainer = z2_3.MUL_ZM_Z(fir);
+                    remainer = Z7.SUB_ZZ_Z(fir, fir + fir);
+                    return remainer;
+                }
+                else
+                {
+                    
+                    remainer = Z8.MUL_ZZ_Z(sec, remainer + BigNum.MinusOne);
+                    remainer = Z7.SUB_ZZ_Z(fir, remainer);
+                    
+                    return remainer;
+                }
             }
-            else if(z2_3.POZ_Z_D(fir) == 2 && z2_3.POZ_Z_D(sec) == 1)
+            else if (z2_3.POZ_Z_D(fir) == 2 && z2_3.POZ_Z_D(sec) == 1)
             {
-                tmp_sec = z2_3.MUL_ZM_Z(sec);
 
-                tmp_fir = Z9.DIV_ZZ_Z(fir, tmp_sec, out remainer);
-                tmp_sec = Z8.MUL_ZZ_Z(tmp_fir + BigNum.One, sec);
+                remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
 
-                remainer = Z7.SUB_ZZ_Z(tmp_sec, fir);
-                return remainer;
+                if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
+                    return BigNum.Zero;
+                else if(Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
+                {
+                    return fir;
+                }
+                else
+                {
+                    remainer = Z8.MUL_ZZ_Z(sec, remainer);
+
+                    remainer = Z7.SUB_ZZ_Z(fir, remainer);
+                    return remainer;
+                }
+
             }
-            else if(z2_3.POZ_Z_D(fir) == 1 && z2_3.POZ_Z_D(sec) == 1)
+            else if (z2_3.POZ_Z_D(fir) == 1 && z2_3.POZ_Z_D(sec) == 1)
             {
-                tmp_fir = z2_3.MUL_ZM_Z(fir);
-                tmp_sec = z2_3.MUL_ZM_Z(sec);
+                remainer = Z9.DIV_ZZ_Z(fir, sec, out _);
 
-                remainer = Z9.DIV_ZZ_Z(tmp_sec, tmp_sec, out remainer);
-                remainer = Z8.MUL_ZZ_Z(remainer + BigNum.One, tmp_sec);
+                if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
+                    return BigNum.Zero;
+                else if (Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
+                {
+                    //remainer = z2_3.MUL_ZM_Z(fir);
+                    remainer = Z7.SUB_ZZ_Z(fir, fir + fir);
+                    return remainer;
+                }
+                else
+                {
 
-                remainer = Z7.SUB_ZZ_Z(tmp_fir, remainer);
-                return remainer;
+                    remainer = Z8.MUL_ZZ_Z(sec, remainer + BigNum.One);
+                    remainer = Z7.SUB_ZZ_Z(fir, remainer);
+
+                    return remainer;
+                }
             }
             else
                 throw new Exception("Something went wrong");
