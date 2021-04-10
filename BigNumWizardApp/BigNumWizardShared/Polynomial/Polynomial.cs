@@ -14,5 +14,19 @@ namespace BigNumWizardShared
             SeniorDegree = m;
             Odds = C;
         }
+
+        public override bool Equals(object obj) { return Equals(obj as Polynomial); }
+
+        public bool Equals(Polynomial other) 
+        { 
+            for (int i = 0; i < other.Odds.Count; i++)
+            {
+                if (other.Odds[i] != Odds[i])
+                {
+                    return false;
+                }
+            }
+            return other != null && other.SeniorDegree == SeniorDegree;
+        }
     }
 }
