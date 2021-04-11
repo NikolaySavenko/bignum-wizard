@@ -1,6 +1,7 @@
 ﻿using BigNumWizardShared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BigNumWizardShared
@@ -17,16 +18,12 @@ namespace BigNumWizardShared
 
         public override bool Equals(object obj) { return Equals(obj as Polynomial); }
 
-        public bool Equals(Polynomial other) 
-        { 
-            for (int i = 0; i < other.Odds.Count; i++)
-            {
-                if (other.Odds[i] != Odds[i])
-                {
-                    return false;
-                }
-            }
-            return other != null && other.SeniorDegree == SeniorDegree;
+        public bool Equals(Polynomial other)
+        {
+            var degreeCompare = other.SeniorDegree == SeniorDegree;
+            var oddsCompare = Odds.SequenceEqual(other.Odds);
+            var checkNull = other != null;
+            return degreeCompare && oddsCompare && checkNull;
         }
     }
 }

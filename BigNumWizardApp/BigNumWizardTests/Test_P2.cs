@@ -14,8 +14,7 @@ namespace BigNumWizardTests
         {
             var actualPolynom = P1_2.SUB_PP_P(m1, c1, m2, c2);
 
-            Assert.Equal(res.Odds, actualPolynom.Odds); 
-            Assert.Equal(res.SeniorDegree, actualPolynom.SeniorDegree); 
+            Assert.Equal(res, actualPolynom);
         }
 
         public static IEnumerable<object[]> Data
