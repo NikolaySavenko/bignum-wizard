@@ -77,7 +77,7 @@ namespace BigNumWizardShared
                 else
                 {
                     abs2 = Absolute.ABS_Z_N(B);
-                    return B;
+                    return abs2;
                 }
             }
         }
