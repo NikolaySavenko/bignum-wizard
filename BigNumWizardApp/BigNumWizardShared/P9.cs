@@ -10,7 +10,7 @@ namespace BigNumWizardShared
         {
             int d = m1 - m2;
 
-            var resultSeniorDegree = new BigNum(d.ToString());
+            
             var resultOdds = new List<BigFraction>();
 
             for (int i = 0; i < d + 1; i++)
@@ -24,6 +24,13 @@ namespace BigNumWizardShared
                 C1.RemoveAt(0);
             }
 
+            if (d < 0)
+            {
+                d = 0;
+                resultOdds.Add(new BigFraction(BigNum.Zero));
+            }
+
+            var resultSeniorDegree = new BigNum(d.ToString());
             var resultPolynom = new Polynomial(resultSeniorDegree, resultOdds);
 
             return resultPolynom;
