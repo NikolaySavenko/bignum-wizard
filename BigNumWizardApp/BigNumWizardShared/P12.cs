@@ -4,16 +4,16 @@ namespace BigNumWizardShared
 {
    public class P12
     {
-        public static Polynomial DER_P_P(int m, List<BigFraction> C) // P12, производная многочлена, Осипцов Никита 0305
+        public static Polynomial DER_P_P(BigNum m, List<BigFraction> C) // P12, производная многочлена, Осипцов Никита 0305
         {
-            var result = new Polynomial(new BigNum(m.ToString()), C);
+            var result = new Polynomial(m, C);
 
-            if (m != 0) 
+            if (m != BigNum.Zero) 
             {
-                for (int i = 0; i < m; i++)                         // Все степени понижаются, нулевая исчезает, коэффициенты при остальных
-                    result.Odds[i] = result.Odds[i + 1] * new BigFraction(new BigNum((i + 1).ToString()));  // равны произведению коэффициента при следующей степени на её показатель
-                result.Odds.RemoveAt(m);          
-                result.SeniorDegree = new BigNum((m - 1).ToString());                        
+                for (var i = BigNum.Zero; i < m; i = i + BigNum.One)                         // Все степени понижаются, нулевая исчезает, коэффициенты при остальных
+                    result.Odds[i.ConvertToInt()] = result.Odds[i.ConvertToInt() + 1] * new BigFraction(i + BigNum.One);  // равны произведению коэффициента при следующей степени на её показатель
+                result.Odds.RemoveAt(m.ConvertToInt());
+                result.SeniorDegree = m - BigNum.One;                        
             }
             else
                 result.Odds[0] = new BigFraction(BigNum.Zero);                                 // Производная многочлена нулевой степени - нуль
