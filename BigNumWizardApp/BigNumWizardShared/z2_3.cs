@@ -23,7 +23,7 @@ namespace BigNumWizardShared
 
 		public static BigNum MUL_ZM_Z(BigNum n)
 		{
-			return BigNum.Zero - n;
+			return n * new BigNum("-1");
 		}
 	}
 }
