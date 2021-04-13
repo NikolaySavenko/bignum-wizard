@@ -11,6 +11,8 @@ Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "BigNumWizardApplication (Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigNumWizardApplication", "BigNumWizardApplication\BigNumWizardApplication\BigNumWizardApplication.csproj", "{8EC42367-4D32-414B-B20F-83F1DDDD8D93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigNumWizardUWP", "BigNumWizardUWP\BigNumWizardUWP.csproj", "{80EED3EA-591D-4117-83E2-03894A53BFE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,32 @@ Global
 		{8EC42367-4D32-414B-B20F-83F1DDDD8D93}.Release|x64.Build.0 = Release|x64
 		{8EC42367-4D32-414B-B20F-83F1DDDD8D93}.Release|x86.ActiveCfg = Release|x86
 		{8EC42367-4D32-414B-B20F-83F1DDDD8D93}.Release|x86.Build.0 = Release|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|ARM.Build.0 = Debug|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|ARM.Deploy.0 = Debug|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|arm64.ActiveCfg = Debug|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|arm64.Build.0 = Debug|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|arm64.Deploy.0 = Debug|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x64.ActiveCfg = Debug|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x64.Build.0 = Debug|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x64.Deploy.0 = Debug|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x86.ActiveCfg = Debug|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x86.Build.0 = Debug|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Debug|x86.Deploy.0 = Debug|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|Any CPU.ActiveCfg = Release|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|ARM.ActiveCfg = Release|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|ARM.Build.0 = Release|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|ARM.Deploy.0 = Release|ARM
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|arm64.ActiveCfg = Release|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|arm64.Build.0 = Release|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|arm64.Deploy.0 = Release|ARM64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x64.ActiveCfg = Release|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x64.Build.0 = Release|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x64.Deploy.0 = Release|x64
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x86.ActiveCfg = Release|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x86.Build.0 = Release|x86
+		{80EED3EA-591D-4117-83E2-03894A53BFE1}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
