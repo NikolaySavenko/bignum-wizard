@@ -10,7 +10,7 @@ namespace BigNumWizardTests
     {
         [Theory, MemberData(nameof(Data))]
 
-        public static void MultiplyPolynomOnQ(int m1, List<BigFraction> c1, int m2, List<BigFraction> c2, Polynomial res)
+        public static void MultiplyPolynomOnQ(BigNum m1, List<BigFraction> c1, int m2, List<BigFraction> c2, Polynomial res)
         {
             var actualPolynom = P1_2.ADD_PP_P(m1, c1, m2, c2);
 
