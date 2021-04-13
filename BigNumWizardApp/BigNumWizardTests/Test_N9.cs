@@ -25,7 +25,9 @@ namespace BigNumWizardTests
         [InlineData("1111111111111111111", "123654789", 17, "1111111109008979698")]
         public static void MultOf3(string num1, string num2, byte k, string expected)
         {
-            Assert.Equal(new BigNum(expected), N9.SUB_NDN_N(new BigNum(num1), new BigNum(num2), k));
+            var t = N9.SUB_NDN_N(new BigNum(num1), new BigNum(num2), k);
+            
+            Assert.Equal(new BigNum(expected), t );
         }
     }
 }
