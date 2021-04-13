@@ -8,11 +8,19 @@ namespace BigNumWizardShared
     {
        public static BigNum SUB_NDN_N(BigNum A, BigNum B, byte D) // N-9 Соловьева Елизавета 0310
         {
-            if (Natural1_5.COM_NN_D(B ,N2_6.MUL_ND_N(A, D)) == 2 || Natural1_5.COM_NN_D(B, N2_6.MUL_ND_N(A, D)) == 0) //A*D <= B
+            if (D == 0 & Natural1_5.COM_NN_D(B, A) == 2 & Natural1_5.COM_NN_D(B, A) == 0) //A <= B
+            {
+                return B; 
+            }
+            else if (D == 0 & Natural1_5.COM_NN_D(A, B) == 2 & Natural1_5.COM_NN_D(A, B) == 0) //A >= B
+            {
+                return A; 
+            }
+            else if (Natural1_5.COM_NN_D(B ,N2_6.MUL_ND_N(A, D)) == 2 || Natural1_5.COM_NN_D(B, N2_6.MUL_ND_N(A, D)) == 0 || D != 0) //A*D <= B
             {
                 return B - N2_6.MUL_ND_N(A, D); //B -A*D
             }
-            else if (Natural1_5.COM_NN_D(A, N2_6.MUL_ND_N(B, D)) == 2 || Natural1_5.COM_NN_D(A, N2_6.MUL_ND_N(A, D)) == 0) //B*D <= A
+            else if (Natural1_5.COM_NN_D(A, N2_6.MUL_ND_N(B, D)) == 2 || Natural1_5.COM_NN_D(A, N2_6.MUL_ND_N(A, D)) == 0 || D != 0) //B*D <= A
             {
                 return A - N2_6.MUL_ND_N(B, D); //A - B*D
             }
