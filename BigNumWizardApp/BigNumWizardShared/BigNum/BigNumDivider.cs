@@ -30,7 +30,7 @@ namespace BigNumWizardShared
 			if ((source.Positive == false)&(divider.Positive == false))
             {
 				var absResult = Divide(source.Absolute, divider.Absolute, out remainer);
-				absResult.Positive = false;
+				absResult.Positive = true;
 				return absResult;
 			}
 
