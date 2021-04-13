@@ -34,7 +34,7 @@ namespace BigNumWizardTests
 					{
 						3,
 						new List<BigFraction>() { new BigFraction(new BigNum("34798547874")), new BigFraction(new BigNum("4")), new BigFraction(new BigNum("7654")), new BigFraction(new BigNum("2344")) },
-						new Polynomial(new BigNum(),new List<BigFraction>(){new BigFraction(new BigNum("4")), new BigFraction(new BigNum("15308")), new BigFraction(new BigNum("7032"))})
+						new Polynomial(new BigNum("2"),new List<BigFraction>(){new BigFraction(new BigNum("4")), new BigFraction(new BigNum("15308")), new BigFraction(new BigNum("7032"))})
 					},
 				};
 
