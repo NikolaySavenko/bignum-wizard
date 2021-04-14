@@ -7,12 +7,12 @@ namespace BigNumWizardShared
     public class P3
     {
 
-        public static Polynomial MUL_PQ_P(int m, List<BigFraction> C, BigFraction num)
+        public static Polynomial MUL_PQ_P(BigNum m, List<BigFraction> C, BigFraction num)
         {
-            var polynom = new Polynomial(new BigNum(m.ToString()), C);
-            for (int i = 0; i <= m; i++)
+            var polynom = new Polynomial(m, C);
+            for (var i = BigNum.Zero; i <= m; i = i + BigNum.One)
             {
-                polynom.Odds[i] = Q5_7.MUL_QQ_Q(polynom.Odds[i], num);
+                polynom.Odds[i.ConvertToInt()] = Q5_7.MUL_QQ_Q(polynom.Odds[i.ConvertToInt()], num);
             }
 
             return polynom;

@@ -8,20 +8,20 @@ namespace BigNumWizardShared
     public class P4_5
     {
 
-        public static BigFraction LED_P_Q(int m, List<BigFraction> C)
+        public static BigFraction LED_P_Q(BigNum m, List<BigFraction> C)
         {
             return C[0];
         }
 
-        public static Polynomial MUL_Pxk_P(int m, List<BigFraction> C, BigNum k)
+        public static Polynomial MUL_Pxk_P(BigNum m, List<BigFraction> C, BigNum k)
         {
-            var polynom = new Polynomial(new BigNum(m.ToString()), C);
+            var polynom = new Polynomial(m, C);
 
             for (BigNum i = BigNum.Zero; i < k; i += BigNum.One)
             {
                 polynom.Odds.Add(new BigFraction(BigNum.Zero));
             }
-            polynom.SeniorDegree = new BigNum(m.ToString()) + k;
+            polynom.SeniorDegree = m + k;
 
             return polynom;
         }
