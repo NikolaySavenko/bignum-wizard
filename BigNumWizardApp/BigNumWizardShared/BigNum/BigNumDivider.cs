@@ -27,6 +27,13 @@ namespace BigNumWizardShared
 				absResult.Positive = false;
 				return absResult;
 			}
+			if ((source.Positive == false)&(divider.Positive == false))
+            {
+				var absResult = Divide(source.Absolute, divider.Absolute, out remainer);
+				absResult.Positive = true;
+				return absResult;
+			}
+
 			// A and B is positive
 			var rem = new BigNum(source);
 			var result = BigNum.Zero;

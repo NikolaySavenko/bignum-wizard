@@ -100,5 +100,12 @@ namespace BigNumWizardShared
 				number[key] = value;
 			}
 		}
+
+		public int ConvertToInt()
+        {
+			string tmp = string.Join("", this.number.ToArray());
+			int res = Convert.ToInt32(tmp);
+			return res;
+        }
 	}
 }

@@ -1,23 +1,19 @@
-﻿using BigNumWizardShared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace BigNumWizardApp //Bratsun
+namespace BigNumWizardShared //Bratsun
 {
     public class P7
     {
-        public static BigFraction FAC_P_Q(int m, List<BigFraction> C) //Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей
+        public static BigFraction FAC_P_Q(BigNum m, List<BigFraction> C) //Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей
         {
-            var polynom = new Polynomial(new BigNum(m.ToString()), C);
+            var polynom = new Polynomial(m, C);
+            int deg = m.ConvertToInt();
             BigNum count = BigNum.One;
-            BigNum[] mass = new BigNum[m - 1];
-            BigNum[] array = new BigNum[m - 1];
-            if (m != 0)
+            BigNum[] mass = new BigNum[deg - 1];
+            BigNum[] array = new BigNum[deg - 1];
+            if (deg != 0)
             {
-                for (int i = 0; i < m - 1; i++)
+                for (int i = 0; i < deg - 1; i++)
                 {
                     BigNum nom = polynom.Odds[i].Nom;
                     mass[i] = nom;
@@ -25,7 +21,7 @@ namespace BigNumWizardApp //Bratsun
                 BigNum reduce(BigNum acc, BigNum[] arr)
                 {
                     int i;
-                    for (i = 0; i < m - 1; i++)
+                    for (i = 0; i < deg - 1; i++)
                     {
                         acc = gcd(acc, arr[i]);
                     }
@@ -42,7 +38,7 @@ namespace BigNumWizardApp //Bratsun
                 }
 
 
-                for (int i = 0; i < m - 1; i++)
+                for (int i = 0; i < deg - 1; i++)
                 {
                     BigNum denom = polynom.Odds[i].Denom;
                     array[i] = denom;
@@ -60,7 +56,7 @@ namespace BigNumWizardApp //Bratsun
                 }
 
                 BigNum M = array[0];
-                for (int i = 1; i < m-1; i++)
+                for (int i = 1; i < deg-1; i++)
                 {
                     M = (M * array[i]) / GCD(M, array[i]);
                 }
