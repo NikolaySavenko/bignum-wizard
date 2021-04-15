@@ -17,7 +17,7 @@ namespace BigNumWizardShared //Bratsun
             BigNum[] array = new BigNum[m - 1];
             if (m != 0)
             {
-                for (int i = 0; i < m - 1; i++)
+                for (int i = 0; i < m + 1; i++)
                 {
                     BigNum nom = polynom.Odds[i].Nom;
                     mass[i] = nom;
@@ -25,44 +25,24 @@ namespace BigNumWizardShared //Bratsun
                 BigNum reduce(BigNum acc, BigNum[] arr)
                 {
                     int i;
-                    for (i = 0; i < m - 1; i++)
+                    for (i = 0; i < m + 1; i++)
                     {
-                        acc = gcd(acc, arr[i]);
+                        acc = N4_13.GCF_NN_N(acc, arr[i]);
                     }
                     return acc;
                 }
 
-                BigNum gcd(BigNum a, BigNum b)
-                {
-                    if (b > a) return gcd(b, a);
-                    if (b == BigNum.Zero)
-                        return a;
-                    else
-                        return gcd(b, a % b);
-                }
 
-
-                for (int i = 0; i < m - 1; i++)
+                for (int i = 0; i < m + 1 ; i++)
                 {
                     BigNum denom = polynom.Odds[i].Denom;
                     array[i] = denom;
                 }
-                BigNum GCD(BigNum a, BigNum b)
-                {
-                    while (a - b != BigNum.Zero)
-                    {
-                        if (a > b)
-                            a -= b;
-                        else
-                            b -= a;
-                    }
-                    return a;
-                }
 
                 BigNum M = array[0];
-                for (int i = 1; i < m-1; i++)
+                for (int i = 1; i < m + 1; i++)
                 {
-                    M = (M * array[i]) / GCD(M, array[i]);
+                    M = (M * array[i]) / N8_14.LCM_NN_N(M, array[i]);
                 }
                 return new BigFraction(reduce(mass[0], mass), M); //НОД числителей /НОК знаменателей
             }
