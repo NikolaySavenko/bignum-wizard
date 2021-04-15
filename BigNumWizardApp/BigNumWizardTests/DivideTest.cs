@@ -7,7 +7,7 @@ namespace BigNumWizardTests
 	public class DivideTest
 	{
 		[Theory]
-		[InlineData("123", "10", "1")]
+		[InlineData("123", "10", "12")]
 		[InlineData("123", "123", "1")]
 		[InlineData("124", "123", "1")]
 		public void SimpleDivide(string target, string num, string expected)
