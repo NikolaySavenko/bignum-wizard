@@ -124,12 +124,18 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OneFractionPage.xaml.cs">
+      <DependentUpon>OneFractionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OneNumberPage.xaml.cs">
       <DependentUpon>OneNumberPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThreeNumbersPage.xaml.cs">
       <DependentUpon>ThreeNumbersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoFractionsPage.xaml.cs">
+      <DependentUpon>TwoFractionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TwoNumbersPage.xaml.cs">
       <DependentUpon>TwoNumbersPage.xaml</DependentUpon>
@@ -159,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="OneFractionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OneNumberPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -166,6 +176,10 @@
     <Page Include="ThreeNumbersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoFractionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TwoNumbersPage.xaml">
       <Generator>MSBuild:Compile</Generator>

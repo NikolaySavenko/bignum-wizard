@@ -14,29 +14,31 @@
         <muxc:NavigationView.MenuItems>
             <muxc:NavigationViewItem Content="Натуральные числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем">
                 <muxc:NavigationViewItem.MenuItems>
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение" Tag="PageSum" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание" Tag="PageSub" />
+
                     <muxc:NavigationViewItem Icon="Calculator" Content="Проверка на 0" Tag="PageCheckZero" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение" Tag="PageMultiply" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Сравнение" Tag="PageComparison" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Подмодуль N9" Tag="PageN9" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Подмодуль N9" Tag="PageN11" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="НОД чисел" Tag="PageNOD" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="НОК чисел" Tag="PageNOK" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
             <muxc:NavigationViewItem Content="Целые числа" Icon="Document" ToolTipService.ToolTip="Целые числа">
                 <muxc:NavigationViewItem.MenuItems>
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Деление" Tag="PageDivide" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение" Tag="PageSum" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание" Tag="PageSub" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение" Tag="PageMultiply" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Частное от деления" Tag="PageDivide" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Остаток от деления" Tag="PageRemainer" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="'Положительность' числа" Tag="PagePoz" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item3" Tag="SamplePage3" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item4" Tag="SamplePage4" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
             <muxc:NavigationViewItem Content="Рациональная числа" Icon="Document" ToolTipService.ToolTip="Рациональная числа">
                 <muxc:NavigationViewItem.MenuItems>
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item1" Tag="SamplePage1" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item2" Tag="SamplePage2" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item3" Tag="SamplePage3" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item4" Tag="SamplePage4" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сокращение дроби" Tag="PageFractionReduction" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение дробей" Tag="PageFractionSum" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание дробей" Tag="PageFractionSub" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение дробей" Tag="PageFractionMul" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Деление дробей" Tag="PageFractionDiv" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
             <muxc:NavigationViewItem Content="Многочлен с рац. коэфф." Icon="Document" ToolTipService.ToolTip="Многочлен с рациональными коэффициентами">

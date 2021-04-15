@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="600">
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="500">
         
         <TextBox  x:Name="numberBox" Header="Введите число:" PlaceholderText="0" Margin="30 10 30 10" />
-        <TextBox x:Name="textBox" Text="Тут будет ответ"
+        <TextBox x:Name="textBox" Text="Здесь будет ответ"
              IsReadOnly="True"
-            FontFamily="Arial" FontSize="24" FontStyle="Italic"
-            CharacterSpacing="200" Foreground="Violet" Margin="30 10 30 10"
+            FontFamily="Arial" FontSize="22" FontStyle="Italic"
+            CharacterSpacing="150" Margin="30 10 30 10"
             TextAlignment="Center" Grid.Row="2"/>
     </StackPanel>
 </Page>

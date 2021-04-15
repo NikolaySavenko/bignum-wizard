@@ -2,6 +2,7 @@
 using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,7 +36,8 @@ namespace BigNumWizardApp
         {
             try
             {
-                textBox.Text = func(Value);
+                if (Value == "") textBox.Text = "Здесь будет ответ";
+                else textBox.Text = func(Value);
             }
             catch (Exception e)
             {
@@ -44,10 +46,11 @@ namespace BigNumWizardApp
             }
 
         }
-/*        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             func = (TargetFunctionDelegate)e.Parameter;
-        } */
+        }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace BigNumWizardApp
 {
@@ -62,10 +63,10 @@ namespace BigNumWizardApp
             }
 
         }
-/*        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             func = (TargetFunctionDelegate)e.Parameter;
-        } */
+        }
     }
 }
