@@ -10,6 +10,7 @@ namespace BigNumWizardShared
     {
         public BigNum SeniorDegree { get; set; }
         public List<BigFraction> Odds { get; set; }
+
         public Polynomial(BigNum m, List<BigFraction> C)
         {
             SeniorDegree = m;
