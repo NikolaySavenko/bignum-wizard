@@ -2,65 +2,80 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BigNumWizardShared.Polynomial   //(x^2+x+1)*(2x+3)
-{                                         //(x^2+x+1)*2x
-                                          //+
-                                          //(x^2+x+1)*3
+namespace BigNumWizardShared
+{                                         
     public class P8
     {
-        public static Polynomial MUL_PP_P(int m1, List<BigFraction> c1, int m2, List<BigFraction> c2) //Умножение многочленов Кабанов 0305
-        {
-            var secondPolynom = new Polynomial(new BigNum(m2.ToString()), c2);
+        public static Polynomial MUL_PP_P(BigNum m1, List<BigFraction> c1, BigNum m2, List<BigFraction> c2) //Умножение многочленов Кабанов 0305
+        {                        
+            var result = new List<BigFraction>() {new BigFraction(BigNum.Zero)};  
+
+            var output = new Polynomial(BigNum.Zero, result);           //пустой многочлен, в котором накапливается результат
             
-            var z = m1 * m2 - 1;
-            var g = new BigNum(z.ToString());
+            int s;
+            Polynomial Polynom;
+            BigNum fir_param;
+            List<BigFraction> sec_param;
+            BigNum check;
 
-            var result = new List<BigFraction>();
-            var resultat = new Polynomial(g, result);
-            
-            var tmp_result = new List<BigFraction>();
-            
-            var finish = new List<BigFraction>();
+            if (m1 > m2|| m1 == m2)                 //для уменьшения количества выполнения цикла
+            {                                       //(больший полином по количеству элементов умножаеnся на меньший)
+                Polynom = new Polynomial(m2, c2);
+                s = m2.ConvertToInt();
+                if (m2 == BigNum.Zero)
+                    s = m2.ConvertToInt();
 
-            for (int i = m2; i >=0; i--)
-            {
-                resultat = P3.MUL_PQ_P(m1, c1, secondPolynom[i]);
-                tmp_result = trans_polynom(resultat, z);
+                fir_param = m1;
+                sec_param = c1.GetRange(0, c1.Count); 
 
-                var k = degree(m2, c2, i);
-
-                resultat = P4_5.MUL_Pxk_P(z, tmp_result, k);
-                tmp_result = trans_polynom(resultat, z);
-
-                finish = P1_2.ADD_PP_P(z, finish, z, tmp_result); 
-                
+                check = m2;
             }
-
-            return finish;
-        }
-
-        static BigNum degree(int m, List<BigFraction> c, int k)
-        {
-            var Polynom = new Polynomial(new BigNum(m.ToString()), c);
-
-            if (Polynom.Odds[k] == new BigFraction(BigNum.Zero))
-                return BigNum.Zero;
             else
-                return new BigNum(k.ToString());
-
-        }
-
-        static List<BigFraction> trans_polynom(Polynomial polynom, int g)
-        {
-            var result = new List<BigFraction>();
-
-            while (g >= 0)
             {
-                result.Add(polynom.Odds[g]);
-                g--;
+                Polynom = new Polynomial(m1, c1);
+                s = m1.ConvertToInt();
+                if (m1 == BigNum.Zero)
+                    s = m1.ConvertToInt();
+
+                fir_param = m2;
+                sec_param = c2.GetRange(0, c2.Count);
+
+                check = m1;
             }
 
-            return result;
+            int j = s;
+            var f = BigNum.Zero;
+
+            for (int i = 0; i <= s; i++)
+            {
+                if (Polynom.Odds[i] == new BigFraction(BigNum.Zero))
+                    continue;
+                else
+                {
+                    var multy = new Polynomial(BigNum.Zero, result);                             //вспомогательный многочлен(для умножения на коэффициенты и x^k)
+                    multy = P3.MUL_PQ_P(fir_param, sec_param, Polynom.Odds[i]);                  //умножаем многочлен на коэффициент второго
+
+                    if(m1 > m2 || m1 == m2)
+                        sec_param = c1.GetRange(0, c1.Count);               
+                    else
+                        sec_param = c2.GetRange(0, c2.Count);
+
+                    multy = P4_5.MUL_Pxk_P(fir_param, multy.Odds, new BigNum(j.ToString()));  //умножаем многочлен на x^j текущего элемента второго многочлена
+                    j--;
+
+                    var k = new BigNum(multy.Odds.Count.ToString());
+                    k = Z7.SUB_ZZ_Z(k, BigNum.One);
+
+                    output = P1_2.ADD_PP_P(f, output.Odds, k , multy.Odds);                      //складываем многочлены
+
+                    f = new BigNum(output.Odds.Count.ToString());
+                    f = Z7.SUB_ZZ_Z(f, BigNum.One);
+                }
+
+            }
+
+            return output;
         }
+
     }
 }
