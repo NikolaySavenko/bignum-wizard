@@ -13,7 +13,7 @@ namespace BigNumWizardShared
             var tmp = new Polynomial(m2, C2);
             while (r2.SeniorDegree != BigNum.Zero || r2.Odds[0] != new BigFraction(BigNum.Zero))
             {
-                tmp = P10.MOD_PP_P(r1, r2);
+                tmp = P10.MOD_PP_P(r1.SeniorDegree, r1.Odds, r2.SeniorDegree, r2.Odds);
                 r1 = r2;
                 r2 = tmp;
             }
