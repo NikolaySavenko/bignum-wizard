@@ -8,59 +8,33 @@ namespace BigNumWizardShared //Bratsun
         {
             var polynom = new Polynomial(m, C);
             int deg = m.ConvertToInt();
-            BigNum count = BigNum.One;
-            BigNum[] mass = new BigNum[deg - 1];
-            BigNum[] array = new BigNum[deg - 1];
+            BigNum[] mass = new BigNum[deg + 1];
+            BigNum[] array = new BigNum[deg + 1];
             if (deg != 0)
             {
-                for (int i = 0; i < deg - 1; i++)
+                for (int i = 0; i < deg + 1; i++)
                 {
                     BigNum nom = polynom.Odds[i].Nom;
                     mass[i] = nom;
                 }
-                BigNum reduce(BigNum acc, BigNum[] arr)
+                BigNum acc = mass[0];
+                for (int i = 1; i < deg + 1; i++)
                 {
-                    int i;
-                    for (i = 0; i < deg - 1; i++)
-                    {
-                        acc = gcd(acc, arr[i]);
-                    }
-                    return acc;
+                    acc = N4_13.GCF_NN_N(acc, mass[i]);
                 }
 
-                BigNum gcd(BigNum a, BigNum b)
-                {
-                    if (b > a) return gcd(b, a);
-                    if (b == BigNum.Zero)
-                        return a;
-                    else
-                        return gcd(b, a % b);
-                }
-
-
-                for (int i = 0; i < deg - 1; i++)
+                for (int i = 0; i < deg + 1; i++)
                 {
                     BigNum denom = polynom.Odds[i].Denom;
                     array[i] = denom;
                 }
-                BigNum GCD(BigNum a, BigNum b)
-                {
-                    while (a - b != BigNum.Zero)
-                    {
-                        if (a > b)
-                            a -= b;
-                        else
-                            b -= a;
-                    }
-                    return a;
-                }
 
                 BigNum M = array[0];
-                for (int i = 1; i < deg-1; i++)
+                for (int i = 1; i < deg + 1; i++)
                 {
-                    M = (M * array[i]) / GCD(M, array[i]);
+                    M = N8_14.LCM_NN_N(M, array[i]);
                 }
-                return new BigFraction(reduce(mass[0], mass), M); //НОД числителей /НОК знаменателей
+                return new BigFraction(acc, M); //НОД числителей /НОК знаменателей
             }
             else
             {
