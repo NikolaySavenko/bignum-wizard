@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BigNumWizardShared
 {
@@ -8,11 +7,19 @@ namespace BigNumWizardShared
     {
         public static Polynomial MOD_PP_P(BigNum m1, List<BigFraction> C1, BigNum m2, List<BigFraction> C2)
         {
-            var div = P9.DIV_PP_P(m1, C1, m2, C2);
-            var deg = div.SeniorDegree;
-            var odds = div.Odds;
-            var mul = P8.MUL_PP_P(m2, C2, deg, odds);
-            var result = P1_2.SUB_PP_P(m1, C1, mul.SeniorDegree, mul.Odds);
+            Polynomial result;
+            if (m2 != BigNum.Zero && C2[0] != new BigFraction(BigNum.Zero))
+            {
+                var div = P9.DIV_PP_P(m1, C1, m2, C2);
+                var deg = div.SeniorDegree;
+                var odds = div.Odds;
+                var mul = P8.MUL_PP_P(m2, C2, deg, odds);
+                result = P1_2.SUB_PP_P(m1, C1, mul.SeniorDegree, mul.Odds);
+            }
+            else
+            {
+                throw new Exception("На ноль делить нельзя!");
+            }
             return result;
         }
     }
