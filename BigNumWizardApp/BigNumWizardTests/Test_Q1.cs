@@ -16,10 +16,9 @@ namespace BigNumWizardTests
         [InlineData("-8888888888", "8888888888", "-1", "1")]
         [InlineData("55555555555555555", "-5", "-11111111111111111", "1")]
         [InlineData("43632", "-48", "-909", "1")]
-        [InlineData("-1234567890000123456789", "3", "-411522630000041152263", "1")] //DOESN'T WORK WITH LONG NUMBERS
-        [InlineData("-1234567890000123456789", "411522630000041152263", "-3", "1")] //BUT IT DO
-        [InlineData("954007970733832256788643", "-343433456566654448999", "2777","1")] //DOESN'T WORK
-
+        [InlineData("-123456789123456789", "3", "-41152263041152263", "1")] 
+        [InlineData("-1234567890000123456789", "411522630000041152263", "-3", "1")]
+        [InlineData("953714708885599404870223", "-343433456566654448999", "-2777","1")] 
 
         public static void Reduction(string nom1, string denom1, string nom_exp, string denom_exp)
         {

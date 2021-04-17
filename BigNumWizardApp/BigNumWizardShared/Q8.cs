@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BigNumWizardShared
 {
@@ -8,7 +6,15 @@ namespace BigNumWizardShared
     {
         public static BigFraction DIV_QQ_Q(BigFraction first, BigFraction second) //Q-8 Деление дробей Петракова Марина 0305 
         {
-            BigFraction fraction = first / second;
+            BigFraction fraction;
+            if (first.Denom != BigNum.Zero && second.Nom != BigNum.Zero)
+            {
+                fraction = first / second;
+            }
+            else
+            {
+                throw new Exception("На ноль делить нельзя!");
+            }
             return fraction;
         }
     }

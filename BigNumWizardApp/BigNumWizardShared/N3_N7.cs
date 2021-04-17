@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BigNumWizardShared
+﻿namespace BigNumWizardShared
 {
     public class N3_N7
     {
@@ -14,9 +10,12 @@ namespace BigNumWizardShared
 
         public static BigNum MUL_Nk_N(BigNum number, int k) //N-7 умножение нат.числа на 10^k Петракова Марина 0305
         {
-            for (int i=0; i<k; i++)
-            { 
-                number.Insert(0,0);
+            if (number != BigNum.Zero)
+            {
+                for (int i=0; i<k; i++)
+                { 
+                   number.Insert(0,0);
+                }
             }
             return number;
         }
