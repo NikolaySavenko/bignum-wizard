@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BigNumWizardTests
 {
-    public class Test_P10
+    public class Test_P10 //Shvets
     {
         [Theory, MemberData(nameof(Data))]
 
