@@ -91,7 +91,7 @@ namespace BigNumWizardShared
             else if (z2_3.POZ_Z_D(fir) == 0)
                 return BigNum.Zero;
             else
-                throw new Exception("Something went wrong");
+                throw new Exception("На ноль делить нельзя!");
         }
     }
 }
