@@ -32,16 +32,15 @@ namespace BigNumWizardShared
 			if (longNumber[0] == '-')
 			{
 				Positive = false;
-				longNumber = longNumber.Remove(0, 1);
 			}
-			else if (longNumber[0] == '+') longNumber = longNumber.Remove(0, 1);
 
-			char[] array = longNumber.ToCharArray();
-			Array.Reverse(array);
-			var reverted = String.Concat<char>(array);
-			foreach (var element in reverted)
+			for (var i = longNumber.Length - 1; i >= 0; i--)
 			{
-				number.Add((byte)Char.GetNumericValue(element));
+				var element = longNumber[i];
+				if (char.IsDigit(element))
+				{
+					number.Add((byte)Char.GetNumericValue(element));
+				}
 			}
 		}
 
