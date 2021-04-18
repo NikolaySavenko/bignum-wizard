@@ -23,7 +23,7 @@ namespace BigNumWizardShared
             if (COM_NN_D(fir, sec) == 2 || COM_NN_D(fir, sec) == 0)
                     return fir - sec;
                 else
-                    throw new Exception("The second number is greater than the first");
+                    throw new Exception("Второе число больше первого!");
         }
     }
 }
