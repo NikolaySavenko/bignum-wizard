@@ -17,7 +17,8 @@ namespace BigNumWizardShared
         {
             var polynom = new Polynomial(m, C);
 
-            for (BigNum i = BigNum.Zero; i < k; i += BigNum.One)
+            int n = k.ConvertToInt();
+            for (int i = 0; i < n; i++)
             {
                 polynom.Odds.Add(new BigFraction(BigNum.Zero));
             }

@@ -10,9 +10,11 @@ namespace BigNumWizardShared
         public static Polynomial MUL_PQ_P(BigNum m, List<BigFraction> C, BigFraction num)
         {
             var polynom = new Polynomial(m, C);
-            for (var i = BigNum.Zero; i <= m; i = i + BigNum.One)
+
+            int n = m.ConvertToInt();
+            for (int i = 0; i <= n; i++)
             {
-                polynom.Odds[i.ConvertToInt()] = Q5_7.MUL_QQ_Q(polynom.Odds[i.ConvertToInt()], num);
+                polynom.Odds[i] = Q5_7.MUL_QQ_Q(polynom.Odds[i], num);
             }
 
             return polynom;
