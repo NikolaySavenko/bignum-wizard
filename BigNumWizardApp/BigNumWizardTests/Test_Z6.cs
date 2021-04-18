@@ -18,7 +18,7 @@ namespace BigNumWizardTests
 
         [InlineData("-800053625", "741852963‬", "-58200662")] //false
 
-        [InlineData("-8053625", "7418528‬", "-635096")] //false
+        [InlineData("-8053625", "7418528‬", "-635097")] //false
 
         [InlineData("-9053625", "8418529‬", "-635096")] //false
 
