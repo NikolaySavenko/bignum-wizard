@@ -10,8 +10,8 @@ namespace BigNumWizardShared
 
             if (m != BigNum.Zero) 
             {
-                for (var i = BigNum.Zero; i < m; i = i + BigNum.One)                         // Все степени понижаются, нулевая исчезает, коэффициенты при остальных
-                    result.Odds[i.ConvertToInt()] = result.Odds[i.ConvertToInt() + 1] * new BigFraction(i + BigNum.One);  // равны произведению коэффициента при следующей степени на её показатель
+                for (int i = 0; i < m.ConvertToInt() ; i++)                         
+                    result.Odds[i] = result.Odds[i] * new BigFraction(m - new BigNum(i.ToString()));  
                 result.Odds.RemoveAt(m.ConvertToInt());
                 result.SeniorDegree = m - BigNum.One;                        
             }

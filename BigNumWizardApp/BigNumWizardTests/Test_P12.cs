@@ -15,73 +15,67 @@ namespace BigNumWizardTests
 		}
 
 		public static IEnumerable<object[]> Data => new[]
-				{
-					new object[]
-					{
-						BigNum.One,
-						new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(new BigNum("2")) },
-						new Polynomial(BigNum.Zero, new List<BigFraction>(){new BigFraction(new BigNum("2"))})
-					},
-
-					new object[]
-					{
-						new BigNum("2"),
-						new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(BigNum.Zero), new BigFraction(new BigNum("2344")) },
-						new Polynomial(BigNum.One,new List<BigFraction>(){new BigFraction(BigNum.Zero),new BigFraction(new BigNum("4688"))})
-					},
-
-					new object[]
-					{
-						new BigNum("3"),
-						new List<BigFraction>() { new BigFraction(new BigNum("34798547874")), new BigFraction(new BigNum("4")), new BigFraction(new BigNum("7654")), new BigFraction(new BigNum("2344")) },
-						new Polynomial(new BigNum("2"),new List<BigFraction>(){new BigFraction(new BigNum("4")), new BigFraction(new BigNum("15308")), new BigFraction(new BigNum("7032"))})
-					},
-
-					new object[]
-					{
-						new BigNum("5"),
-						new List<BigFraction>() { new BigFraction(new BigNum("1324134145255"), new BigNum("123134")), new BigFraction(new BigNum("1234524545"), new BigNum("1234125624")), new BigFraction(new BigNum("5634767634655"), new BigNum("143123414")), new BigFraction(new BigNum("3453534353562"), new BigNum("245246")),  new BigFraction(new BigNum("23"), new BigNum("645")),  new BigFraction(new BigNum("1234"), new BigNum("64567")) },
-						new Polynomial(new BigNum("4"),new List<BigFraction>(){new BigFraction(new BigNum("1234524545"), new BigNum("1234125624")), new BigFraction(new BigNum("11269535269310"), new BigNum("143123414")), new BigFraction(new BigNum("10360603060686"), new BigNum("245246")), new BigFraction(new BigNum("92"), new BigNum("645")),  new BigFraction(new BigNum("6170"), new BigNum("64567"))})
-					},
-
-					new object[]
-                    {
-						BigNum.Zero,
-						new List<BigFraction>() {new BigFraction(new BigNum("254355652346"), new BigNum("65435342242"))},
-						new Polynomial(BigNum.Zero, new List<BigFraction>(){new BigFraction(BigNum.Zero)})
-                    },
-
-					new object[]
+		{
+			new object[]
 					{
 						new BigNum("6"),
-						new List<BigFraction>() { new BigFraction(new BigNum("6456456"), new BigNum("23424")),new BigFraction(new BigNum("23426"), new BigNum("756767")),new BigFraction(new BigNum("97886"), new BigNum("2345241")),new BigFraction(new BigNum("12313"), new BigNum("5345")),new BigFraction(new BigNum("6456"), new BigNum("2342335")),new BigFraction(new BigNum("756"), new BigNum("2346")),new BigFraction(new BigNum("23"), new BigNum("534")), },
-						new Polynomial(new BigNum("5"),new List<BigFraction>(){new BigFraction(new BigNum("23426"), new BigNum("756767")),new BigFraction(new BigNum("195772"), new BigNum("2345241")),new BigFraction(new BigNum("36939"), new BigNum("5345")),new BigFraction(new BigNum("25824"), new BigNum("2342335")),new BigFraction(new BigNum("3780"), new BigNum("2346")),new BigFraction(new BigNum("138"), new BigNum("534")),})
+						new List<BigFraction>() { new BigFraction(new BigNum("423424"), new BigNum("2324")), new BigFraction(new BigNum("-12344"), new BigNum("5345")), new BigFraction(new BigNum("-1313"), new BigNum("534")), new BigFraction(new BigNum("123"), new BigNum("2342")), new BigFraction(new BigNum("1235"), new BigNum("425")), new BigFraction(new BigNum("-123"), new BigNum("53")), new BigFraction(new BigNum("123"), new BigNum("5442")), },
+						new Polynomial(new BigNum("5"), new List<BigFraction>() { new BigFraction(new BigNum("2540544"), new BigNum("2324")), new BigFraction(new BigNum("-61720"), new BigNum("5345")), new BigFraction(new BigNum("-5252"), new BigNum("534")), new BigFraction(new BigNum("369"), new BigNum("2342")), new BigFraction(new BigNum("2470"), new BigNum("425")), new BigFraction(new BigNum("-123"), new BigNum("53")), })
 					},
-					new object[]
+			new object[]
 					{
-						new BigNum("20"),
-						new List<BigFraction>() { new BigFraction(new BigNum("53535353535345345"), new BigNum("76675666545")),new BigFraction(new BigNum("24234324"), new BigNum("4523")),new BigFraction(new BigNum("123123"), new BigNum("6453")),new BigFraction(new BigNum("123142"), new BigNum("6454")),new BigFraction(new BigNum("123245"), new BigNum("4532")),new BigFraction(new BigNum("123125"), new BigNum("756643")),new BigFraction(new BigNum("23425"), new BigNum("453")),new BigFraction(new BigNum("2423645"), new BigNum("7566453")),new BigFraction(new BigNum("234242353"), new BigNum("76546534535")),new BigFraction(new BigNum("2342235"), new BigNum("7564")),new BigFraction(new BigNum("23324"), new BigNum("765453")),new BigFraction(new BigNum("23425"), new BigNum("568886")),new BigFraction(new BigNum("2342536"),new BigNum("876545654")),new BigFraction(new BigNum("234645"), new BigNum("86756434")),new BigFraction(new BigNum("324254"), new BigNum("867543")),new BigFraction(new BigNum("-2342334345546"), new BigNum("8675545")),new BigFraction(new BigNum("0"), new BigNum("4575755")),new BigFraction(new BigNum("0"), new BigNum("23424")),new BigFraction(new BigNum("0"), new BigNum("7565")),new BigFraction(new BigNum("-23424"), new BigNum("645433")),new BigFraction(new BigNum("23435"), new BigNum("6646")), },
-						new Polynomial(new BigNum("19"),new List<BigFraction>(){new BigFraction(new BigNum("24234324"), new BigNum("4523")),new BigFraction(new BigNum("246246"), new BigNum("6453")),new BigFraction(new BigNum("369426"), new BigNum("6454")),new BigFraction(new BigNum("492980"), new BigNum("4532")),new BigFraction(new BigNum("615625"), new BigNum("756643")),new BigFraction(new BigNum("140550"), new BigNum("453")),new BigFraction(new BigNum("16965515"), new BigNum("7566453")),new BigFraction(new BigNum("1873938824"), new BigNum("76546534535")),new BigFraction(new BigNum("21080115"), new BigNum("7564")),new BigFraction(new BigNum("233240"), new BigNum("765453")),new BigFraction(new BigNum("257675"), new BigNum("568886")),new BigFraction(new BigNum("28110432"), new BigNum("876545654")),new BigFraction(new BigNum("3050385"), new BigNum("86756434")),new BigFraction(new BigNum("4539556"), new BigNum("867543")),new BigFraction(new BigNum("-35135015183190"), new BigNum("8675545")),new BigFraction(new BigNum("0"), new BigNum("4575755")),new BigFraction(new BigNum("0"), new BigNum("23424")),new BigFraction(new BigNum("0"),new BigNum("7565")),new BigFraction(new BigNum("-445056"), new BigNum("645433")),new BigFraction(new BigNum("468700"), new BigNum("6646")),})
+						new BigNum("0"),
+						new List<BigFraction>() { new BigFraction(new BigNum("123"), new BigNum("12")), },
+						new Polynomial(new BigNum("0"), new List<BigFraction>() { new BigFraction(BigNum.Zero) })
 					},
-					new object[]
-					{
-						new BigNum("3"),
-						new List<BigFraction>() { new BigFraction(new BigNum("5353"), new BigNum("1235")),new BigFraction(new BigNum("-5345"), new BigNum("234")),new BigFraction(new BigNum("645"), new BigNum("234")),new BigFraction(new BigNum("-536"), new BigNum("2345")), },
-						new Polynomial(new BigNum("2"),new List<BigFraction>(){new BigFraction(new BigNum("-5345"), new BigNum("234")),new BigFraction(new BigNum("1290"), new BigNum("234")),new BigFraction(new BigNum("-1608"), new BigNum("2345")),})
-					},
-					new object[]
-					{
-						new BigNum("5"),
-						new List<BigFraction>() { new BigFraction(new BigNum("8574645634"), new BigNum("243325645636675")),new BigFraction(new BigNum("3253542342364645645325"), new BigNum("763532")),new BigFraction(new BigNum("-123144355"), new BigNum("53455")),new BigFraction(new BigNum("234334"), new BigNum("13123")),new BigFraction(new BigNum("6544"), new BigNum("12313")),new BigFraction(new BigNum("345"), new BigNum("123543")), },
-						new Polynomial(new BigNum("4"),new List<BigFraction>(){new BigFraction(new BigNum("3253542342364645645325"), new BigNum("763532")),new BigFraction(new BigNum("-246288710"), new BigNum("53455")),new BigFraction(new BigNum("703002"), new BigNum("13123")),new BigFraction(new BigNum("26176"), new BigNum("12313")),new BigFraction(new BigNum("1725"), new BigNum("123543")),})
-					},
-					new object[]
+			new object[]
 					{
 						new BigNum("8"),
-						new List<BigFraction>() { new BigFraction(new BigNum("7567464345353523"), new BigNum("234233434646")),new BigFraction(new BigNum("454242234"), new BigNum("1231312345")),new BigFraction(new BigNum("-12312"), new BigNum("53543")),new BigFraction(new BigNum("-123124"), new BigNum("665765")),new BigFraction(new BigNum("0"), new BigNum("456465")),new BigFraction(new BigNum("23421"), new BigNum("7565")),new BigFraction(new BigNum("75675"), new BigNum("2343234")),new BigFraction(new BigNum("23444"), new BigNum("654")),new BigFraction(new BigNum("-23424"), new BigNum("6546")), },
-						new Polynomial(new BigNum("7"),new List<BigFraction>(){new BigFraction(new BigNum("454242234"), new BigNum("1231312345")),new BigFraction(new BigNum("-24624"), new BigNum("53543")),new BigFraction(new BigNum("-369372"), new BigNum("665765")),new BigFraction(new BigNum("0"), new BigNum("456465")),new BigFraction(new BigNum("117105"), new BigNum("7565")),new BigFraction(new BigNum("454050"), new BigNum("2343234")),new BigFraction(new BigNum("164108"),new BigNum("654")),new BigFraction(new BigNum("-187392"), new BigNum("6546")),})
+						new List<BigFraction>() { new BigFraction(new BigNum("1244"), new BigNum("65332")),new BigFraction(new BigNum("1313"), new BigNum("1123")),new BigFraction(new BigNum("64564"), new BigNum("25645")),new BigFraction(new BigNum("12313"), new BigNum("6353")),new BigFraction(new BigNum("-131"), new BigNum("535")),new BigFraction(new BigNum("1313"), new BigNum("53634")),new BigFraction(new BigNum("-12314455"), new BigNum("2523")),new BigFraction(new BigNum("0"), new BigNum("24324")),new BigFraction(new BigNum("12312314255"), new BigNum("252")), },
+						new Polynomial(new BigNum("7"),new List<BigFraction>(){new BigFraction(new BigNum("9952"), new BigNum("65332")),new BigFraction(new BigNum("9191"), new BigNum("1123")),new BigFraction(new BigNum("387384"), new BigNum("25645")),new BigFraction(new BigNum("61565"), new BigNum("6353")),new BigFraction(new BigNum("-524"), new BigNum("535")),new BigFraction(new BigNum("3939"), new BigNum("53634")),new BigFraction(new BigNum("-24628910"), new BigNum("2523")),new BigFraction(new BigNum("0"), new BigNum("24324")),})
 					},
-				};
-
-	}
+			new object[]
+					{
+						new BigNum("5"),
+						new List<BigFraction>() { new BigFraction(new BigNum("12"), new BigNum("1")),new BigFraction(new BigNum("124"), new BigNum("1")),new BigFraction(new BigNum("-12"), new BigNum("1")),new BigFraction(new BigNum("66"), new BigNum("1")),new BigFraction(new BigNum("123"), new BigNum("1")),new BigFraction(new BigNum("48"), new BigNum("1")), },
+						new Polynomial(new BigNum("4"),new List<BigFraction>(){new BigFraction(new BigNum("60"), new BigNum("1")),new BigFraction(new BigNum("496"), new BigNum("1")),new BigFraction(new BigNum("-36"), new BigNum("1")),new BigFraction(new BigNum("132"), new BigNum("1")),new BigFraction(new BigNum("123"), new BigNum("1")),})
+					},
+			new object[]
+					{
+						new BigNum("18"),
+						new List<BigFraction>() { new BigFraction(new BigNum("12"), new BigNum("321")),new BigFraction(new BigNum("12"), new BigNum("43")),new BigFraction(new BigNum("12"), new BigNum("534")),new BigFraction(new BigNum("765"), new BigNum("23")),new BigFraction(new BigNum("756"), new BigNum("12")),new BigFraction(new BigNum("543"), new BigNum("12")),new BigFraction(new BigNum("756"), new BigNum("12")),new BigFraction(new BigNum("76579"), new BigNum("12")),new BigFraction(new BigNum("43"), new BigNum("12")),new BigFraction(new BigNum("756"), new BigNum("213")),new BigFraction(new BigNum("765"), new BigNum("234")),new BigFraction(new BigNum("756"), new BigNum("234")),new BigFraction(new BigNum("876"), new BigNum("23")),new BigFraction(new BigNum("12"), new BigNum("876")),new BigFraction(new BigNum("12"), new BigNum("867")),new BigFraction(new BigNum("987"), new BigNum("12")),new BigFraction(new BigNum("86"), new BigNum("345")),new BigFraction(new BigNum("867"), new BigNum("234")),new BigFraction(new BigNum("867"), new BigNum("234")), },
+						new Polynomial(new BigNum("17"),new List<BigFraction>(){new BigFraction(new BigNum("216"), new BigNum("321")),new BigFraction(new BigNum("204"), new BigNum("43")),new BigFraction(new BigNum("192"), new BigNum("534")),new BigFraction(new BigNum("11475"), new BigNum("23")),new BigFraction(new BigNum("10584"), new BigNum("12")),new BigFraction(new BigNum("7059"), new BigNum("12")),new BigFraction(new BigNum("9072"), new BigNum("12")),new BigFraction(new BigNum("842369"), new BigNum("12")),new BigFraction(new BigNum("430"), new BigNum("12")),new BigFraction(new BigNum("6804"), new BigNum("213")),new BigFraction(new BigNum("6120"), new BigNum("234")),new BigFraction(new BigNum("5292"), new BigNum("234")),new BigFraction(new BigNum("5256"), new BigNum("23")),new BigFraction(new BigNum("60"), new BigNum("876")),new BigFraction(new BigNum("48"), new BigNum("867")),new BigFraction(new BigNum("2961"), new BigNum("12")),new BigFraction(new BigNum("172"), new BigNum("345")),new BigFraction(new BigNum("867"), new BigNum("234")),})
+					},
+			new object[]
+					{
+						new BigNum("19"),
+						new List<BigFraction>() { new BigFraction(new BigNum("-53457567"), new BigNum("234453")),new BigFraction(new BigNum("-23425674"), new BigNum("1312314")),new BigFraction(new BigNum("0"), new BigNum("645645")),new BigFraction(new BigNum("1231244"), new BigNum("645645")),new BigFraction(new BigNum("12315754"), new BigNum("746745")),new BigFraction(new BigNum("2342356756"), new BigNum("856765")),new BigFraction(new BigNum("234267589663"), new BigNum("21343235674575")),new BigFraction(new BigNum("-75674635"), new BigNum("234257585")),new BigFraction(new BigNum("243556"), new BigNum("8767532")),new BigFraction(new BigNum("96896756"), new BigNum("2342342565675")),new BigFraction(new BigNum("6767896756"), new BigNum("32423536658")),new BigFraction(new BigNum("756754"), new BigNum("8678945")),new BigFraction(new BigNum("34246"), new BigNum("857553")),new BigFraction(new BigNum("345675"), new BigNum("867545")),new BigFraction(new BigNum("246458"), new BigNum("85675353")),new BigFraction(new BigNum("756585"), new BigNum("3453657")),new BigFraction(new BigNum("-4567585"), new BigNum("23525689")),new BigFraction(new BigNum("47464"), new BigNum("8575644")),new BigFraction(new BigNum("-42424556475"), new BigNum("867867967")),new BigFraction(new BigNum("56475858"), new BigNum("453453542")), },
+						new Polynomial(new BigNum("18"),new List<BigFraction>(){new BigFraction(new BigNum("-1015693773"), new BigNum("234453")),new BigFraction(new BigNum("-421662132"), new BigNum("1312314")),new BigFraction(new BigNum("0"), new BigNum("645645")),new BigFraction(new BigNum("19699904"), new BigNum("645645")),new BigFraction(new BigNum("184736310"), new BigNum("746745")),new BigFraction(new BigNum("32792994584"), new BigNum("856765")),new BigFraction(new BigNum("3045478665619"), new BigNum("21343235674575")),new BigFraction(new BigNum("-908095620"), new BigNum("234257585")),new BigFraction(new BigNum("2679116"), new BigNum("8767532")),new BigFraction(new BigNum("968967560"), new BigNum("2342342565675")),new BigFraction(new BigNum("60911070804"), new BigNum("32423536658")),new BigFraction(new BigNum("6054032"), new BigNum("8678945")),new BigFraction(new BigNum("239722"), new BigNum("857553")),new BigFraction(new BigNum("2074050"), new BigNum("867545")),new BigFraction(new BigNum("1232290"), new BigNum("85675353")),new BigFraction(new BigNum("3026340"), new BigNum("3453657")),new BigFraction(new BigNum("-13702755"), new BigNum("23525689")),new BigFraction(new BigNum("94928"), new BigNum("8575644")),new BigFraction(new BigNum("-42424556475"), new BigNum("867867967")),})
+					},
+			new object[]
+					{
+						new BigNum("4"),
+						new List<BigFraction>() { new BigFraction(new BigNum("2345"), new BigNum("764")),new BigFraction(new BigNum("2132"), new BigNum("564")),new BigFraction(new BigNum("23425"), new BigNum("75665")),new BigFraction(new BigNum("-23425"), new BigNum("6454")),new BigFraction(new BigNum("12312"), new BigNum("645")), },
+						new Polynomial(new BigNum("3"),new List<BigFraction>(){new BigFraction(new BigNum("9380"), new BigNum("764")),new BigFraction(new BigNum("6396"), new BigNum("564")),new BigFraction(new BigNum("46850"), new BigNum("75665")),new BigFraction(new BigNum("-23425"), new BigNum("6454")),})
+					},
+			new object[]
+					{
+						new BigNum("6"),
+						new List<BigFraction>() { new BigFraction(new BigNum("-2342342"), new BigNum("7566756")),new BigFraction(new BigNum("3453446"), new BigNum("34645785")),new BigFraction(new BigNum("-23424"), new BigNum("64645")),new BigFraction(new BigNum("353745"), new BigNum("23542354")),new BigFraction(new BigNum("457464"), new BigNum("56758")),new BigFraction(new BigNum("-234233"), new BigNum("756765")),new BigFraction(new BigNum("24231"), new BigNum("346")), },
+						new Polynomial(new BigNum("5"),new List<BigFraction>(){new BigFraction(new BigNum("-14054052"), new BigNum("7566756")),new BigFraction(new BigNum("17267230"), new BigNum("34645785")),new BigFraction(new BigNum("-93696"), new BigNum("64645")),new BigFraction(new BigNum("1061235"), new BigNum("23542354")),new BigFraction(new BigNum("914928"), new BigNum("56758")),new BigFraction(new BigNum("-234233"), new BigNum("756765")),})
+					},
+			new object[]
+					{
+						new BigNum("8"),
+						new List<BigFraction>() { new BigFraction(new BigNum("-1234"), new BigNum("64563")),new BigFraction(new BigNum("234564"), new BigNum("13123")),new BigFraction(new BigNum("123425"), new BigNum("45674")),new BigFraction(new BigNum("-6475"), new BigNum("24234")),new BigFraction(new BigNum("86786"), new BigNum("342112")),new BigFraction(new BigNum("7675756"), new BigNum("342423332")),new BigFraction(new BigNum("123145"), new BigNum("75675")),new BigFraction(new BigNum("789"), new BigNum("2342")),new BigFraction(new BigNum("-756765"), new BigNum("23425")), },
+						new Polynomial(new BigNum("7"),new List<BigFraction>(){new BigFraction(new BigNum("-9872"), new BigNum("64563")),new BigFraction(new BigNum("1641948"), new BigNum("13123")),new BigFraction(new BigNum("740550"), new BigNum("45674")),new BigFraction(new BigNum("-32375"), new BigNum("24234")),new BigFraction(new BigNum("347144"), new BigNum("342112")),new BigFraction(new BigNum("23027268"), new BigNum("342423332")),new BigFraction(new BigNum("246290"), new BigNum("75675")),new BigFraction(new BigNum("789"), new BigNum("2342")),})
+					},
+			new object[]
+					{
+						new BigNum("1"),
+						new List<BigFraction>() { new BigFraction(new BigNum("98873"), new BigNum("534535")),new BigFraction(new BigNum("-3245"), new BigNum("234")), },
+						new Polynomial(new BigNum("0"),new List<BigFraction>(){new BigFraction(new BigNum("98873"), new BigNum("534535")),})
+					}
+		};
+	};
 }
