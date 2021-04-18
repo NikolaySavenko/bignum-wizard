@@ -102,7 +102,9 @@ namespace BigNumWizardShared
 
 		public int ConvertToInt()
         {
-			string tmp = string.Join("", this.number.ToArray());
+			var invertedNumber = this.number;
+			invertedNumber.Reverse();
+			string tmp = string.Join("", invertedNumber.ToArray());
 			int res = Convert.ToInt32(tmp);
 			return res;
         }
