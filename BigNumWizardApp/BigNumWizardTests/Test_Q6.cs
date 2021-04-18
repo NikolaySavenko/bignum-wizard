@@ -13,9 +13,9 @@ namespace BigNumWizardTests
         [InlineData("222222222222222222222222222222222222", "333333333333333333333333333333333333", "111111111111111111111111111111111111", "333333333333333333333333333333333333", "1", "3")]
         [InlineData("-6543", "765432", "123434", "92222999", "-77543935105", "7843381618952")]
         [InlineData("2", "3", "1", "3", "1", "3")]
-        [InlineData("-54535354353", "23232424131", "45346665345", "65346465787976", "-13279714362419000", "5655574830800800")]
-        [InlineData("-4453563534", "23424211123", "-43242545", "2434", "1012911663602186200", "57014529873382")]
-        [InlineData("23435353453534342", "-1312324543455", "6545434234", "3534524234", "-52669152862463000000", "2949042575654800")]
+        [InlineData("-545353", "23232", "453345", "653464", "-45862582979", "1897659456")]
+        [InlineData("-53456346345635345245255", "63456656353543556353454", "-234213412311341313144", "345366353454653463523", "-3599623387969476327581242817005923071333989", "21915794007248405279169748423598793084058442")]
+        [InlineData("23435353453534342", "-1312324543455", "6545434234", "3534524234", "-41420707223932786763941249", "2319221450857341794235")]
 
 
         public void FractionsSum(string FirNom, string FirDenom, string SecNom, string SecDenom, string resNom, string resDenom)
@@ -23,7 +23,7 @@ namespace BigNumWizardTests
             BigFraction fir = new BigFraction(new BigNum(FirNom), new BigNum(FirDenom));
             BigFraction sec = new BigFraction(new BigNum(SecNom), new BigNum(SecDenom));
             BigFraction res = new BigFraction(new BigNum(resNom), new BigNum(resDenom));
-            Assert.Equal(Q6.SUB_QQ_Q(fir, sec), res);
+            Assert.Equal(res, Q6.SUB_QQ_Q(fir, sec));
         }
     }
 
