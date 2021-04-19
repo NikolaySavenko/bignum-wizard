@@ -9,7 +9,7 @@ namespace BigNumWizardShared
         {
             Polynomial resultPolynom;
 
-            if (m2 != BigNum.Zero && C2[0] != new BigFraction(BigNum.Zero))
+            if (m2 != BigNum.Zero || C2[0].Nom != BigNum.Zero)
             {
                 var resultSeniorDegree = m1 - m2;
                 var resultOdds = new List<BigFraction>();
