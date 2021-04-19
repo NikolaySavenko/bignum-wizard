@@ -58,8 +58,8 @@ jobs:
     env:
       Solution_Name: BigNumWizardApp\BigNumWizardApp.sln                     # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: BigNumWizardTests\BigNumWizardTests.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: BigNumWizardUWP\BigNumWizardPackage    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: BigNumWizardUWP\BigNumWizardPackage\BigNumWizardPackage.wapproj      # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Wap_Project_Directory: BigNumWizardApp\BigNumWizardUWP\BigNumWizardPackage    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Path: BigNumWizardApp\BigNumWizardUWP\BigNumWizardPackage\BigNumWizardPackage.wapproj      # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
