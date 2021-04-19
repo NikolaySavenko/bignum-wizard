@@ -53,6 +53,11 @@ namespace BigNumWizardShared
                 j--;
             }
 
+            while(resultOdds[0].Nom == BigNum.Zero && resultOdds.Count>1)
+            {
+                resultOdds.RemoveAt(0);
+            }
+
             var max = new BigNum((resultOdds.Count - 1).ToString()); // старшая степень равна количеству коэффициентов минус 1
 
             var resultPolynom = new Polynomial(max, resultOdds);
