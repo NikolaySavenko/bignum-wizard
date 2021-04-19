@@ -9,6 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Это будет высвечено после загрузки приложения" />
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Text="BigNumWizardApp калькулятор для работы с длинными числами &#10;сделанный в рамках коллоквиума по ДМиТИ студентами из групп 0310 и 0305" 
+                   TextAlignment="Center"/>
     </Grid>
 </Page>
