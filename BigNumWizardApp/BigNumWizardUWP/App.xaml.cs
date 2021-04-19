@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿
+#nullable enable
+
+using AnimatedVisuals;
+using Microsoft.UI.Xaml.Controls;
+using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.ViewManagement;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 namespace BigNumWizardUWP
 {
@@ -38,15 +36,13 @@ namespace BigNumWizardUWP
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            
+            Frame? rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (rootFrame == null)
+            if (rootFrame is null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
@@ -64,17 +60,55 @@ namespace BigNumWizardUWP
 
             if (e.PrelaunchActivated == false)
             {
-                if (rootFrame.Content == null)
-                {
-                    // When the navigation stack isn't restored navigate to the first page,
-                    // configuring the new page by passing required information as a navigation
-                    // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                }
                 // Ensure the current window is active
-                
                 Window.Current.Activate();
+
+                // Run the splash screen animation.
+                try
+                {
+                    await RunAnimatedSplashScreenAsync();
+                }
+                catch
+                {
+                    // Ignore any exceptions from the splash screen.
+                }
+
+                // Configuring the new page by passing required information as a navigation parameter
+                rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+        }
+
+        // Runs the animated splash screen as content for the current window. The
+        // returned Task completes when the animation finishes.
+        async Task RunAnimatedSplashScreenAsync()
+        {
+            // Insert splashBorder above the current window content.
+            var originalWindowContent = Window.Current.Content;
+
+            var splashBorder = new Border();
+            splashBorder.Background = (SolidColorBrush)Current.Resources["SystemControlHighlightAccentBrush"];
+
+            // Use modified LottieLogo1 animation based on user's accent color.
+            var lottieSource = new LottieLogo1_Modified();
+            lottieSource.BackgroundColor = (Color)Resources["SystemAccentColor"];
+            lottieSource.HighlightColor = (Color)Resources["SystemAccentColorDark2"];
+
+            // Instantiate Player with modified Source
+            var player = new AnimatedVisualPlayer
+            {
+                Stretch = Stretch.Uniform,
+                AutoPlay = false,
+                Source = lottieSource,
+            };
+
+            splashBorder.Child = player;
+            Window.Current.Content = splashBorder;
+
+            // Start playing the splashscreen animation.
+            await player.PlayAsync(fromProgress: 0, toProgress: 0.599, looped: false);
+
+            // Reset window content after the splashscreen animation has completed.
+            Window.Current.Content = originalWindowContent;
         }
 
         /// <summary>
