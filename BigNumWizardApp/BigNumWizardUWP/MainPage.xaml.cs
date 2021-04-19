@@ -192,5 +192,9 @@ namespace BigNumWizardUWP
             }
         }
 
+        private void nvMain_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(WelcomePage));
+        }
     }
 }
