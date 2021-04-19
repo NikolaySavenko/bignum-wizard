@@ -8,7 +8,7 @@ namespace BigNumWizardShared
         public static Polynomial MOD_PP_P(BigNum m1, List<BigFraction> C1, BigNum m2, List<BigFraction> C2)
         {
             Polynomial result;
-            if (m2 != BigNum.Zero && C2[0] != new BigFraction(BigNum.Zero))
+            if (m2 != BigNum.Zero || C2[0].Nom != BigNum.Zero)
             {
                 var div = P9.DIV_PP_P(m1, C1, m2, C2);
                 var deg = div.SeniorDegree;

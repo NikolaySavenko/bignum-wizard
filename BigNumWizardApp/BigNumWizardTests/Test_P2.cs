@@ -24,6 +24,13 @@ namespace BigNumWizardTests
                 return new[]
                 {
                     new object[] {
+                        new BigNum("2"),
+                        new List<BigFraction>() { new BigFraction(new BigNum("1")), new BigFraction(new BigNum("0")), new BigFraction(new BigNum("-1")) },
+                        new BigNum("2"),
+                        new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(new BigNum("1")), new BigFraction(new BigNum("0"))},
+                        new Polynomial(BigNum.One, new List<BigFraction>() { new BigFraction(new BigNum("-1")), new BigFraction(new BigNum("-1")) })
+                    },
+                    new object[] {
                         BigNum.One,
                         new List<BigFraction>() { new BigFraction(new BigNum("2")), new BigFraction(new BigNum("5")) },
                         BigNum.One,
@@ -42,7 +49,7 @@ namespace BigNumWizardTests
                         new List<BigFraction>() { new BigFraction(new BigNum("2"), new BigNum("5")), new BigFraction(new BigNum("5"), new BigNum("8")) },
                         BigNum.One,
                         new List<BigFraction>() { new BigFraction(new BigNum("2"), new BigNum("5")), new BigFraction(new BigNum("5"), new BigNum("8")) },
-                        new Polynomial(BigNum.One, new List<BigFraction>() { new BigFraction(BigNum.Zero), new BigFraction(BigNum.Zero) })
+                        new Polynomial(BigNum.Zero, new List<BigFraction>() { new BigFraction(BigNum.Zero) })
                     },
                     new object[] {
                         BigNum.One,
@@ -92,6 +99,14 @@ namespace BigNumWizardTests
                         new BigNum("2"),
                         new List<BigFraction>() { new BigFraction( new BigNum("321")), new BigFraction(new BigNum("9999999")), new BigFraction(new BigNum("-5")) },
                         new Polynomial(new BigNum("3"), new List<BigFraction>() { new BigFraction(new BigNum("12345678")), new BigFraction(new BigNum("685437866114")), new BigFraction(new BigNum("-4564645")), new BigFraction(new BigNum("111111116")) })
+                    },
+                    new object[]
+                    {
+                        new BigNum("3"),
+                        new List<BigFraction>() { new BigFraction(new BigNum("12")), new BigFraction(new BigNum("3")), new BigFraction(new BigNum("5")), new BigFraction(new BigNum("78")) },
+                        new BigNum("3"),
+                        new List<BigFraction>() { new BigFraction( new BigNum("12")), new BigFraction(new BigNum("3")), new BigFraction(new BigNum("5")), new BigFraction(new BigNum("60")) },
+                        new Polynomial(new BigNum("0"), new List<BigFraction>() { new BigFraction(new BigNum("18")) })
                     }
                 };
             }
