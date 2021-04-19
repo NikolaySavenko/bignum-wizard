@@ -46,8 +46,12 @@
                 <muxc:NavigationViewItem.MenuItems>
                     <muxc:NavigationViewItem Icon="Calculator" Content="Сложение многочленов" Tag="PagePolynomSum" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание многочленов" Tag="PagePolynomSub" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение многочленов" Tag="PagePolynomsMul" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Частное от деления мн-ов" Tag="PagePolynomsDiv" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Остаток от деления мн-ов" Tag="PagePolynomsReduction" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Умножение мн-а на рац. число" Tag="PagePolynomMulFraction" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item4" Tag="SamplePage4" />
+                    
+
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
 
