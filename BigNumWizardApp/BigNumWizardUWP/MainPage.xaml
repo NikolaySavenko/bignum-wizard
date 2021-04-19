@@ -8,11 +8,12 @@
                              IsSettingsVisible="False"
                              IsBackButtonVisible="Collapsed"
                              PaneTitle="Меню"
-                             IsTabStop="False">
+                             IsTabStop="False"
+                            Loaded="nvMain_Loaded">
 
 
         <muxc:NavigationView.MenuItems>
-            <muxc:NavigationViewItem Content="Натуральные числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем">
+            <muxc:NavigationViewItem Content="Натуральные числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем" Tag="">
                 <muxc:NavigationViewItem.MenuItems>
 
                     <muxc:NavigationViewItem Icon="Calculator" Content="Проверка на 0" Tag="PageCheckZero" />

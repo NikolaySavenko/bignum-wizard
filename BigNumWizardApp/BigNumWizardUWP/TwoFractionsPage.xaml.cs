@@ -32,6 +32,7 @@ namespace BigNumWizardUWP
         public static string Value2 { get; set; } = "1";
         public static string Value3 { get; set; } = "0";
         public static string Value4 { get; set; } = "1";
+        private static string allowedChar { get; } = "0123456789-";
 
         public TwoFractionsPage()
         {
@@ -72,8 +73,19 @@ namespace BigNumWizardUWP
         {
             try
             {
-                numberBox5.Text = func(Value1, Value2, Value3, Value4).Nom.ToString();
-                numberBox6.Text = func(Value1, Value2, Value3, Value4).Denom.ToString();
+                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains) 
+                    || !Value3.All(allowedChar.Contains) || !Value4.All(allowedChar.Contains))
+                {
+                    var messageDialog = new MessageDialog("Введены недопустимые символы");
+                    await messageDialog.ShowAsync();
+                    ResetParams();
+                }
+                else
+                {
+                    numberBox5.Text = func(Value1, Value2, Value3, Value4).Nom.ToString();
+                    numberBox6.Text = func(Value1, Value2, Value3, Value4).Denom.ToString();
+                }
+                
             }
             catch (Exception err)
             {
@@ -87,6 +99,13 @@ namespace BigNumWizardUWP
         {
             base.OnNavigatedTo(e);
             func = (TargetFunctionDelegate)e.Parameter;
+        }
+
+        private void ResetParams()
+        {
+            Value1 = Value2 = Value3 = Value4 = "0";
+            numberBox1.Text = numberBox2.Text = numberBox3.Text = 
+                numberBox4.Text = numberBox5.Text = numberBox6.Text = "";
         }
     }
 }

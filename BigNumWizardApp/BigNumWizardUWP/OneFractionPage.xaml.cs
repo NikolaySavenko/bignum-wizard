@@ -27,8 +27,9 @@ namespace BigNumWizardUWP
         public delegate BigFraction TargetFunctionDelegate(string param1, string param2);
 
         private TargetFunctionDelegate func;
-        public static string Value1 { get; set; } = "0";
-        public static string Value2 { get; set; } = "1";
+        private static string Value1 { get; set; } = "0";
+        private static string Value2 { get; set; } = "1";
+        private static string allowedChar { get; } = "0123456789-";
 
         public OneFractionPage()
         {
@@ -55,8 +56,18 @@ namespace BigNumWizardUWP
         {
             try
             {
-                numberBox3.Text = func(Value1, Value2).Nom.ToString();
-                numberBox4.Text = func(Value1, Value2).Denom.ToString();
+                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains))
+                {
+                    var messageDialog = new MessageDialog("Введены недопустимые символы");
+                    await messageDialog.ShowAsync();
+                    Value1 = "0";
+                    Value2 = "1";
+                }
+                else
+                {
+                    numberBox3.Text = func(Value1, Value2).Nom.ToString();
+                    numberBox4.Text = func(Value1, Value2).Denom.ToString();
+                }
             }
             catch (Exception err)
             {
