@@ -124,6 +124,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavigationParametrData.cs" />
     <Compile Include="OneFractionPage.xaml.cs">
       <DependentUpon>OneFractionPage.xaml</DependentUpon>
     </Compile>
@@ -139,6 +140,9 @@
     </Compile>
     <Compile Include="TwoNumbersPage.xaml.cs">
       <DependentUpon>TwoNumbersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoPolynomPage.xaml.cs">
+      <DependentUpon>TwoPolynomPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -231,6 +235,10 @@
     <Page Include="TwoNumbersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoPolynomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WelcomePage.xaml">
       <SubType>Designer</SubType>

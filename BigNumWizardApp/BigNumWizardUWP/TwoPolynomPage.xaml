@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="BigNumWizardUWP.TwoPolynomPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BigNumWizardUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="500">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox  x:Name="numberBox1" Header="Коэффициенты первого многочлена:" PlaceholderText="0" Margin="30 10 30 10"
+                  TextChanged="NumberBox1_TextChanged1"/>
+        <TextBox  x:Name="numberBox2" Header="Коэффициенты второго многочлена:" PlaceholderText="0" Margin="30 10 30 10" Grid.Row="1"
+                  TextChanged="NumberBox2_TextChanged1"/>
+        <Button Style="{StaticResource AccentButtonStyle}" x:Name="buttonResult" 
+                Content="Посчитать" Grid.Row="2" Width="150" Margin="30 10 30 10" 
+                HorizontalAlignment="Center" Click="ButtonResult_Clicked"/>
+        <TextBox x:Name="textBox" Text="Здесь будет ответ"
+             IsReadOnly="True"
+            FontFamily="Arial" FontSize="24" FontStyle="Italic"
+            CharacterSpacing="200" Margin="30 10 30 10"
+            TextAlignment="Center" Grid.Row="3"/>
+    </Grid>
+</Page>
