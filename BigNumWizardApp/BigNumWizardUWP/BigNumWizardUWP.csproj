@@ -119,6 +119,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedVisuals\CalcLottie.cs" />
+    <Compile Include="AnimatedVisuals\ClearCalc.cs" />
     <Compile Include="AnimatedVisuals\LottieLogo1_Modified.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

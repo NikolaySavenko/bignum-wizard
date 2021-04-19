@@ -86,10 +86,12 @@ namespace BigNumWizardUWP
             var originalWindowContent = Window.Current.Content;
 
             var splashBorder = new Border();
-            splashBorder.Background = (SolidColorBrush)Current.Resources["SystemControlHighlightAccentBrush"];
+            //splashBorder.Background = (SolidColorBrush)Current.Resources["SystemControlHighlightAccentBrush"];
+            splashBorder.Background = new SolidColorBrush { Color = Colors.Orange };
 
             // Use modified LottieLogo1 animation based on user's accent color.
             var lottieSource = new LottieLogo1_Modified();
+            var lottieCalc = new CalcLottie();
             lottieSource.BackgroundColor = (Color)Resources["SystemAccentColor"];
             lottieSource.HighlightColor = (Color)Resources["SystemAccentColorDark2"];
 
@@ -98,7 +100,8 @@ namespace BigNumWizardUWP
             {
                 Stretch = Stretch.Uniform,
                 AutoPlay = false,
-                Source = lottieSource,
+                PlaybackRate = 0.5,
+                Source = lottieCalc//lottieSource,
             };
 
             splashBorder.Child = player;
