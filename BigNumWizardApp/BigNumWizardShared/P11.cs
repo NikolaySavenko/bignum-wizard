@@ -11,13 +11,13 @@ namespace BigNumWizardShared
             var r1 = new Polynomial(m1, C1);
             var r2 = new Polynomial(m2, C2);
             var tmp = new Polynomial(m2, C2);
-            while (r2.SeniorDegree != BigNum.Zero || r2.Odds[0] != new BigFraction(BigNum.Zero))
+            while (r2.SeniorDegree != BigNum.Zero || r2.Odds[0].Nom != BigNum.Zero)
             {
                 tmp = P10.MOD_PP_P(r1.SeniorDegree, r1.Odds, r2.SeniorDegree, r2.Odds);
                 r1 = r2;
                 r2 = tmp;
             }
-            return r2;
+            return r1;
         }
     }
 }
