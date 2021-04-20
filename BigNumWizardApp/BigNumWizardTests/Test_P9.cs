@@ -83,6 +83,13 @@ namespace BigNumWizardTests
                         new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(BigNum.One) },
                         new Polynomial(BigNum.One, new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(new BigNum("-1")) })
                     },
+                    new object[] {
+                        new BigNum("5"),
+                        new List<BigFraction>() { new BigFraction(BigNum.One), new BigFraction(new BigNum("2")), new BigFraction(new BigNum("3")), new BigFraction(new BigNum("4")), new BigFraction(new BigNum("5")), new BigFraction(new BigNum("6")) },
+                        new BigNum("2"),
+                        new List<BigFraction>() { new BigFraction(new BigNum("2")), new BigFraction(new BigNum("4")), new BigFraction(new BigNum("5")) },
+                        new Polynomial(new BigNum("3"), new List<BigFraction>() { new BigFraction(new BigNum("1"), new BigNum("2")), new BigFraction(BigNum.Zero), new BigFraction(new BigNum("1"), new BigNum("4")), new BigFraction(new BigNum("3"), new BigNum("2")) })
+                    },
                 };
             }
         }
