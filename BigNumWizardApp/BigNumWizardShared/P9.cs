@@ -19,6 +19,11 @@ namespace BigNumWizardShared
                 for (var i = BigNum.Zero; i < resultSeniorDegree + BigNum.One; i = i + BigNum.One)
                 {
                     resultOdds.Add(Q8.DIV_QQ_Q(N[0], C2[0]));
+                    int k = i.ConvertToInt();
+                    if (resultOdds[k].Nom == BigNum.Zero && (resultOdds[k].Denom != BigNum.One))
+                    {
+                        resultOdds[k] = new BigFraction(BigNum.Zero);
+                    }
 
                     int n = m2.ConvertToInt();
                     for (int j = 0; j < n + 1; j++)
