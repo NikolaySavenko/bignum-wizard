@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -33,6 +34,7 @@ namespace BigNumWizardUWP
         public static string Value3 { get; set; } = "0";
         public static string Value4 { get; set; } = "1";
         private static string allowedChar { get; } = "0123456789-";
+        private Regex rgx = new Regex(@"^-?\d*$");
 
         public TwoFractionsPage()
         {
@@ -73,10 +75,17 @@ namespace BigNumWizardUWP
         {
             try
             {
-                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains) 
+                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains)
                     || !Value3.All(allowedChar.Contains) || !Value4.All(allowedChar.Contains))
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
+                    await messageDialog.ShowAsync();
+                    ResetParams();
+                }
+                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) 
+                    || !rgx.IsMatch(Value3) || !rgx.IsMatch(Value4))
+                {
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
                     await messageDialog.ShowAsync();
                     ResetParams();
                 }
@@ -104,8 +113,6 @@ namespace BigNumWizardUWP
         private void ResetParams()
         {
             Value1 = Value2 = Value3 = Value4 = "0";
-            numberBox1.Text = numberBox2.Text = numberBox3.Text = 
-                numberBox4.Text = numberBox5.Text = numberBox6.Text = "";
         }
     }
 }

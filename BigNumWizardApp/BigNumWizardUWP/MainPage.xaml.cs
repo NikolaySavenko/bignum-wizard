@@ -258,6 +258,25 @@ namespace BigNumWizardUWP
                             ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsReduction, "Коэффициенты второго многочлена"));
                             nvMain.Header = "Остаток от деления многочленов";
                             break;
+                        case "PagePolynomsNod":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomsNod = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P11.GCF_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsNod, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "НОД многочленов";
+                            break;
+                        case "PagePolynomsDerivative":
+                            OnePolynomPage.TargetFunctionDelegate actionPolynomsDerivative = (string param) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param);
+                                return P12.DER_P_P(param1Casted.SeniorDegree, param1Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynomsDerivative);
+                            nvMain.Header = "Производная многочлена";
+                            break;
 
                     }
                 }
@@ -267,6 +286,7 @@ namespace BigNumWizardUWP
         private void nvMain_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ContentFrame.Navigate(typeof(WelcomePage));
+            nvMain.Header = "BigNum Wizard";
         }
 
         private Polynomial CastingStringToPolynom(string param)

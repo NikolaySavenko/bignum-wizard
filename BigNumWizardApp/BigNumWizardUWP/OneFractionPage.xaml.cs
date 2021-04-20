@@ -1,18 +1,10 @@
 ﻿using BigNumWizardShared;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Text.RegularExpressions;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,6 +22,7 @@ namespace BigNumWizardUWP
         private static string Value1 { get; set; } = "0";
         private static string Value2 { get; set; } = "1";
         private static string allowedChar { get; } = "0123456789-";
+        private Regex rgx = new Regex(@"^-?\d*$");
 
         public OneFractionPage()
         {
@@ -59,6 +52,13 @@ namespace BigNumWizardUWP
                 if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains))
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
+                    await messageDialog.ShowAsync();
+                    Value1 = "0";
+                    Value2 = "1";
+                }
+                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2))
+                {
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
                     await messageDialog.ShowAsync();
                     Value1 = "0";
                     Value2 = "1";

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -19,6 +20,7 @@ namespace BigNumWizardApp
         private TargetFunctionDelegate func;
         private static string Value { get; set; } = "0";
         private static string allowedChar { get; } = "0123456789-";
+        private Regex rgx = new Regex(@"^-?\d*$");
 
         public OneNumberPage()
         {
@@ -44,7 +46,13 @@ namespace BigNumWizardApp
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
                     await messageDialog.ShowAsync();
                     Value = "0";
-                    numberBox.Text = "";
+                    textBox.Text = "Здесь будет ответ";
+                }
+                else if(!rgx.IsMatch(Value))
+                {
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
+                    await messageDialog.ShowAsync();
+                    Value = "0";
                     textBox.Text = "Здесь будет ответ";
                 }
                 else textBox.Text = func(Value);

@@ -5,6 +5,7 @@
 using BigNumWizardShared;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,6 +26,7 @@ namespace BigNumWizardApp
         private static string Value2 { get; set; } = "0";
         private static string Value3 { get; set; } = "0";
         private static string allowedChar { get; } = "0123456789";
+        private Regex rgx = new Regex(@"^-?\d*$");
 
         public ThreeNumbersPage()
         {
@@ -68,8 +70,11 @@ namespace BigNumWizardApp
                     var messageDialog = new MessageDialog("В поле номер 3 может быть введена только цифра");
                     await messageDialog.ShowAsync();
                     Value3 = "0";
-                    numberBox3.Text = "";
                     textBox.Text = "Здесь будет ответ";
+                }
+                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) || !rgx.IsMatch(Value3))
+                {
+
                 }
                 else textBox.Text = func(Value1, Value2, Value3);
             }
