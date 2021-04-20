@@ -8,11 +8,12 @@
                              IsSettingsVisible="False"
                              IsBackButtonVisible="Collapsed"
                              PaneTitle="Меню"
-                             IsTabStop="False">
+                             IsTabStop="False"
+                            Loaded="nvMain_Loaded">
 
 
         <muxc:NavigationView.MenuItems>
-            <muxc:NavigationViewItem Content="Натуральные числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем">
+            <muxc:NavigationViewItem Content="Натуральные числа с нулем" Icon="Document" ToolTipService.ToolTip="Целые числа с нулем" Tag="">
                 <muxc:NavigationViewItem.MenuItems>
 
                     <muxc:NavigationViewItem Icon="Calculator" Content="Проверка на 0" Tag="PageCheckZero" />
@@ -41,12 +42,18 @@
                     <muxc:NavigationViewItem Icon="Calculator" Content="Деление дробей" Tag="PageFractionDiv" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
-            <muxc:NavigationViewItem Content="Многочлен с рац. коэфф." Icon="Document" ToolTipService.ToolTip="Многочлен с рациональными коэффициентами">
+            <muxc:NavigationViewItem Content="Многочлены" Icon="Document" ToolTipService.ToolTip="Многочлен с рациональными коэффициентами">
                 <muxc:NavigationViewItem.MenuItems>
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item1" Tag="SamplePage1" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item2" Tag="SamplePage2" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item3" Tag="SamplePage3" />
-                    <muxc:NavigationViewItem Icon="Calculator" Content="Menu Item4" Tag="SamplePage4" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Сложение многочленов" Tag="PagePolynomSum" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Вычитание многочленов" Tag="PagePolynomSub" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение многочленов" Tag="PagePolynomsMul" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Частное от деления мн-ов" Tag="PagePolynomsDiv" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Остаток от деления мн-ов" Tag="PagePolynomsReduction" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Умножение мн-а на рац. число" Tag="PagePolynomMulFraction" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="Производная многочлена" Tag="PagePolynomsDerivative" />
+                    <muxc:NavigationViewItem Icon="Calculator" Content="НОД многочленов" Tag="PagePolynomsNod" />
+                    
+
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
 

@@ -1,5 +1,6 @@
 ﻿using BigNumWizardApp;
 using BigNumWizardShared;
+using System.Collections.Generic;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 
@@ -186,10 +187,157 @@ namespace BigNumWizardUWP
                             ContentFrame.Navigate(typeof(TwoFractionsPage), actionFractionDiv);
                             nvMain.Header = "Деление дробей";
                             break;
+                        case "PagePolynomSum":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomSum = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P1_2.ADD_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, 
+                                                    param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomSum, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "Сложение многочленов";
+                            break;
+                        case "PagePolynomSub":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomSub = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P1_2.SUB_PP_P(param1Casted.SeniorDegree, param1Casted.Odds,
+                                                    param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomSub, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "Вычитание многочленов";
+                            break;
+                        case "PagePolynomMulFraction":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomMulFraction = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2BigFrac = CastingStringToBigFraction(param2);
+                                return P3.MUL_PQ_P(param1Casted.SeniorDegree, param1Casted.Odds, param2BigFrac);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomMulFraction, "Рациональное число"));
+                            nvMain.Header = "Умножение многочлена на рациональное число";
+                            break;
+                        case "PagePolynomMulXK":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomMulXK = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                return P4_5.MUL_Pxk_P(param1Casted.SeniorDegree, param1Casted.Odds, new BigNum(param2));
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomMulXK, "k (степень x)"));
+                            nvMain.Header = "Умножение многочлена на рациональное число";
+                            break;
+                        case "PagePolynomsMul":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomsMul = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P8.MUL_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsMul, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "Умножение многочленов";
+                            break;
+                        case "PagePolynomsDiv":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomsDiv = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P9.DIV_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsDiv, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "Частное от деления многочленов";
+                            break;
+                        case "PagePolynomsReduction":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomsReduction = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P10.MOD_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsReduction, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "Остаток от деления многочленов";
+                            break;
+                        case "PagePolynomsNod":
+                            NavigationParametrData.TargetFunctionDelegate actionPolynomsNod = (string param1, string param2) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param1);
+                                var param2Casted = CastingStringToPolynom(param2);
+                                return P11.GCF_PP_P(param1Casted.SeniorDegree, param1Casted.Odds, param2Casted.SeniorDegree, param2Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(TwoPolynomPage), new NavigationParametrData(actionPolynomsNod, "Коэффициенты второго многочлена"));
+                            nvMain.Header = "НОД многочленов";
+                            break;
+                        case "PagePolynomsDerivative":
+                            OnePolynomPage.TargetFunctionDelegate actionPolynomsDerivative = (string param) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param);
+                                return P12.DER_P_P(param1Casted.SeniorDegree, param1Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynomsDerivative);
+                            nvMain.Header = "Производная многочлена";
+                            break;
 
                     }
                 }
             }
+        }
+
+        private void nvMain_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(WelcomePage));
+            nvMain.Header = "BigNum Wizard";
+        }
+
+        private Polynomial CastingStringToPolynom(string param)
+        {
+            var listNumbers = new List<string>(param.Split(" "));
+            listNumbers = DeleteEmptyLines(listNumbers);
+            var odds = new List<BigFraction>();
+            foreach (string number in listNumbers)
+            {
+                if (!number.Contains("/"))
+                    odds.Add(new BigFraction(new BigNum(number)));
+                else
+                {
+                    var nomDenom = number.Split("/");
+                    odds.Add(new BigFraction(new BigNum(nomDenom[0]), new BigNum(nomDenom[1])));
+                }
+            }
+
+            var m = new BigNum((odds.Count - 1).ToString());
+
+            var result = new Polynomial(m, odds);
+
+            return result;
+        }
+
+
+        private BigFraction CastingStringToBigFraction(string param)
+        {
+            BigFraction resultBigFraction;
+            if (param.Contains("/"))
+            {
+                var nomDenom = param.Split("/");
+                resultBigFraction = new BigFraction(new BigNum(nomDenom[0]), new BigNum(nomDenom[1]));
+            }
+            else
+            {
+                resultBigFraction = new BigFraction(new BigNum(param));
+            }
+
+            return resultBigFraction;
+        }
+
+
+        private List<string> DeleteEmptyLines(List<string> listLines)
+        {
+            while (listLines.Contains(""))
+            {
+                listLines.Remove("");
+            }
+
+            return listLines;
         }
 
     }

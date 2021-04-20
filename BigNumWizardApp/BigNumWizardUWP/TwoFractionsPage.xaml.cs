@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -32,6 +33,8 @@ namespace BigNumWizardUWP
         public static string Value2 { get; set; } = "1";
         public static string Value3 { get; set; } = "0";
         public static string Value4 { get; set; } = "1";
+        private static string allowedChar { get; } = "0123456789-";
+        private Regex rgx = new Regex(@"^-?\d*$");
 
         public TwoFractionsPage()
         {
@@ -72,8 +75,26 @@ namespace BigNumWizardUWP
         {
             try
             {
-                numberBox5.Text = func(Value1, Value2, Value3, Value4).Nom.ToString();
-                numberBox6.Text = func(Value1, Value2, Value3, Value4).Denom.ToString();
+                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains)
+                    || !Value3.All(allowedChar.Contains) || !Value4.All(allowedChar.Contains))
+                {
+                    var messageDialog = new MessageDialog("Введены недопустимые символы");
+                    await messageDialog.ShowAsync();
+                    ResetParams();
+                }
+                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) 
+                    || !rgx.IsMatch(Value3) || !rgx.IsMatch(Value4))
+                {
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
+                    await messageDialog.ShowAsync();
+                    ResetParams();
+                }
+                else
+                {
+                    numberBox5.Text = func(Value1, Value2, Value3, Value4).Nom.ToString();
+                    numberBox6.Text = func(Value1, Value2, Value3, Value4).Denom.ToString();
+                }
+                
             }
             catch (Exception err)
             {
@@ -87,6 +108,11 @@ namespace BigNumWizardUWP
         {
             base.OnNavigatedTo(e);
             func = (TargetFunctionDelegate)e.Parameter;
+        }
+
+        private void ResetParams()
+        {
+            Value1 = Value2 = Value3 = Value4 = "0";
         }
     }
 }
