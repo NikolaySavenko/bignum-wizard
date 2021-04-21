@@ -14,9 +14,9 @@ namespace BigNumWizardShared
                 return "No";
         }
 
-        public static string TRANS_Z_Q(BigNum num, BigNum ent)  //Преобразование целого в дробное 0305 Брацун Владимир
+        public static BigFraction TRANS_Z_Q(BigNum num, BigNum ent)  //Преобразование целого в дробное 0305 Брацун Владимир
         {
-            return num * ent + "/" + ent;
+            return new BigFraction(num*ent, ent);
         }
     }
 }
