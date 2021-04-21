@@ -15,11 +15,16 @@ namespace BigNumWizardShared
             else
                 throw new Exception("На ноль делить нельзя!");
         }
-       
+
         public static BigFraction MUL_QQ_Q(BigFraction fir, BigFraction sec) // Q-7, умножение дробей, Осипцов Никита 0305
         {
             if (fir.Denom != BigNum.Zero && sec.Denom != BigNum.Zero)
-                return fir * sec;
+            {
+                var fraction = fir * sec;
+                fraction = Q1.RED_Q_Q(fraction);
+                return fraction;
+            }
+
             else
                 throw new Exception("На ноль делить нельзя!");
         }
