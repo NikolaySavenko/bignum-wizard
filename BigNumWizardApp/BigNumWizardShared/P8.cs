@@ -71,8 +71,17 @@ namespace BigNumWizardShared
                     f = new BigNum(output.Odds.Count.ToString());
                     f = Z7.SUB_ZZ_Z(f, BigNum.One);
                 }
-
+                
             }
+
+            while (output.Odds[0].Nom == BigNum.Zero && output.Odds.Count > 1)
+            {
+                output.Odds.RemoveAt(0);
+            }
+
+            var max = new BigNum((output.Odds.Count - 1).ToString());
+
+            output = new Polynomial(max, output.Odds);
 
             return output;
         }
