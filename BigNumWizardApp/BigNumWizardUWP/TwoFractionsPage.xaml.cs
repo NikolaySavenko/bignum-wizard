@@ -90,8 +90,8 @@ namespace BigNumWizardUWP
                 else
                 {
                     var result = func(Value1, Value2, Value3, Value4);
-                    numberBox3.Text = result.Nom.ToString() == "0" ? result.Nom.ToString() : getSign(result.Positive) + result.Nom.ToString();
-                    numberBox4.Text = result.Denom.ToString();
+                    numberBox5.Text = result.Nom.ToString() == "0" ? result.Nom.ToString() : getSign(result.Positive) + result.Nom.ToString();
+                    numberBox6.Text = result.Denom.ToString();
                 }
                 
             }
