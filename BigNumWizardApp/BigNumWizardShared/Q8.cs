@@ -10,6 +10,7 @@ namespace BigNumWizardShared
             if (first.Denom != BigNum.Zero && second.Nom != BigNum.Zero && second.Denom != BigNum.Zero)
             {
                 fraction = first / second;
+                fraction = Q1.RED_Q_Q(fraction);
             }
             else
             {
