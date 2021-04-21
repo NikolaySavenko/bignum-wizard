@@ -76,11 +76,11 @@ namespace BigNumWizardUWP
             {
                 if (fractionOdd.Denom == BigNum.One || fractionOdd.Nom == BigNum.Zero)
                 {
-                    listStringOdds.Add(fractionOdd.Nom.ToString());
+                    listStringOdds.Add(fractionOdd.Nom.ToString() != "0" ? getSign(fractionOdd.Positive) + fractionOdd.Nom.ToString() : fractionOdd.Nom.ToString());
                 }
                 else
                 {
-                    listStringOdds.Add(fractionOdd.Nom.ToString() + "/" + fractionOdd.Denom.ToString());
+                    listStringOdds.Add(getSign(fractionOdd.Positive) + fractionOdd.Nom.ToString() + "/" + fractionOdd.Denom.ToString());
                 }
             }
 
@@ -92,6 +92,16 @@ namespace BigNumWizardUWP
             }
 
             return stringOdds;
+        }
+
+        private string getSign(bool isPositive)
+        {
+            string sign = "";
+            if (!isPositive)
+            {
+                sign = "-";
+            }
+            return sign;
         }
     }
 }
