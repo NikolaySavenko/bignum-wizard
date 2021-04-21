@@ -5,9 +5,6 @@ namespace BigNumWizardTests
 {
     public class Test_Q8 //Petrakova
     {
-        //I don't write tests for cases where 0 is in the denominator
-        //of the first fraction or in the second fraction, because this requires exception handling
-
         [Theory]
         [InlineData("0","1","35543","2","0","35543")]
         [InlineData("0","4328","-11111","932847","0","-48088408")]
