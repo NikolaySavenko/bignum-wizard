@@ -34,7 +34,7 @@
                     <muxc:NavigationViewItem Icon="Calculator" Content="'Положительность' числа" Tag="PagePoz" />
                 </muxc:NavigationViewItem.MenuItems>
             </muxc:NavigationViewItem>
-            <muxc:NavigationViewItem Content="Рациональная числа" Icon="Italic" ToolTipService.ToolTip="Рациональная числа">
+            <muxc:NavigationViewItem Content="Рациональные числа" Icon="Italic" ToolTipService.ToolTip="Рациональная числа">
                 <muxc:NavigationViewItem.MenuItems>
                     <muxc:NavigationViewItem Icon="Calculator" Content="Сокращение дроби" Tag="PageFractionReduction" />
                     <muxc:NavigationViewItem Icon="Calculator" Content="Сложение дробей" Tag="PageFractionSum" />
