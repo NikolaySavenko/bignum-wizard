@@ -25,7 +25,7 @@ namespace BigNumWizardUWP
         private string Value1 { get; set; } = "0";
         public static string Value2 { get; set; } = "1";
         private static string allowedChar { get; } = "0123456789-/ ";
-        private Regex rgx = new Regex(@"^(-?\d*(\/\d+)?\s)*$");
+        private Regex rgx = new Regex(@"^(-?\d+(\/\d+)?\s)*$");
 
         public TwoPolynomPage()
         {
@@ -87,7 +87,7 @@ namespace BigNumWizardUWP
             {
                 if (fractionOdd.Denom == BigNum.One || fractionOdd.Nom == BigNum.Zero)
                 {
-                    listStringOdds.Add(getSign(fractionOdd.Positive) + fractionOdd.Nom.ToString());
+                    listStringOdds.Add(fractionOdd.Nom.ToString() != "0" ? getSign(fractionOdd.Positive) + fractionOdd.Nom.ToString() : fractionOdd.Nom.ToString());
                 }
                 else
                 {
