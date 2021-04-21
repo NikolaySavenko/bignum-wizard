@@ -69,15 +69,14 @@ namespace BigNumWizardShared
 
                     if (Z8.MUL_ZZ_Z(remainer, sec) == fir)
                         return BigNum.Zero;
+
                     else if (Z9.DIV_ZZ_Z(fir, sec, out _) == BigNum.Zero)
                     {
-                        //remainer = z2_3.MUL_ZM_Z(fir);
-                        remainer = Z7.SUB_ZZ_Z(fir, fir + fir);
+                        remainer = z2_3.MUL_ZM_Z(fir);
                         return remainer;
                     }
                     else
                     {
-
                         remainer = Z8.MUL_ZZ_Z(sec, remainer + BigNum.One);
                         remainer = Z7.SUB_ZZ_Z(fir, remainer);
 
