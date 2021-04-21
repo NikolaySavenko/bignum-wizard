@@ -61,8 +61,9 @@ namespace BigNumWizardUWP
                 }
                 else
                 {
-                    numberBox3.Text = func(Value1, Value2).Nom.ToString();
-                    numberBox4.Text = func(Value1, Value2).Denom.ToString();
+                    var result = func(Value1, Value2);
+                    numberBox3.Text = result.Nom.ToString() == "0" ? result.Nom.ToString() : getSign(result.Positive) + result.Nom.ToString();
+                    numberBox4.Text = result.Denom.ToString();
                 }
             }
             catch (Exception err)
@@ -77,6 +78,16 @@ namespace BigNumWizardUWP
         {
             base.OnNavigatedTo(e);
             func = (TargetFunctionDelegate)e.Parameter;
+        }
+
+        private string getSign(bool isPositive)
+        {
+            string sign = "";
+            if (!isPositive)
+            {
+                sign = "-";
+            }
+            return sign;
         }
     }
 }

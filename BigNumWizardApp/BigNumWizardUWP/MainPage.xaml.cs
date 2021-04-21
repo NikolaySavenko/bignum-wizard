@@ -296,6 +296,15 @@ namespace BigNumWizardUWP
                             ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynomNodNok);
                             nvMain.Header = "НОК знаменателей и НОД числителей мн-а";
                             break;
+                        case "PagePolynom13":
+                            OnePolynomPage.TargetFunctionDelegate actionPolynom13 = (string param) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param);
+                                return P13.NMR_P_P(param1Casted.SeniorDegree, param1Casted.Odds);
+                            };
+                            ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynom13);
+                            nvMain.Header = "Кратные корни в простые";
+                            break;
 
                     }
                 }
