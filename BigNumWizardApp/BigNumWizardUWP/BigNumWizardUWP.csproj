@@ -150,7 +150,6 @@
     <Compile Include="TwoPolynomPage.xaml.cs">
       <DependentUpon>TwoPolynomPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ValueChecker.cs" />
     <Compile Include="WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>

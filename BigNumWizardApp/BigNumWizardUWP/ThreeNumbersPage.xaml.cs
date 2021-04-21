@@ -24,8 +24,8 @@ namespace BigNumWizardApp
 
         private static string Value1 { get; set; } = "0";
         private static string Value2 { get; set; } = "0";
-        private static string Value3 { get; set; } = "0";
-        private static string allowedChar { get; } = "0123456789";
+        private string Value3 { get; set; } = "0";
+        private static string allowedChar { get; } = "0123456789-";
         private Regex rgx = new Regex(@"^-?\d*$");
 
         public ThreeNumbersPage()
@@ -65,16 +65,11 @@ namespace BigNumWizardApp
                     await messageDialog.ShowAsync();
                     ResetParams();
                 }
-                else if (new BigNum(Value3) >= BigNum.Ten)
-                {
-                    var messageDialog = new MessageDialog("В поле номер 3 может быть введена только цифра");
-                    await messageDialog.ShowAsync();
-                    Value3 = "0";
-                    textBox.Text = "Здесь будет ответ";
-                }
                 else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) || !rgx.IsMatch(Value3))
                 {
-
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
+                    await messageDialog.ShowAsync();
+                    ResetParams();
                 }
                 else textBox.Text = func(Value1, Value2, Value3);
             }
@@ -93,8 +88,6 @@ namespace BigNumWizardApp
 
         private void ResetParams()
         {
-            Value1 = Value2 = Value3 = "0";
-            numberBox1.Text = numberBox2.Text = numberBox3.Text = "";
             textBox.Text = "Здесь будет ответ";
         }
     }

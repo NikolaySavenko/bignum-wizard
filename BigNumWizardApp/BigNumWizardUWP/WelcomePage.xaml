@@ -9,8 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Image Source="/Assets/StoreLogo.scale-400.png"  Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   Text="BigNumWizardApp калькулятор для работы с длинными числами &#10;сделанный в рамках коллоквиума по ДМиТИ студентами из групп 0310 и 0305" 
-                   TextAlignment="Center"/>
+                   TextAlignment="Center"
+                   FontSize="24">
+            <Bold>BigNumWizardApp</Bold><LineBreak/>
+            калькулятор для работы с длинными числами<LineBreak/>
+            сделанный в рамках коллоквиума по ДМиТИ<LineBreak/>
+            студентами из групп 0310 и 0305
+        </TextBlock>
     </Grid>
 </Page>

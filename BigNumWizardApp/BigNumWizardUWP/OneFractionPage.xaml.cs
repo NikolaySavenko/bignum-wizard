@@ -53,15 +53,11 @@ namespace BigNumWizardUWP
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
                     await messageDialog.ShowAsync();
-                    Value1 = "0";
-                    Value2 = "1";
                 }
                 else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2))
                 {
                     var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
                     await messageDialog.ShowAsync();
-                    Value1 = "0";
-                    Value2 = "1";
                 }
                 else
                 {

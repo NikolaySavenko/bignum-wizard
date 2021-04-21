@@ -45,14 +45,12 @@ namespace BigNumWizardApp
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
                     await messageDialog.ShowAsync();
-                    Value = "0";
                     textBox.Text = "Здесь будет ответ";
                 }
                 else if(!rgx.IsMatch(Value))
                 {
                     var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
                     await messageDialog.ShowAsync();
-                    Value = "0";
                     textBox.Text = "Здесь будет ответ";
                 }
                 else textBox.Text = func(Value);

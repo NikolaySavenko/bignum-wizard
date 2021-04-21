@@ -75,24 +75,23 @@ namespace BigNumWizardUWP
         {
             try
             {
-                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains)
-                    || !Value3.All(allowedChar.Contains) || !Value4.All(allowedChar.Contains))
+                if (!Value1.All(allowedChar.Contains) || !Value2.All(allowedChar.Contains) ||
+                    !Value3.All(allowedChar.Contains) || !Value4.All(allowedChar.Contains))
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
                     await messageDialog.ShowAsync();
-                    ResetParams();
                 }
-                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) 
-                    || !rgx.IsMatch(Value3) || !rgx.IsMatch(Value4))
+                else if (!rgx.IsMatch(Value1) || !rgx.IsMatch(Value2) ||
+                    !rgx.IsMatch(Value3) || !rgx.IsMatch(Value4))
                 {
                     var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
                     await messageDialog.ShowAsync();
-                    ResetParams();
                 }
                 else
                 {
-                    numberBox5.Text = func(Value1, Value2, Value3, Value4).Nom.ToString();
-                    numberBox6.Text = func(Value1, Value2, Value3, Value4).Denom.ToString();
+                    var result = func(Value1, Value2, Value3, Value4);
+                    numberBox5.Text = getSign(result.Positive) + result.Nom.ToString();
+                    numberBox6.Text = result.Denom.ToString();
                 }
                 
             }
@@ -110,9 +109,14 @@ namespace BigNumWizardUWP
             func = (TargetFunctionDelegate)e.Parameter;
         }
 
-        private void ResetParams()
+        private string getSign(bool isPositive)
         {
-            Value1 = Value2 = Value3 = Value4 = "0";
+            string sign = "";
+            if (!isPositive)
+            {
+                sign = "-";
+            }
+            return sign;
         }
     }
 }
