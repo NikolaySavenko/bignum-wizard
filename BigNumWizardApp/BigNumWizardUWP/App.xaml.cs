@@ -87,7 +87,7 @@ namespace BigNumWizardUWP
 
             var splashBorder = new Border();
             //splashBorder.Background = (SolidColorBrush)Current.Resources["SystemControlHighlightAccentBrush"];
-            splashBorder.Background = new SolidColorBrush { Color = Colors.Orange };
+            splashBorder.Background = new SolidColorBrush { Color = Colors.Transparent };
 
             // Use modified LottieLogo1 animation based on user's accent color.
             var lottieSource = new LottieLogo1_Modified();
