@@ -54,9 +54,9 @@ namespace BigNumWizardTests
                     new object[]
                     {
                         BigNum.One,
-                        new List<BigFraction>(){ new BigFraction(new BigNum("111111111111111111111111111111111111111111111111111111")), new BigFraction(new BigNum("-999999999999999999999999999999999999999999999999999999999999999999999999999999")) },
+                        new List<BigFraction>(){ new BigFraction(new BigNum("111111111111111111111111111111111111111111111111111111")), new BigFraction(new BigNum("999999999999999999999999999999999999999999999999999999999999999999999999999999")) },
                         new BigFraction(BigNum.Zero),
-                        new Polynomial(BigNum.One, new List<BigFraction>(){ new BigFraction(BigNum.Zero), new BigFraction(new BigNum("-0")) }) 
+                        new Polynomial(BigNum.Zero, new List<BigFraction>(){ new BigFraction(BigNum.Zero) }) 
                     },
                     new object[]
                     {
@@ -91,7 +91,7 @@ namespace BigNumWizardTests
                         BigNum.One,
                         new List<BigFraction>(){ new BigFraction(new BigNum("111111111111111111111111111111111111111111111111111111")), new BigFraction(new BigNum("999999999999999999999999999999999999999999999999999999999999999999999999999999")) },
                         new BigFraction(BigNum.Zero),
-                        new Polynomial(BigNum.One, new List<BigFraction>(){ new BigFraction(BigNum.Zero), new BigFraction(BigNum.Zero) })
+                        new Polynomial(BigNum.Zero, new List<BigFraction>(){ new BigFraction(BigNum.Zero) })
                     }
                 };
             }
