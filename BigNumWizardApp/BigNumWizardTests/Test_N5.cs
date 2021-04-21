@@ -33,7 +33,7 @@ namespace BigNumWizardTests
             var n1 = new BigNum(target1);
             var n2 = new BigNum(target2);
             var ex = Assert.Throws<Exception>(() => Natural1_5.SUB_NN_N(n1, n2));
-            Assert.Equal("The second number is greater than the first", ex.Message);
+            Assert.Equal("Второе число больше первого!", ex.Message);
         }
     }
 }
