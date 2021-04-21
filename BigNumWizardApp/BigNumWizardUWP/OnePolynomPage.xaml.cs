@@ -1,21 +1,12 @@
-﻿using BigNumWizardShared;
+﻿ using BigNumWizardShared;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using static BigNumWizardUWP.NavigationParametrData;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,7 +21,8 @@ namespace BigNumWizardUWP
         private TargetFunctionDelegate func;
 
         private string Value1 { get; set; } = "0";
-        private static string allowedChar { get; } = "0123456789-";
+        private static string allowedChar { get; } = "0123456789-/ ";
+        private Regex rgx = new Regex(@"^(-?\d*(\/\d+)?\s)*$");
 
         public OnePolynomPage()
         {
@@ -53,8 +45,12 @@ namespace BigNumWizardUWP
                 {
                     var messageDialog = new MessageDialog("Введены недопустимые символы");
                     await messageDialog.ShowAsync();
-                    Value1 = "0";
                     textBox.Text = "Здесь будет ответ";
+                }
+                else if (!rgx.IsMatch(Value1 + " "))
+                {
+                    var messageDialog = new MessageDialog("Введенное число в одном из полей некорректно");
+                    await messageDialog.ShowAsync();
                 }
                 else textBox.Text = CastingOddsToString(func(Value1).Odds);
             }

@@ -277,6 +277,25 @@ namespace BigNumWizardUWP
                             ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynomsDerivative);
                             nvMain.Header = "Производная многочлена";
                             break;
+                        case "PageHome":
+                            ContentFrame.Navigate(typeof(WelcomePage));
+                            nvMain.Header = "BigNum Wizard";
+                            break;
+                        case "PageHelp":
+                            ContentFrame.Navigate(typeof(HelpPage));
+                            nvMain.Header = "Помощь";
+                            break;
+                        case "PagePolynomNodNok":
+                            OnePolynomPage.TargetFunctionDelegate actionPolynomNodNok = (string param) =>
+                            {
+                                var param1Casted = CastingStringToPolynom(param);
+                                var list = new List<BigFraction>() { P7.FAC_P_Q(param1Casted.SeniorDegree, param1Casted.Odds) };
+                                var polynom = new Polynomial(BigNum.Zero, list);
+                                return polynom;
+                            };
+                            ContentFrame.Navigate(typeof(OnePolynomPage), actionPolynomNodNok);
+                            nvMain.Header = "НОК знаменателей и НОД числителей мн-а";
+                            break;
 
                     }
                 }
