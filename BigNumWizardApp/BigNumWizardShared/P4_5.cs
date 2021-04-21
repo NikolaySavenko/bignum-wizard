@@ -23,6 +23,14 @@ namespace BigNumWizardShared
             }
             polynom.SeniorDegree = m + k;
 
+            while (polynom.Odds[0].Nom == BigNum.Zero && polynom.Odds.Count > 1)
+            {
+                polynom.Odds.RemoveAt(0);
+            }
+
+            var max = new BigNum((polynom.Odds.Count - 1).ToString());
+            polynom.SeniorDegree = max;
+
             return polynom;
         }
 
