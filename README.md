@@ -13,7 +13,7 @@ The app is an advanced calculator that can work with large numbers in string for
  - Download folder
     BigNumWizardPackage_x64_x86_ARM64 for x64 x86 and ARM64
     BigNumWizardPackage_ARM for ARM
- - Open the file in the downloaded folder
+ - Run Install.ps1 with PowerShell
  - Enable developer mode on your computer
  - Follow the program instructions
  - You are gorgeous :3
